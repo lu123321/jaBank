@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="js-consumer-account" />
+        <module name="js-consumer-financial" />
+        <module name="js-consumer-management" />
+        <module name="js-consumer-options" />
+        <module name="js-producer-account" />
+        <module name="js-producer-financial" />
+        <module name="js-producer-management" />
+        <module name="js-producer-options" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
