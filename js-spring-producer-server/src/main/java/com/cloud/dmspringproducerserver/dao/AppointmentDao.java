@@ -1,7 +1,9 @@
 package com.cloud.dmspringproducerserver.dao;
 
 import com.cloud.dmspringproducerserver.entity.Appointment;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 /**
@@ -10,6 +12,7 @@ import java.util.List;
  * @author makejava
  * @since 2018-11-08 15:41:27
  */
+@Component
 public interface AppointmentDao {
 
     /**
@@ -18,7 +21,7 @@ public interface AppointmentDao {
      * @param appointmentId 主键
      * @return 实例对象
      */
-    Appointment queryById(Integer appointmentId);
+    Appointment queryById(@Param("id") Integer appointmentId);
 
     /**
      * 查询指定行数据

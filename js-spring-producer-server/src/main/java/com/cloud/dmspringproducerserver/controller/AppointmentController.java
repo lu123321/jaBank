@@ -1,5 +1,6 @@
 package com.cloud.dmspringproducerserver.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.cloud.dmspringproducerserver.entity.Appointment;
 import com.cloud.dmspringproducerserver.service.AppointmentService;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,6 @@ import javax.annotation.Resource;
  * @since 2018-11-08 15:41:29
  */
 @RestController
-@RequestMapping("appointment")
 public class AppointmentController {
     /**
      * 服务对象
@@ -27,9 +27,11 @@ public class AppointmentController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("selectOne")
-    public Appointment selectOne(Integer id) {
-        return this.appointmentService.queryById(id);
+    @RequestMapping("/selectOne")
+    public String selectOne(@RequestParam("id") Integer id) {
+        System.out.println("controller");
+        Appointment appointment = appointmentService.queryById(id);
+        return JSON.toJSONString(appointment);
     }
 
 }

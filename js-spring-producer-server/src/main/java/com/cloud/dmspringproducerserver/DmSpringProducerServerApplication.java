@@ -7,7 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan("com.cloud.dmspringproducerserver.*")
+@MapperScan("com.cloud.dmspringproducerserver.dao")
 public class DmSpringProducerServerApplication {
 
     public static void main(String[] args) {

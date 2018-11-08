@@ -27,6 +27,7 @@ public class AppointmentServiceImpl implements AppointmentService {
      */
     @Override
     public Appointment queryById(Integer appointmentId) {
+        System.out.println("service");
         return this.appointmentDao.queryById(appointmentId);
     }
 
