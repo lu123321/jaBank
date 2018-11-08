@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/cloud.iml" filepath="$PROJECT_DIR$/.idea/cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/jaBank.iml" filepath="$PROJECT_DIR$/.idea/jaBank.iml" />
       <module fileurl="file://$PROJECT_DIR$/js-kafka-client/js-kafka-client.iml" filepath="$PROJECT_DIR$/js-kafka-client/js-kafka-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/js-sleuth-server/js-sleuth-server.iml" filepath="$PROJECT_DIR$/js-sleuth-server/js-sleuth-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/js-spring-config-server/js-spring-config-server.iml" filepath="$PROJECT_DIR$/js-spring-config-server/js-spring-config-server.iml" />
