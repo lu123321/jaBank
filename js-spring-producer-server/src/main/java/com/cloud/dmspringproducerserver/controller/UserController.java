@@ -16,7 +16,7 @@ public class UserController {
     public String login(@RequestParam("count")int count){
         logger.info("调用服务1" + count);
         System.out.println("新的开始");
-        System.out.println("新的开始");
+        System.out.println("新的开始1");
         return "调用成功1" + count;
     }
 
