@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>dm-spring-producer-server</name>
+    <name>dm-spring-producer3-server</name>
     <description>Demo project for Spring Cloud</description>
 
     <parent>
@@ -34,6 +34,7 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.2</version>
         </dependency>
         <!--客户端-->
         <dependency>

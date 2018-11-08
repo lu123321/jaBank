@@ -43,10 +43,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.springcloudmodel.demo</groupId>
-            <artifactId>dm-common-model</artifactId>
-        </dependency>
         <!--sleuth跟踪-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

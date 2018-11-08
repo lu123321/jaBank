@@ -11,7 +11,7 @@ public class Controller {
     @Value("${token}")
     private boolean port;
 
-    @RequestMapping("/port")
+    @RequestMapping("/token")
     public boolean isToken(){
 
         return port;
