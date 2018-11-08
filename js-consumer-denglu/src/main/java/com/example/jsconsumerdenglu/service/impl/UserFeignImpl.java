@@ -12,6 +12,7 @@ public class UserFeignImpl implements UserFeign{
 
     @Override
     public String login(int conut) {
+        System.out.println("asdasd");
         return "错误" +conut;
     }
 }
