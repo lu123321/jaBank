@@ -1,0 +1,80 @@
+{
+  "name" : "Makeremittance",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "makeremittanceId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "makeremittanceSerialnumber",
+    "comment" : "预约编号",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "makeremittanceTime",
+    "comment" : "预约时间",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "makeremittancePrice",
+    "comment" : "预约汇款金额",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "makeremittancePaynumber",
+    "comment" : "预约付款卡号",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "makeremittanceName",
+    "comment" : "收款人姓名",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "makeremittanceNumber",
+    "comment" : "预约收款卡号",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "makeremittancePayuserid",
+    "comment" : "预约付款人ID",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "makeremittancePayname",
+    "comment" : "预约汇款人 付款人",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "makeremittanceBranch",
+    "comment" : "预约网点  关联网点表",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.cloud.dmspringproducerserver",
+  "savePath" : "./js-spring-producer2-server/src/main/java/com/cloud/dmspringproducerserver",
+  "saveModelName" : "js-spring-producer2-server"
+}

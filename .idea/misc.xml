@@ -15,6 +15,12 @@
         <option value="$PROJECT_DIR$/js-spring-producer3-server/pom.xml" />
         <option value="$PROJECT_DIR$/js-spring-producer-server/pom.xml" />
         <option value="$PROJECT_DIR$/js-spring-zuul-server/pom.xml" />
+        <option value="$PROJECT_DIR$/js-producer-remittance/pom.xml" />
+        <option value="$PROJECT_DIR$/js-consumer-remittance/pom.xml" />
+        <option value="$PROJECT_DIR$/js-producer-manage/pom.xml" />
+        <option value="$PROJECT_DIR$/js-consumer-manage/pom.xml" />
+        <option value="$PROJECT_DIR$/js-producer-account/pom.xml" />
+        <option value="$PROJECT_DIR$/js-consumer-account/pom.xml" />
       </list>
     </option>
   </component>

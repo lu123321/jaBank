@@ -1,0 +1,94 @@
+{
+  "name" : "Detailenquiry",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "detailenquiryId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "detailenquiryNumber",
+    "comment" : "卡号",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "detailenquiryData",
+    "comment" : "交易日期",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "detailenquiryPlace",
+    "comment" : "交易场所",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "detailenquiryAbstract",
+    "comment" : "摘要",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "detailenquiryCountries",
+    "comment" : "交易国家 CHN",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "detailenquiryOtherinformation",
+    "comment" : "对方信息、对方户名",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "detailenquiryPaper",
+    "comment" : "钞汇标志",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "detailenquiryFundflow",
+    "comment" : "资金流向 1 支出 2 流入",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "detailenquiryBalance",
+    "comment" : "余额",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "detailenquiryTransactioncurrency",
+    "comment" : "交易币种 ",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "detailenquiryMoney",
+    "comment" : "交易金额",
+    "type" : "java.lang.Object",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.cloud.dmspringproducerserver",
+  "savePath" : "./js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver",
+  "saveModelName" : "js-spring-producer-server"
+}

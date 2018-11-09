@@ -1,0 +1,80 @@
+{
+  "name" : "Batch",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "batchId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "batchName",
+    "comment" : "收款人姓名",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "batchNumber",
+    "comment" : "收款人卡号",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "batchSite",
+    "comment" : "收款人地区",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "batchPrice",
+    "comment" : "汇款金额",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "batchPhone",
+    "comment" : "短信通知电话",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "batchPayname",
+    "comment" : "付款人姓名",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "batchPaynumber",
+    "comment" : "付款卡号",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "batchPayuserid",
+    "comment" : "付款人ID",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "batchCurrency",
+    "comment" : "币种",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.cloud.dmspringproducerserver",
+  "savePath" : "./js-spring-producer2-server/src/main/java/com/cloud/dmspringproducerserver",
+  "saveModelName" : "js-spring-producer2-server"
+}

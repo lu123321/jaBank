@@ -1,0 +1,115 @@
+{
+  "name" : "Appointment",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "appointmentId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "appointmentNumber",
+    "comment" : "预约编号",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "appointmentUserid",
+    "comment" : "预约人ID",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "appointmentBusinesstype",
+    "comment" : "预约业务种类1:人名币大额现金取款 2:外币现金取款",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "appointmentCurrency",
+    "comment" : "币种  关联币种表",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "appointmentPrice",
+    "comment" : "预约取款金额",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "appointmentBranch",
+    "comment" : "预约办理网点  关联网点表",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "appointmentData",
+    "comment" : "预约办理日期(年月日)",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "appointmentTime",
+    "comment" : "时间段(时:分) 如 00：00 - 11：11",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "appointmentPhone",
+    "comment" : "手机号",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "appointmentCurrentdata",
+    "comment" : "提交预约日期(年月日)",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "appointmentChannel",
+    "comment" : "预约办理渠道    1: 个人网银",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "appointmentResult",
+    "comment" : "预约执行结果1: 待银行审批 2:已撤销 3:预约失败",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "appointmentOne",
+    "comment" : "冗余列",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "appointmentTwo",
+    "comment" : "冗余列",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.cloud.dmspringproducerserver",
+  "savePath" : "./js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver",
+  "saveModelName" : "js-spring-producer-server"
+}

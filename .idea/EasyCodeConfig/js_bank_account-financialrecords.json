@@ -1,0 +1,45 @@
+{
+  "name" : "Financialrecords",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "financialrecordsId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "financialrecordsManageid",
+    "comment" : "理财产品ID",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "financialrecordsData",
+    "comment" : "交易时间",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "financialrecordsMoney",
+    "comment" : "购买的金额",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "financialrecordsUserid",
+    "comment" : "购买产品的用户ID",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.cloud.dmspringproducerserver",
+  "savePath" : "./js-spring-producer3-server/src/main/java/com/cloud/dmspringproducerserver",
+  "saveModelName" : "js-spring-producer3-server"
+}

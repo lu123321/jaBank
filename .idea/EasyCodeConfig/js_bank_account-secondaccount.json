@@ -1,0 +1,52 @@
+{
+  "name" : "Secondaccount",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "accountId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "accountIdnumber",
+    "comment" : "身份证号",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "accountCard",
+    "comment" : "二类账户卡号",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "accountOpenbank",
+    "comment" : "开户行1:中行2:建行3:工行4:农行5:交行6:民行7:招行8:邮行9:浦发10: 中信",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "accountPwd",
+    "comment" : "银行卡密码",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "accountUserid",
+    "comment" : "账户用户ID",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.cloud.dmspringproducerserver",
+  "savePath" : "./js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver",
+  "saveModelName" : "js-spring-producer-server"
+}

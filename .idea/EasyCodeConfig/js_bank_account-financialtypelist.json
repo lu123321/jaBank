@@ -1,0 +1,24 @@
+{
+  "name" : "Financialtypelist",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "financialtypelistId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "financialtypelistName",
+    "comment" : "理财种类名称",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.cloud.dmspringproducerserver",
+  "savePath" : "./js-spring-producer3-server/src/main/java/com/cloud/dmspringproducerserver",
+  "saveModelName" : "js-spring-producer3-server"
+}

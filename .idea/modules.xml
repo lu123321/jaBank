@@ -3,15 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/jaBank.iml" filepath="$PROJECT_DIR$/.idea/jaBank.iml" />
-      <module fileurl="file://$PROJECT_DIR$/js-kafka-client/js-kafka-client.iml" filepath="$PROJECT_DIR$/js-kafka-client/js-kafka-client.iml" />
-      <module fileurl="file://$PROJECT_DIR$/js-sleuth-server/js-sleuth-server.iml" filepath="$PROJECT_DIR$/js-sleuth-server/js-sleuth-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/js-spring-config-server/js-spring-config-server.iml" filepath="$PROJECT_DIR$/js-spring-config-server/js-spring-config-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/js-spring-consumer-server/js-spring-consumer-server.iml" filepath="$PROJECT_DIR$/js-spring-consumer-server/js-spring-consumer-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/js-spring-eureka-server/js-spring-eureka-server.iml" filepath="$PROJECT_DIR$/js-spring-eureka-server/js-spring-eureka-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/js-spring-producer-server/js-spring-producer-server.iml" filepath="$PROJECT_DIR$/js-spring-producer-server/js-spring-producer-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/js-spring-producer2-server/js-spring-producer2-server.iml" filepath="$PROJECT_DIR$/js-spring-producer2-server/js-spring-producer2-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/js-spring-producer3-server/js-spring-producer3-server.iml" filepath="$PROJECT_DIR$/js-spring-producer3-server/js-spring-producer3-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/js-spring-zuul-server/js-spring-zuul-server.iml" filepath="$PROJECT_DIR$/js-spring-zuul-server/js-spring-zuul-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/js-consumer-account/js-consumer-account.iml" filepath="$PROJECT_DIR$/js-consumer-account/js-consumer-account.iml" />
+      <module fileurl="file://$PROJECT_DIR$/js-consumer-manage/js-consumer-manage.iml" filepath="$PROJECT_DIR$/js-consumer-manage/js-consumer-manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/js-consumer-remittance/js-consumer-remittance.iml" filepath="$PROJECT_DIR$/js-consumer-remittance/js-consumer-remittance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/js-producer-account/js-producer-account.iml" filepath="$PROJECT_DIR$/js-producer-account/js-producer-account.iml" />
+      <module fileurl="file://$PROJECT_DIR$/js-producer-manage/js-producer-manage.iml" filepath="$PROJECT_DIR$/js-producer-manage/js-producer-manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/js-producer-remittance/js-producer-remittance.iml" filepath="$PROJECT_DIR$/js-producer-remittance/js-producer-remittance.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cloud.dmspringproducerserver.dao.BatchDao">
+
+    <resultMap type="com.cloud.dmspringproducerserver.entity.Batch" id="BatchMap">
+        <result property="batchId" column="batch_id" jdbcType="INTEGER"/>
+        <result property="batchName" column="batch_name" jdbcType="VARCHAR"/>
+        <result property="batchNumber" column="batch_number" jdbcType="INTEGER"/>
+        <result property="batchSite" column="batch_site" jdbcType="VARCHAR"/>
+        <result property="batchPrice" column="batch_price" jdbcType="VARCHAR"/>
+        <result property="batchPhone" column="batch_phone" jdbcType="VARCHAR"/>
+        <result property="batchPayname" column="batch_payname" jdbcType="VARCHAR"/>
+        <result property="batchPaynumber" column="batch_paynumber" jdbcType="INTEGER"/>
+        <result property="batchPayuserid" column="batch_payuserid" jdbcType="INTEGER"/>
+        <result property="batchCurrency" column="batch_currency" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BatchMap">
+        select
+          batch_id, batch_name, batch_number, batch_site, batch_price, batch_phone, batch_payname, batch_paynumber, batch_payuserid, batch_currency
+        from js_bank_account.batch
+        where batch_id = #{batchId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BatchMap">
+        select
+          batch_id, batch_name, batch_number, batch_site, batch_price, batch_phone, batch_payname, batch_paynumber, batch_payuserid, batch_currency
+        from js_bank_account.batch
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BatchMap">
+        select
+          batch_id, batch_name, batch_number, batch_site, batch_price, batch_phone, batch_payname, batch_paynumber, batch_payuserid, batch_currency
+        from js_bank_account.batch
+        <where>
+            <if test="batchId != null">
+                and batch_id = #{batchId}
+            </if>
+            <if test="batchName != null and batchName != ''">
+                and batch_name = #{batchName}
+            </if>
+            <if test="batchNumber != null">
+                and batch_number = #{batchNumber}
+            </if>
+            <if test="batchSite != null and batchSite != ''">
+                and batch_site = #{batchSite}
+            </if>
+            <if test="batchPrice != null and batchPrice != ''">
+                and batch_price = #{batchPrice}
+            </if>
+            <if test="batchPhone != null and batchPhone != ''">
+                and batch_phone = #{batchPhone}
+            </if>
+            <if test="batchPayname != null and batchPayname != ''">
+                and batch_payname = #{batchPayname}
+            </if>
+            <if test="batchPaynumber != null">
+                and batch_paynumber = #{batchPaynumber}
+            </if>
+            <if test="batchPayuserid != null">
+                and batch_payuserid = #{batchPayuserid}
+            </if>
+            <if test="batchCurrency != null and batchCurrency != ''">
+                and batch_currency = #{batchCurrency}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="batchId" useGeneratedKeys="true">
+        insert into js_bank_account.batch(batch_name, batch_number, batch_site, batch_price, batch_phone, batch_payname, batch_paynumber, batch_payuserid, batch_currency)
+        values (#{batchName}, #{batchNumber}, #{batchSite}, #{batchPrice}, #{batchPhone}, #{batchPayname}, #{batchPaynumber}, #{batchPayuserid}, #{batchCurrency})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update js_bank_account.batch
+        <set>
+            <if test="batchName != null and batchName != ''">
+                batch_name = #{batchName},
+            </if>
+            <if test="batchNumber != null">
+                batch_number = #{batchNumber},
+            </if>
+            <if test="batchSite != null and batchSite != ''">
+                batch_site = #{batchSite},
+            </if>
+            <if test="batchPrice != null and batchPrice != ''">
+                batch_price = #{batchPrice},
+            </if>
+            <if test="batchPhone != null and batchPhone != ''">
+                batch_phone = #{batchPhone},
+            </if>
+            <if test="batchPayname != null and batchPayname != ''">
+                batch_payname = #{batchPayname},
+            </if>
+            <if test="batchPaynumber != null">
+                batch_paynumber = #{batchPaynumber},
+            </if>
+            <if test="batchPayuserid != null">
+                batch_payuserid = #{batchPayuserid},
+            </if>
+            <if test="batchCurrency != null and batchCurrency != ''">
+                batch_currency = #{batchCurrency},
+            </if>
+        </set>
+        where batch_id = #{batchId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from js_bank_account.batch where batch_id = #{batchId}
+    </delete>
+
+</mapper>

@@ -1,0 +1,66 @@
+{
+  "name" : "Managemoney",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "managemoneyId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "managemoneyName",
+    "comment" : "产品名称",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "managemoneyYield",
+    "comment" : "预期年化收益率",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "managemoneyPurchase",
+    "comment" : "起购金额",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "managemoneyDeadline",
+    "comment" : "期限",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "managemoneyCategory",
+    "comment" : "种类  关联理财产品种类表",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "managemoneyReleasedate",
+    "comment" : "发售日期",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "managemoneyRepertory",
+    "comment" : "理财产品库存",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.cloud.dmspringproducerserver",
+  "savePath" : "./js-spring-producer3-server/src/main/java/com/cloud/dmspringproducerserver",
+  "saveModelName" : "js-spring-producer3-server"
+}

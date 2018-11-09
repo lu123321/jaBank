@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cloud.dmspringproducerserver.dao.BranchDao">
+
+    <resultMap type="com.cloud.dmspringproducerserver.entity.Branch" id="BranchMap">
+        <result property="branchId" column="branch_id" jdbcType="INTEGER"/>
+        <result property="branchName" column="branch_name" jdbcType="VARCHAR"/>
+        <result property="branchSite" column="branch_site" jdbcType="VARCHAR"/>
+        <result property="branchData" column="branch_data" jdbcType="VARCHAR"/>
+        <result property="branchOne" column="branch_one" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BranchMap">
+        select
+          branch_id, branch_name, branch_site, branch_data, branch_one
+        from js_bank_account.branch
+        where branch_id = #{branchId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BranchMap">
+        select
+          branch_id, branch_name, branch_site, branch_data, branch_one
+        from js_bank_account.branch
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BranchMap">
+        select
+          branch_id, branch_name, branch_site, branch_data, branch_one
+        from js_bank_account.branch
+        <where>
+            <if test="branchId != null">
+                and branch_id = #{branchId}
+            </if>
+            <if test="branchName != null and branchName != ''">
+                and branch_name = #{branchName}
+            </if>
+            <if test="branchSite != null and branchSite != ''">
+                and branch_site = #{branchSite}
+            </if>
+            <if test="branchData != null and branchData != ''">
+                and branch_data = #{branchData}
+            </if>
+            <if test="branchOne != null and branchOne != ''">
+                and branch_one = #{branchOne}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="branchId" useGeneratedKeys="true">
+        insert into js_bank_account.branch(branch_name, branch_site, branch_data, branch_one)
+        values (#{branchName}, #{branchSite}, #{branchData}, #{branchOne})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update js_bank_account.branch
+        <set>
+            <if test="branchName != null and branchName != ''">
+                branch_name = #{branchName},
+            </if>
+            <if test="branchSite != null and branchSite != ''">
+                branch_site = #{branchSite},
+            </if>
+            <if test="branchData != null and branchData != ''">
+                branch_data = #{branchData},
+            </if>
+            <if test="branchOne != null and branchOne != ''">
+                branch_one = #{branchOne},
+            </if>
+        </set>
+        where branch_id = #{branchId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from js_bank_account.branch where branch_id = #{branchId}
+    </delete>
+
+</mapper>

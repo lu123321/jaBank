@@ -1,0 +1,73 @@
+{
+  "name" : "Remittancetransaction",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "remittancetransactionId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "remittancetransactionName",
+    "comment" : "收款人姓名",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "remittancetransactionCardnumber",
+    "comment" : "收款卡号",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "remittancetransactionBlank",
+    "comment" : "收款银行1:中行2:建行3:工行4:农行5:交行6:民行7:招行8:邮行9:浦发10: 中信",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "remittancetransactionPrice",
+    "comment" : "汇款金额",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "remittancetransactionTime",
+    "comment" : "汇款时间1：实时汇款2：普通汇款3：次日汇款",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "remittancetransactionCurrent",
+    "comment" : "当前时间 (汇款时间)年月日",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "remittancetransactionNumber",
+    "comment" : "付款卡号",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "remittancetransactionPayuserid",
+    "comment" : "汇款人ID",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.cloud.dmspringproducerserver",
+  "savePath" : "./js-spring-producer2-server/src/main/java/com/cloud/dmspringproducerserver",
+  "saveModelName" : "js-spring-producer2-server"
+}
