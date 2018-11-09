@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.cloud</groupId>
-    <artifactId>dm-spring-consumer-server</artifactId>
+    <artifactId>js-consumer-remittance</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>dm-spring-consumer-server</name>
+    <name>js-consumer-remittance</name>
     <description>Demo project for Spring Cloud</description>
 
     <parent>

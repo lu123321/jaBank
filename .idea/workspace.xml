@@ -2,291 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6981f884-6539-471e-a8e4-2711b63dc7a8" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/js_bank_account-appointment.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/js_bank_account-batch.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/js_bank_account-branch.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/js_bank_account-currencytable.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/js_bank_account-detailenquiry.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/js_bank_account-financialrecords.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/js_bank_account-financialtypelist.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/js_bank_account-makeremittance.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/js_bank_account-managemoney.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/js_bank_account-remittancetransaction.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/js_bank_account-secondaccount.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/aa2efd19-f08e-448d-9e04-f0fdbcdc4ae3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_49.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_redis_1_5_6_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_13_6_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_1_2_6_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_1_8_6_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_4_3_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_9_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-account/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-account/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-account/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-account/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-account/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-account/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-account/src/main/java/com/cloud/dmspringconsumerserver/DmSpringConsumerServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-account/src/main/java/com/cloud/dmspringconsumerserver/controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-account/src/main/java/com/cloud/dmspringconsumerserver/feign/UserFeign.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-account/src/main/java/com/cloud/dmspringconsumerserver/user/Impl/UserFeignImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-account/src/main/java/com/cloud/dmspringconsumerserver/user/Impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-account/src/main/java/com/cloud/dmspringconsumerserver/user/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-account/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-account/src/test/java/com/cloud/dmspringconsumerserver/DmSpringConsumerServerApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-manage/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-manage/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-manage/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-manage/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-manage/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-manage/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-manage/src/main/java/com/cloud/dmspringconsumerserver/DmSpringConsumerServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-manage/src/main/java/com/cloud/dmspringconsumerserver/controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-manage/src/main/java/com/cloud/dmspringconsumerserver/feign/UserFeign.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-manage/src/main/java/com/cloud/dmspringconsumerserver/user/Impl/UserFeignImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-manage/src/main/java/com/cloud/dmspringconsumerserver/user/Impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-manage/src/main/java/com/cloud/dmspringconsumerserver/user/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-manage/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-manage/src/test/java/com/cloud/dmspringconsumerserver/DmSpringConsumerServerApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-remittance/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-remittance/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-remittance/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-remittance/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-remittance/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-remittance/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-remittance/src/main/java/com/cloud/dmspringconsumerserver/DmSpringConsumerServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-remittance/src/main/java/com/cloud/dmspringconsumerserver/controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-remittance/src/main/java/com/cloud/dmspringconsumerserver/feign/UserFeign.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-remittance/src/main/java/com/cloud/dmspringconsumerserver/user/Impl/UserFeignImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-remittance/src/main/java/com/cloud/dmspringconsumerserver/user/Impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-remittance/src/main/java/com/cloud/dmspringconsumerserver/user/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-remittance/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-consumer-remittance/src/test/java/com/cloud/dmspringconsumerserver/DmSpringConsumerServerApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/DmSpringProducerServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/controller/AppointmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/controller/BranchController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/controller/DetailenquiryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/controller/SecondaccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/dao/AppointmentDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/dao/BranchDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/dao/DetailenquiryDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/dao/SecondaccountDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/entity/Appointment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/entity/Branch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/entity/Detailenquiry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/entity/Secondaccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/service/AppointmentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/service/BranchService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/service/DetailenquiryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/service/SecondaccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/service/impl/AppointmentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/service/impl/BranchServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/service/impl/DetailenquiryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/service/impl/SecondaccountServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/java/com/cloud/dmspringproducerserver/uitl/RedisUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/resources/mapper/AppointmentDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/resources/mapper/BranchDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/resources/mapper/DetailenquiryDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/main/resources/mapper/SecondaccountDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-account/src/test/java/com/cloud/dmspringproducerserver/DmSpringProducerServerApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/DmSpringProducerServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/controller/CurrencytableController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/controller/FinancialrecordsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/controller/FinancialtypelistController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/controller/ManagemoneyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/dao/CurrencytableDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/dao/FinancialrecordsDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/dao/FinancialtypelistDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/dao/ManagemoneyDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/entity/Currencytable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/entity/Financialrecords.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/entity/Financialtypelist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/entity/Managemoney.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/service/CurrencytableService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/service/FinancialrecordsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/service/FinancialtypelistService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/service/ManagemoneyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/service/impl/CurrencytableServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/service/impl/FinancialrecordsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/service/impl/FinancialtypelistServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/java/com/cloud/dmspringproducerserver/service/impl/ManagemoneyServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/resources/mapper/CurrencytableDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/resources/mapper/FinancialrecordsDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/resources/mapper/FinancialtypelistDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/main/resources/mapper/ManagemoneyDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-manage/src/test/java/com/cloud/dmspringproducerserver/DmSpringProducerServerApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/DmSpringProducerServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/controller/BatchController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/controller/BranchController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/controller/MakeremittanceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/controller/RemittancetransactionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/dao/BatchDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/dao/BranchDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/dao/MakeremittanceDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/dao/RemittancetransactionDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/entity/Batch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/entity/Branch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/entity/Makeremittance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/entity/Remittancetransaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/service/BatchService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/service/BranchService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/service/MakeremittanceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/service/RemittancetransactionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/service/impl/BatchServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/service/impl/BranchServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/service/impl/MakeremittanceServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/java/com/cloud/dmspringproducerserver/service/impl/RemittancetransactionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/resources/mapper/BatchDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/resources/mapper/BranchDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/resources/mapper/MakeremittanceDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/main/resources/mapper/RemittancetransactionDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-producer-remittance/src/test/java/com/cloud/dmspringproducerserver/DmSpringProducerServerApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-kafka-client/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-kafka-client/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-kafka-client/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-kafka-client/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-kafka-client/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-kafka-client/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-kafka-client/src/main/java/com/boot/dmkafkaclient/DmKafkaClientApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-kafka-client/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-kafka-client/src/test/java/com/boot/dmkafkaclient/DmKafkaClientApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-sleuth-server/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-sleuth-server/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-sleuth-server/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-sleuth-server/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-sleuth-server/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-sleuth-server/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-sleuth-server/src/main/java/com/cloud/dmsleuthserver/DmSleuthServerApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-sleuth-server/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-sleuth-server/src/test/java/com/cloud/dmsleuthserver/DmSleuthServerApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-config-server/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-config-server/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-config-server/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-config-server/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-config-server/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-config-server/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-config-server/src/main/java/com/cloud/dmspringconfigserver/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-config-server/src/main/java/com/cloud/dmspringconfigserver/DmSpringConfigServerApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-config-server/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-config-server/src/test/java/com/cloud/dmspringconfigserver/DmSpringConfigServerApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-consumer-server/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-consumer-server/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-consumer-server/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-consumer-server/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-consumer-server/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-consumer-server/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-consumer-server/src/main/java/com/cloud/dmspringconsumerserver/DmSpringConsumerServerApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-consumer-server/src/main/java/com/cloud/dmspringconsumerserver/controller/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-consumer-server/src/main/java/com/cloud/dmspringconsumerserver/feign/UserFeign.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-consumer-server/src/main/java/com/cloud/dmspringconsumerserver/user/Impl/UserFeignImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-consumer-server/src/main/java/com/cloud/dmspringconsumerserver/user/Impl/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-consumer-server/src/main/java/com/cloud/dmspringconsumerserver/user/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-consumer-server/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-consumer-server/src/test/java/com/cloud/dmspringconsumerserver/DmSpringConsumerServerApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-eureka-server/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-eureka-server/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-eureka-server/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-eureka-server/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-eureka-server/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-eureka-server/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-eureka-server/src/main/java/com/example/demo/DmSpringEurekaServerApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-eureka-server/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-eureka-server/src/test/java/com/example/demo/DmSpringEurekaServerApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/DmSpringProducerServerApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/controller/AppointmentController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/controller/BranchController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/controller/DetailenquiryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/controller/SecondaccountController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/dao/AppointmentDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/dao/BranchDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/dao/DetailenquiryDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/dao/SecondaccountDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/entity/Appointment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/entity/Branch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/entity/Detailenquiry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/entity/Secondaccount.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/service/AppointmentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/service/BranchService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/service/DetailenquiryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/service/SecondaccountService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/service/impl/AppointmentServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/service/impl/BranchServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/service/impl/DetailenquiryServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/service/impl/SecondaccountServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/uitl/RedisUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer-server/src/test/java/com/cloud/dmspringproducerserver/DmSpringProducerServerApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer2-server/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer2-server/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer2-server/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer2-server/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer2-server/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer2-server/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer2-server/src/main/java/com/cloud/dmspringproducerserver/DmSpringProducerServerApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer2-server/src/main/java/com/cloud/dmspringproducerserver/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer2-server/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer2-server/src/test/java/com/cloud/dmspringproducerserver/DmSpringProducerServerApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer3-server/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer3-server/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer3-server/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer3-server/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer3-server/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer3-server/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer3-server/src/main/java/com/cloud/dmspringproducerserver/DmSpringProducerServerApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer3-server/src/main/java/com/cloud/dmspringproducerserver/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer3-server/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-producer3-server/src/test/java/com/cloud/dmspringproducerserver/DmSpringProducerServerApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-zuul-server/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-zuul-server/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-zuul-server/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-zuul-server/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-zuul-server/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-zuul-server/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-zuul-server/src/main/java/com/cloud/dmspringzuulserver/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-zuul-server/src/main/java/com/cloud/dmspringzuulserver/DmSpringZuulServerApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-zuul-server/src/main/java/com/cloud/dmspringzuulserver/PreFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-zuul-server/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-zuul-server/src/main/resources/bootstrap.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-spring-zuul-server/src/test/java/com/cloud/dmspringzuulserver/DmSpringZuulServerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-consumer-account/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/js-consumer-account/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-consumer-account/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/js-consumer-account/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-consumer-manage/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/js-consumer-manage/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-consumer-manage/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/js-consumer-manage/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-consumer-remittance/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/js-consumer-remittance/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-consumer-remittance/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/js-consumer-remittance/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-producer-account/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/js-producer-account/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-producer-account/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/js-producer-account/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-producer-manage/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/js-producer-manage/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-producer-manage/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/js-producer-manage/src/main/resources/application.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/js-sleuth-server/target/" />
     <ignored path="$PROJECT_DIR$/js-kafka-client/target/" />
@@ -341,7 +67,26 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="application.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js-consumer-account/src/main/resources/application.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js-consumer-manage/src/main/resources/application.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -375,6 +120,17 @@
         <option value="$PROJECT_DIR$/js-spring-producer-server/src/main/resources/mapper/AppointmentDao.xml" />
         <option value="$PROJECT_DIR$/js-spring-producer2-server/pom.xml" />
         <option value="$PROJECT_DIR$/js-spring-producer2-server/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/js-producer-remittance/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/js-consumer-remittance/pom.xml" />
+        <option value="$PROJECT_DIR$/js-consumer-remittance/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/js-producer-manage/pom.xml" />
+        <option value="$PROJECT_DIR$/js-producer-manage/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/js-consumer-manage/pom.xml" />
+        <option value="$PROJECT_DIR$/js-consumer-manage/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/js-producer-account/pom.xml" />
+        <option value="$PROJECT_DIR$/js-producer-account/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/js-consumer-account/pom.xml" />
+        <option value="$PROJECT_DIR$/js-consumer-account/src/main/resources/application.yml" />
       </list>
     </option>
   </component>
@@ -421,6 +177,58 @@
             <path>
               <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
               <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-consumer-account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-consumer-account" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-consumer-account" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-consumer-account" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-consumer-manage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-consumer-manage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-consumer-manage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-consumer-manage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -570,7 +378,7 @@
       <workItem from="1541649099004" duration="1066000" />
       <workItem from="1541659296690" duration="2780000" />
       <workItem from="1541662119541" duration="11481000" />
-      <workItem from="1541722956685" duration="9034000" />
+      <workItem from="1541722956685" duration="10169000" />
     </task>
     <task id="LOCAL-00001" summary="切换分支">
       <created>1541662180163</created>
@@ -621,18 +429,26 @@
       <option name="project" value="LOCAL" />
       <updated>1541764496632</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="重新构建项目架构">
+      <created>1541772752801</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1541772752801</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20549000" />
+    <option name="totallyTimeSpent" value="21684000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="9" visible="true" weight="0.21983914" />
+      <window_info anchor="right" id="Maven Projects" order="9" visible="true" weight="0.14544237" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="2" />
@@ -642,7 +458,7 @@
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.53207" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.15558699" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.71145684" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="9" />
@@ -679,26 +495,10 @@
     <MESSAGE value="Easy code 创建dao service impl controller" />
     <MESSAGE value="将所有结构都创好了。" />
     <MESSAGE value="redisUitl类" />
-    <option name="LAST_COMMIT_MESSAGE" value="redisUitl类" />
+    <MESSAGE value="重新构建项目架构" />
+    <option name="LAST_COMMIT_MESSAGE" value="重新构建项目架构" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js-spring-producer-server/src/main/java/com/cloud/dmspringproducerserver/dao/AppointmentDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js-spring-producer-server/src/main/resources/mapper/AppointmentDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js-spring-producer-server/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1276">
@@ -955,6 +755,90 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-producer-remittance/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-producer-remittance/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-consumer-remittance/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="32" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-consumer-remittance/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="32" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-consumer-manage/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-producer-manage/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-producer-manage/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-consumer-account/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-producer-account/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-producer-account/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-consumer-manage/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-consumer-account/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
         </state>
       </provider>
     </entry>

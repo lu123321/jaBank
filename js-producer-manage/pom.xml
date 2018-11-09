@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.cloud</groupId>
-    <artifactId>dm-spring-producer3-server</artifactId>
+    <artifactId>js-producer-manage</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>dm-spring-producer3-server</name>
+    <name>js-producer-manage</name>
     <description>Demo project for Spring Cloud</description>
 
     <parent>
