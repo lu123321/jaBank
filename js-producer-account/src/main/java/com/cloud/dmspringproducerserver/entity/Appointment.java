@@ -9,6 +9,7 @@ import java.io.Serializable;
  * @since 2018-11-08 15:41:24
  */
 public class Appointment implements Serializable {
+    //****************
     private static final long serialVersionUID = 356446193651848840L;
     //预约ID
     private Integer appointmentId;
