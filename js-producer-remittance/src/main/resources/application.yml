@@ -29,3 +29,5 @@ spring:
     name: js-producer-remittance
   profiles:
     active: dev
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
