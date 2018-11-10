@@ -8,13 +8,13 @@
         <result property="depositBusinessmoney" column="deposit_businessMoney" jdbcType="VARCHAR"/>
         <result property="depositBusinessrate" column="deposit_businessRate" jdbcType="VARCHAR"/>
         <result property="depositBusinesstype" column="deposit_businessType" jdbcType="VARCHAR"/>
-        <result property="depositBusinessimage" column="deposit_businessImage" jdbcType="VARCHAR"/>
+        <result property="depositBusinesslong" column="deposit_businessLong" jdbcType="INTEGER"/>
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="DepositBusinessMap">
         select
-          deposit_businessId, deposit_businessName, deposit_businessMoney, deposit_businessRate, deposit_businessType, deposit_businessImage
+          deposit_businessId, deposit_businessName, deposit_businessMoney, deposit_businessRate, deposit_businessType, deposit_businessLong
         from js-deposit.deposit_business
         where deposit_businessId = #{depositBusinessid}
     </select>
@@ -22,7 +22,7 @@
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="DepositBusinessMap">
         select
-          deposit_businessId, deposit_businessName, deposit_businessMoney, deposit_businessRate, deposit_businessType, deposit_businessImage
+          deposit_businessId, deposit_businessName, deposit_businessMoney, deposit_businessRate, deposit_businessType, deposit_businessLong
         from js-deposit.deposit_business
         limit #{offset}, #{limit}
     </select>
@@ -30,7 +30,7 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="DepositBusinessMap">
         select
-          deposit_businessId, deposit_businessName, deposit_businessMoney, deposit_businessRate, deposit_businessType, deposit_businessImage
+          deposit_businessId, deposit_businessName, deposit_businessMoney, deposit_businessRate, deposit_businessType, deposit_businessLong
         from js-deposit.deposit_business
         <where>
             <if test="depositBusinessid != null">
@@ -48,16 +48,16 @@
             <if test="depositBusinesstype != null and depositBusinesstype != ''">
                 and deposit_businessType = #{depositBusinesstype}
             </if>
-            <if test="depositBusinessimage != null and depositBusinessimage != ''">
-                and deposit_businessImage = #{depositBusinessimage}
+            <if test="depositBusinesslong != null">
+                and deposit_businessLong = #{depositBusinesslong}
             </if>
         </where>
     </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="depositBusinessid" useGeneratedKeys="true">
-        insert into js-deposit.deposit_business(deposit_businessName, deposit_businessMoney, deposit_businessRate, deposit_businessType, deposit_businessImage)
-        values (#{depositBusinessname}, #{depositBusinessmoney}, #{depositBusinessrate}, #{depositBusinesstype}, #{depositBusinessimage})
+        insert into js-deposit.deposit_business(deposit_businessName, deposit_businessMoney, deposit_businessRate, deposit_businessType, deposit_businessLong)
+        values (#{depositBusinessname}, #{depositBusinessmoney}, #{depositBusinessrate}, #{depositBusinesstype}, #{depositBusinesslong})
     </insert>
 
     <!--通过主键修改数据-->
@@ -76,8 +76,8 @@
             <if test="depositBusinesstype != null and depositBusinesstype != ''">
                 deposit_businessType = #{depositBusinesstype},
             </if>
-            <if test="depositBusinessimage != null and depositBusinessimage != ''">
-                deposit_businessImage = #{depositBusinessimage},
+            <if test="depositBusinesslong != null">
+                deposit_businessLong = #{depositBusinesslong},
             </if>
         </set>
         where deposit_businessId = #{depositBusinessid}
@@ -87,5 +87,9 @@
     <delete id="deleteById">
         delete from js-deposit.deposit_business where deposit_businessId = #{depositBusinessid}
     </delete>
-
+    <select id="getByType" resultMap="DepositBusinessMap" parameterType="int">
+        select deposit_businessId, deposit_businessName, deposit_businessMoney, deposit_businessRate, deposit_businessLong
+        from deposit_business
+        where deposit_businessType = #{type}
+    </select>
 </mapper>

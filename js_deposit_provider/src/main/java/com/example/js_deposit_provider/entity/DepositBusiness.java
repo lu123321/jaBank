@@ -6,10 +6,10 @@ import java.io.Serializable;
  * (DepositBusiness)实体类
  *
  * @author makejava
- * @since 2018-11-08 10:32:29
+ * @since 2018-11-10 09:18:58
  */
 public class DepositBusiness implements Serializable {
-    private static final long serialVersionUID = -58163838876256771L;
+    private static final long serialVersionUID = 706464685294340896L;
     //存款业务id
     private Integer depositBusinessid;
     //存款业务名字
@@ -20,6 +20,8 @@ public class DepositBusiness implements Serializable {
     private String depositBusinessrate;
     //存款业务类型
     private String depositBusinesstype;
+    //存款业务时长
+    private Integer depositBusinesslong;
 
 
     public Integer getDepositBusinessid() {
@@ -60,6 +62,14 @@ public class DepositBusiness implements Serializable {
 
     public void setDepositBusinesstype(String depositBusinesstype) {
         this.depositBusinesstype = depositBusinesstype;
+    }
+
+    public Integer getDepositBusinesslong() {
+        return depositBusinesslong;
+    }
+
+    public void setDepositBusinesslong(Integer depositBusinesslong) {
+        this.depositBusinesslong = depositBusinesslong;
     }
 
 }

@@ -10,7 +10,7 @@ import java.util.List;
  * (DepositInform)表数据库访问层
  *
  * @author makejava
- * @since 2018-11-08 10:32:29
+ * @since 2018-11-10 09:18:58
  */
 @Component
 public interface DepositInformDao {

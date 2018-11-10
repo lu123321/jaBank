@@ -7,7 +7,7 @@ import java.util.List;
  * (DepositBusiness)表服务接口
  *
  * @author makejava
- * @since 2018-11-08 10:32:29
+ * @since 2018-11-10 09:18:59
  */
 public interface DepositBusinessService {
 
@@ -52,4 +52,10 @@ public interface DepositBusinessService {
      */
     boolean deleteById(Integer depositBusinessid);
 
+    /**
+     * 根据类型id进行查询
+     * @param typeid
+     * @return
+     */
+    String getByType(String typeid);
 }

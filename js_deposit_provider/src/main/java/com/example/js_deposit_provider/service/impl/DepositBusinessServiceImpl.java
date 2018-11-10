@@ -1,5 +1,6 @@
 package com.example.js_deposit_provider.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.example.js_deposit_provider.entity.DepositBusiness;
 import com.example.js_deposit_provider.dao.DepositBusinessDao;
 import com.example.js_deposit_provider.service.DepositBusinessService;
@@ -12,7 +13,7 @@ import java.util.List;
  * (DepositBusiness)表服务实现类
  *
  * @author makejava
- * @since 2018-11-08 10:32:29
+ * @since 2018-11-10 09:18:59
  */
 @Service
 public class DepositBusinessServiceImpl implements DepositBusinessService {
@@ -75,5 +76,19 @@ public class DepositBusinessServiceImpl implements DepositBusinessService {
     @Override
     public boolean deleteById(Integer depositBusinessid) {
         return this.depositBusinessDao.deleteById(depositBusinessid) > 0;
+    }
+
+    @Override
+    public String getByType(String typeid) {
+        try{
+            if(typeid != null && typeid != ""){
+                List<DepositBusiness> byType = depositBusinessDao.getByType(Integer.parseInt(typeid));
+                return JSON.toJSONString(byType);
+            }else {
+                return "404";
+            }
+        }catch (Exception e){
+            return "404";
+        }
     }
 }

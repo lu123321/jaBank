@@ -1,5 +1,6 @@
 package com.example.js_deposit_provider.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.example.js_deposit_provider.entity.DepositInform;
 import com.example.js_deposit_provider.dao.DepositInformDao;
 import com.example.js_deposit_provider.service.DepositInformService;
@@ -12,7 +13,7 @@ import java.util.List;
  * (DepositInform)表服务实现类
  *
  * @author makejava
- * @since 2018-11-08 10:32:29
+ * @since 2018-11-10 09:18:58
  */
 @Service
 public class DepositInformServiceImpl implements DepositInformService {
@@ -49,9 +50,9 @@ public class DepositInformServiceImpl implements DepositInformService {
      * @return 实例对象
      */
     @Override
-    public DepositInform insert(DepositInform depositInform) {
-        this.depositInformDao.insert(depositInform);
-        return depositInform;
+    public String insert(DepositInform depositInform) {
+        System.out.println(depositInform.getDepositInformnumber());
+        return JSON.toJSONString(this.depositInformDao.insert(depositInform));
     }
 
     /**
@@ -62,6 +63,7 @@ public class DepositInformServiceImpl implements DepositInformService {
      */
     @Override
     public DepositInform update(DepositInform depositInform) {
+
         this.depositInformDao.update(depositInform);
         return this.queryById(depositInform.getDepositInformid());
     }

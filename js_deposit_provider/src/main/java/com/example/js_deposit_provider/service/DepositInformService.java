@@ -7,7 +7,7 @@ import java.util.List;
  * (DepositInform)表服务接口
  *
  * @author makejava
- * @since 2018-11-08 10:32:29
+ * @since 2018-11-10 09:18:58
  */
 public interface DepositInformService {
 
@@ -34,7 +34,7 @@ public interface DepositInformService {
      * @param depositInform 实例对象
      * @return 实例对象
      */
-    DepositInform insert(DepositInform depositInform);
+    String insert(DepositInform depositInform);
 
     /**
      * 修改数据

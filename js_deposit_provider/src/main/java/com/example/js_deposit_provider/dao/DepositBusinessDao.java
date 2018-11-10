@@ -10,7 +10,7 @@ import java.util.List;
  * (DepositBusiness)表数据库访问层
  *
  * @author makejava
- * @since 2018-11-08 10:32:29
+ * @since 2018-11-10 09:18:59
  */
 @Component
 public interface DepositBusinessDao {
@@ -65,4 +65,10 @@ public interface DepositBusinessDao {
      */
     int deleteById(Integer depositBusinessid);
 
+    /**
+     * 通过类型id进行查询
+     * @param type
+     * @return
+     */
+    List<DepositBusiness> getByType(@Param("type") int type);
 }

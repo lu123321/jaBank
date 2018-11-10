@@ -10,10 +10,9 @@ import javax.annotation.Resource;
  * (DepositBusiness)表控制层
  *
  * @author makejava
- * @since 2018-11-08 10:32:29
+ * @since 2018-11-10 09:18:59
  */
 @RestController
-@RequestMapping("depositBusiness")
 public class DepositBusinessController {
     /**
      * 服务对象
@@ -31,5 +30,8 @@ public class DepositBusinessController {
     public DepositBusiness selectOne(Integer id) {
         return this.depositBusinessService.queryById(id);
     }
-
+    @RequestMapping("getbytype")
+    public String getbytype(@RequestParam String typeid){
+        return  depositBusinessService.getByType(typeid);
+    }
 }
