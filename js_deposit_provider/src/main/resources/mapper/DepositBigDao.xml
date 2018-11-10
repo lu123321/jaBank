@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.js_deposit_provider.dao.DepositBigDao">
+
+    <resultMap type="com.example.js_deposit_provider.entity.DepositBig" id="DepositBigMap">
+        <result property="depositBigid" column="deposit_bigId" jdbcType="INTEGER"/>
+        <result property="depositBignumber" column="deposit_bigNumber" jdbcType="VARCHAR"/>
+        <result property="depositBigcardid" column="deposit_bigCardId" jdbcType="VARCHAR"/>
+        <result property="depositBigmoney" column="deposit_bigMoney" jdbcType="VARCHAR"/>
+        <result property="depositBigmoneyandinter" column="deposit_bigMoneyAndInter" jdbcType="VARCHAR"/>
+        <result property="depositBigbusname" column="deposit_bigBusName" jdbcType="VARCHAR"/>
+        <result property="depositBigintime" column="deposit_bigInTime" jdbcType="TIMESTAMP"/>
+        <result property="depositBiglong" column="deposit_bigLong" jdbcType="VARCHAR"/>
+        <result property="depositBigouttime" column="deposit_bigOutTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="DepositBigMap">
+        select
+          deposit_bigId, deposit_bigNumber, deposit_bigCardId, deposit_bigMoney, deposit_bigMoneyAndInter, deposit_bigBusName, deposit_bigInTime, deposit_bigLong, deposit_bigOutTime
+        from js-deposit.deposit_big
+        where deposit_bigId = #{depositBigid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="DepositBigMap">
+        select
+          deposit_bigId, deposit_bigNumber, deposit_bigCardId, deposit_bigMoney, deposit_bigMoneyAndInter, deposit_bigBusName, deposit_bigInTime, deposit_bigLong, deposit_bigOutTime
+        from js-deposit.deposit_big
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="DepositBigMap">
+        select
+          deposit_bigId, deposit_bigNumber, deposit_bigCardId, deposit_bigMoney, deposit_bigMoneyAndInter, deposit_bigBusName, deposit_bigInTime, deposit_bigLong, deposit_bigOutTime
+        from js-deposit.deposit_big
+        <where>
+            <if test="depositBigid != null">
+                and deposit_bigId = #{depositBigid}
+            </if>
+            <if test="depositBignumber != null and depositBignumber != ''">
+                and deposit_bigNumber = #{depositBignumber}
+            </if>
+            <if test="depositBigcardid != null and depositBigcardid != ''">
+                and deposit_bigCardId = #{depositBigcardid}
+            </if>
+            <if test="depositBigmoney != null and depositBigmoney != ''">
+                and deposit_bigMoney = #{depositBigmoney}
+            </if>
+            <if test="depositBigmoneyandinter != null and depositBigmoneyandinter != ''">
+                and deposit_bigMoneyAndInter = #{depositBigmoneyandinter}
+            </if>
+            <if test="depositBigbusname != null and depositBigbusname != ''">
+                and deposit_bigBusName = #{depositBigbusname}
+            </if>
+            <if test="depositBigintime != null">
+                and deposit_bigInTime = #{depositBigintime}
+            </if>
+            <if test="depositBiglong != null and depositBiglong != ''">
+                and deposit_bigLong = #{depositBiglong}
+            </if>
+            <if test="depositBigouttime != null">
+                and deposit_bigOutTime = #{depositBigouttime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="depositBigid" useGeneratedKeys="true">
+        insert into js-deposit.deposit_big(deposit_bigNumber, deposit_bigCardId, deposit_bigMoney, deposit_bigMoneyAndInter, deposit_bigBusName, deposit_bigInTime, deposit_bigLong, deposit_bigOutTime)
+        values (#{depositBignumber}, #{depositBigcardid}, #{depositBigmoney}, #{depositBigmoneyandinter}, #{depositBigbusname}, #{depositBigintime}, #{depositBiglong}, #{depositBigouttime})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update js-deposit.deposit_big
+        <set>
+            <if test="depositBignumber != null and depositBignumber != ''">
+                deposit_bigNumber = #{depositBignumber},
+            </if>
+            <if test="depositBigcardid != null and depositBigcardid != ''">
+                deposit_bigCardId = #{depositBigcardid},
+            </if>
+            <if test="depositBigmoney != null and depositBigmoney != ''">
+                deposit_bigMoney = #{depositBigmoney},
+            </if>
+            <if test="depositBigmoneyandinter != null and depositBigmoneyandinter != ''">
+                deposit_bigMoneyAndInter = #{depositBigmoneyandinter},
+            </if>
+            <if test="depositBigbusname != null and depositBigbusname != ''">
+                deposit_bigBusName = #{depositBigbusname},
+            </if>
+            <if test="depositBigintime != null">
+                deposit_bigInTime = #{depositBigintime},
+            </if>
+            <if test="depositBiglong != null and depositBiglong != ''">
+                deposit_bigLong = #{depositBiglong},
+            </if>
+            <if test="depositBigouttime != null">
+                deposit_bigOutTime = #{depositBigouttime},
+            </if>
+        </set>
+        where deposit_bigId = #{depositBigid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from js-deposit.deposit_big where deposit_bigId = #{depositBigid}
+    </delete>
+
+</mapper>
