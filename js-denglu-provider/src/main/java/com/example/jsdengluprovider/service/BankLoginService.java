@@ -1,11 +1,10 @@
 package com.example.jsdengluprovider.service;
 
-import com.example.jsdengluprovider.pojo.BankCard;
-import com.example.jsdengluprovider.pojo.BankUser;
 
+import com.example.jsdengluprovider.pojo.BankCard;
 
 public interface BankLoginService {
-    String iphoneLogin(String iphone, String webpwd);
-    String cardLogin(String cardnum, String webpwd);
-    String usernameLogin(String username,String webpwd);
+    BankCard phoneLogin(String phone, String webpwd);
+    BankCard cardLogin(String cardnum, String webpwd);
+    BankCard usernameLogin(String username, String webpwd);
 }
