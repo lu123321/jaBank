@@ -32,4 +32,27 @@ public class DepositInformController {
     public String addinform(DepositInform depositInform){
         return  depositInformService.insert(depositInform);
     }
+
+    /**
+     * 查询用户存款订单
+     * @param userid
+     * @return
+     */
+    @RequestMapping(value = "userInform",method = RequestMethod.GET,produces = "text/json;charset=utf-8")
+    @ResponseBody
+    public  String getinformbyUserId(@RequestParam String userid){
+       return depositInformService.getInformByUserid(userid);
+    }
+
+    /**
+     * 普通取款接口
+     * @param informid
+     * @param money
+     * @return
+     */
+    @RequestMapping(value = "withdrawal",method = RequestMethod.GET,produces = "text/json;charset=utf-8")
+    @ResponseBody
+    public String Onlywithdrawal(@RequestParam String informid,@RequestParam String money){
+        return  depositInformService.withdrawal(informid,money);
+    }
 }

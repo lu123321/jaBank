@@ -24,6 +24,12 @@ public interface DepositInformDao {
     DepositInform queryById(Integer depositInformid);
 
     /**
+     * 根据id查询该id的订单金额
+     * @param depositInformid
+     * @return
+     */
+    DepositInform selMoney(Integer depositInformid);
+    /**
      * 查询指定行数据
      *
      * @param offset 查询起始位置
@@ -65,4 +71,16 @@ public interface DepositInformDao {
      */
     int deleteById(Integer depositInformid);
 
+    /**
+     *通过用户id查看用户的所有存款信息
+     * @return
+     */
+    List<DepositInform> getInfomByUserid(@Param("userid") String userid);
+
+    /**
+     * 根据订单id进行取款操作
+     * @param informId
+     * @return
+     */
+    int withdrawal(@Param("infromid") int informId,@Param("informMoney") int informMoney);
 }

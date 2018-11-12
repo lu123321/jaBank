@@ -45,11 +45,25 @@ public interface DepositInformService {
     DepositInform update(DepositInform depositInform);
 
     /**
+     * 普通取款接口
+     * @param informid
+     * @param money
+     * @return
+     */
+    String withdrawal(String informid,String money);
+    /**
      * 通过主键删除数据
      *
      * @param depositInformid 主键
      * @return 是否成功
      */
     boolean deleteById(Integer depositInformid);
+
+    /**
+     * 通过用户id查询用户的通知存款信息
+     * @param userid
+     * @return
+     */
+    String getInformByUserid(String userid);
 
 }

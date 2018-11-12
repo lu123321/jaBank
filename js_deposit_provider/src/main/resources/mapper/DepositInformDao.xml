@@ -20,7 +20,11 @@
         from js-deposit.deposit_inform
         where deposit_informId = #{depositInformid}
     </select>
-
+    <select id="selMoney" resultMap="DepositInformMap"  parameterType="int">
+        select deposit_informMoney,deposit_informCardId
+        from deposit_inform
+        where deposit_informId = #{depositInformid}
+    </select>
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="DepositInformMap">
         select
@@ -101,5 +105,14 @@
     <delete id="deleteById">
         delete from js-deposit.deposit_inform where deposit_informId = #{depositInformid}
     </delete>
-
+    <select id="getInfomByUserid" resultMap="DepositInformMap" parameterType="String">
+        select  deposit_informNumber,deposit_informMoney,deposit_informType,deposit_informTime
+        from  deposit_inform
+        where  deposit_informUserId = #{userid}
+    </select>
+    <update id="withdrawal" parameterType="int">
+        update deposit_inform
+        set deposit_informMoney = #{informMoney}
+        where deposit_informId = #{infromid}
+    </update>
 </mapper>
