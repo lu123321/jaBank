@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="2b133ccd-6026-4e67-8954-a2ca3c53e1ca" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/bank-bankuser.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/js_management-ma_amount.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/js_management-marketing_management.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/429ec05d-3058-4caa-877d-a6aa72a799e9/storage_v2/_src_/schema/internetbank._USGAg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/429ec05d-3058-4caa-877d-a6aa72a799e9/storage_v2/_src_/schema/js_management.-ciiDA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/429ec05d-3058-4caa-877d-a6aa72a799e9/storage_v2/_src_/schema/parkingfee_db.j_ltGw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/429ec05d-3058-4caa-877d-a6aa72a799e9/storage_v2/_src_/schema/usermessage.3Em0ww.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/429ec05d-3058-4caa-877d-a6aa72a799e9/storage_v2/_src_/schema/yuekao.cKga1Q.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/bd302add-b5fc-4577-b05a-73d04622898d.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f072de28-ec1e-46ba-b611-06f1c05ecca1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" readonly="true" id="2b133ccd-6026-4e67-8954-a2ca3c53e1ca" name="Default" comment="金初">
       <change afterPath="$PROJECT_DIR$/js-consumer-account" afterDir="true" />
       <change afterPath="$PROJECT_DIR$/js-consumer-account/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/js-consumer-account/.idea" afterDir="true" />
@@ -1015,6 +1003,7 @@
       <change afterPath="$PROJECT_DIR$/js-producer-options/src/test/java/com/example" afterDir="true" />
       <change afterPath="$PROJECT_DIR$/js-producer-options/src/test/java/com/example/jsproduceroptions" afterDir="true" />
       <change afterPath="$PROJECT_DIR$/js-producer-options/src/test/java/com/example/jsproduceroptions/JsProducerOptionsApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/js-consumer-account/target/" />
     <ignored path="$PROJECT_DIR$/js-consumer-financial/target/" />
@@ -1099,8 +1088,8 @@
       <file leaf-file-name="MarketingManagementServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js-producer-options/src/main/java/com/example/jsproduceroptions/service/impl/MarketingManagementServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+            <state relative-caret-position="230">
+              <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1117,7 +1106,7 @@
         <entry file="file://$PROJECT_DIR$/js-producer-options/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="506">
-              <caret line="22" column="40" lean-forward="true" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+              <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -1125,8 +1114,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js-producer-options/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="58" column="20" lean-forward="true" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+            <state relative-caret-position="1334">
+              <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -1284,15 +1273,55 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
               <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-consumer-account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-producer-financial" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-producer-financial" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-producer-financial" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-producer-financial" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-producer-financial" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jsproducerfinancial" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
@@ -1304,6 +1333,50 @@
               <item name="jaBank" type="462c0819:PsiDirectoryNode" />
               <item name="js-producer-management" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-producer-management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-producer-management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-producer-management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jsproducermanagement" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-producer-management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jsproducermanagement" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jaBank" type="462c0819:PsiDirectoryNode" />
+              <item name="js-producer-management" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jsproducermanagement" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jaBank" type="b2602c69:ProjectViewProjectNode" />
@@ -1444,7 +1517,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="database.console.LAST_STATE" value="true" />
-    <property name="last_opened_file_path" value="G:/小城购物/XCShopping" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.jscs" value="project" />
     <property name="node.js.path.for.package.standard" value="project" />
@@ -1458,7 +1531,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.1546875" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -1735,12 +1808,23 @@
       <workItem from="1542011324763" duration="7385000" />
       <workItem from="1542069528529" duration="2586000" />
       <workItem from="1542075524935" duration="128000" />
-      <workItem from="1542075976764" duration="5115000" />
+      <workItem from="1542075976764" duration="5588000" />
+      <workItem from="1542118552560" duration="516000" />
+      <workItem from="1542119260415" duration="924000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85761000" />
+    <option name="totallyTimeSpent" value="87658000" />
+  </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -1759,7 +1843,8 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32919955" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32919955" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="8" />
@@ -1769,19 +1854,18 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.20631342" />
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32349786" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32832617" />
       <window_info anchor="right" id="Bean Validation" order="4" />
       <window_info id="Web" order="3" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.32919955" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Database Console" order="9" visible="true" weight="0.32980332" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32919955" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32919955" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -2018,14 +2102,14 @@
     <entry file="file://$PROJECT_DIR$/js-producer-options/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
-          <caret line="22" column="40" lean-forward="true" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js-producer-options/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="58" column="20" lean-forward="true" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+        <state relative-caret-position="1334">
+          <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -2034,8 +2118,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js-producer-options/src/main/java/com/example/jsproduceroptions/service/impl/MarketingManagementServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        <state relative-caret-position="230">
+          <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
