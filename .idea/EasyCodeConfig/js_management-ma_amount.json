@@ -1,0 +1,31 @@
+{
+  "name" : "MaAmount",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "userId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "singlePay",
+    "comment" : "单笔支付额度",
+    "type" : "java.lang.Double",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "trojanPay",
+    "comment" : "日累计支付额度",
+    "type" : "java.lang.Double",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.example.jsconsumeraccount",
+  "savePath" : "./js-consumer-account/src/main/java/com/example/jsconsumeraccount",
+  "saveModelName" : "js-consumer-account"
+}
