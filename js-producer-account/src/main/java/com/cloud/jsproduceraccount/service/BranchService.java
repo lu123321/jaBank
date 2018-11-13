@@ -1,0 +1,67 @@
+package com.cloud.jsproduceraccount.service;
+
+import com.cloud.jsproduceraccount.entity.Branch;
+
+import java.text.ParseException;
+import java.util.List;
+
+/**
+ * (Branch)表服务接口
+ *
+ * @author makejava
+ * @since 2018-11-12 10:41:38
+ */
+public interface BranchService {
+
+    /**
+     * 通过ID查询单条数据
+     *
+     * @param branchId 主键
+     * @return 实例对象
+     */
+    String queryById(Integer branchId);
+    /**
+     * 根据业务类型查询可办理银行
+     * @param //branchBusinessone 预约人民币大额提现
+     * @param //branchBusinesstwo 外币现金取款
+     */
+    String query(Integer branchBusinessone,Integer branchBusinesstwo);
+    /**
+     *
+     * 根据星期几和网点ID查询网点受理业务时间段
+     */
+    String queryIdAndTime(Integer branchId,String time) throws ParseException;
+    /**
+     * 查询多条数据
+     *
+     * @param offset 查询起始位置
+     * @param limit 查询条数
+     * @return 对象列表
+     */
+    List<Branch> queryAllByLimit(int offset, int limit);
+
+    /**
+     * 新增数据
+     *
+     * @param branch 实例对象
+     * @return 实例对象
+     */
+    Branch insert(Branch branch);
+
+    /**
+     * 修改数据
+     *
+     * @param branch 实例对象
+     * @return 实例对象
+     */
+//    Branch update(Branch branch);
+
+    /**
+     * 通过主键删除数据
+     *
+     * @param branchId 主键
+     * @return 是否成功
+     */
+    boolean deleteById(Integer branchId);
+
+}
