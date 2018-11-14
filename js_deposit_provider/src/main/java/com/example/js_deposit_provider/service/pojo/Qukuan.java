@@ -4,14 +4,33 @@ package com.example.js_deposit_provider.service.pojo;
  * 取款返回实体类
  */
 public class Qukuan {
-    private String money; //金额
+    private Double money; //金额
     private  String cardid; //卡号
+    private  String businessName;//业务名字
+    private  Double businessRate;//业务利率
 
-    public String getMoney() {
+    public Double getBusinessRate() {
+        return businessRate;
+    }
+
+    public void setBusinessRate(Double businessRate) {
+        this.businessRate = businessRate;
+    }
+
+    public String getBusinessName() {
+        return businessName;
+    }
+
+    public void setBusinessName(String businessName) {
+        this.businessName = businessName;
+    }
+
+
+    public Double getMoney() {
         return money;
     }
 
-    public void setMoney(String money) {
+    public void setMoney(Double money) {
         this.money = money;
     }
 

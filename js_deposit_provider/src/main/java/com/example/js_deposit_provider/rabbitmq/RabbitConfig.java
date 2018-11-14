@@ -1,0 +1,32 @@
+package com.example.js_deposit_provider.rabbitmq;
+
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitAdmin;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Configuration
+public class RabbitConfig {
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
+    public static final String QUEUE_WITHDRAWAL = "Queue_Withdrawal";//发送秒杀订单队列
+    public static final String QUEUE_SECKILL_LOSER = "Queue_Seckill_Loser";//接收秒杀订单失败队列
+
+    @Bean
+    public Queue seckillOrderQueue() {
+        return new Queue(QUEUE_WITHDRAWAL);
+    }
+
+    @Bean
+    public Queue seckillLoserQueue() {
+        return new Queue(QUEUE_SECKILL_LOSER);
+    }
+}

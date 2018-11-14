@@ -14,8 +14,8 @@
     <!--查询单个-->
     <select id="queryById" resultMap="DepositBusinessMap">
         select
-          deposit_businessId, deposit_businessName, deposit_businessMoney, deposit_businessRate, deposit_businessType, deposit_businessLong
-        from js-deposit.deposit_business
+         deposit_businessName,deposit_businessRate
+        from deposit_business
         where deposit_businessId = #{depositBusinessid}
     </select>
 

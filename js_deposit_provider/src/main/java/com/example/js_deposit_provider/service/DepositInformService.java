@@ -65,5 +65,32 @@ public interface DepositInformService {
      * @return
      */
     String getInformByUserid(String userid);
+    /**
+     * 预约取款接口
+     * @param inforid //订单id
+     * @param money  //取款金额
+     * @param begintime // 预约开始时间
+     * @param endbegin //预约结束时间
+     * @return
+     */
+    String subwithdrawal(String inforid,String money,String begintime,String endbegin);
 
+    /**
+     * 定时任务
+     */
+    public void Allwithdrawal();
+
+    /**
+     * 查询客户个人预约存款信息
+     * @param userid
+     * @return
+     */
+    public String getwithdrawal(String userid);
+
+    /**
+     * 根据预约存款id取消预约
+     * @param userid
+     * @return
+     */
+    public  String  cancelSubscribe(String userid);
 }
