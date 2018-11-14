@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>js-producer-account</artifactId>
+    <artifactId>js-producer-list</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>js-producer-account</name>
+    <name>js-producer-list</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>

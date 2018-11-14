@@ -10,8 +10,8 @@
         <module name="js-consumer-list" />
         <module name="js-consumer-management" />
         <module name="js-consumer-options" />
-        <module name="js-producer-account" />
         <module name="js-producer-financial" />
+        <module name="js-producer-list" />
         <module name="js-producer-management" />
         <module name="js-producer-options" />
       </profile>
