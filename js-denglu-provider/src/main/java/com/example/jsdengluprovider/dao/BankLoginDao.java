@@ -10,12 +10,15 @@ import org.springframework.stereotype.Repository;
 @Component
 public interface BankLoginDao {
     //银行预留手机号登录
-    @Select("select phone,webpwd from cardnumber where phone=#{phone} and webpwd=#{webpwd}")
-    BankCard phoneLogin(@Param("phone") String phone, @Param("webpwd") String webpwd);
+    @Select("select phone,webpwd from cardnumber where phone=#{phone}")
+    BankCard phoneLogin(@Param("phone") String phone);
     //银行卡号登录
-    @Select("select cardnum,webpwd from cardnumber where cardnum=#{cardnum} and webpwd=#{webpwd}")
-    BankCard cardLogin(@Param("cardnum") String cardnum,@Param("webpwd") String webpwd);
+    @Select("select cardnum,webpwd from cardnumber where cardnum=#{cardnum}")
+    BankCard cardLogin(@Param("cardnum") String cardnum);
     //用户名登录
-    @Select("select username,webpwd from where username=#{username} and webpwd=#{webpwd}")
-    BankCard usernameLogin(@Param("username") String username,@Param("webpwd") String webpwd);
+    @Select("select username,webpwd from cardnumber where username=#{username}")
+    BankCard usernameLogin(@Param("username") String username);
+    //查询网银状态
+    @Select("select webcardstate from cardnumber where cardnum=#{cardnum}")
+    Integer stateSelect(@Param("cardnum")String cardnum);
 }
