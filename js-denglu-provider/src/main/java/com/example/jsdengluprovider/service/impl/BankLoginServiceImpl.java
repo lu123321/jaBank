@@ -2,6 +2,7 @@ package com.example.jsdengluprovider.service.impl;
 
 import com.example.jsdengluprovider.dao.BankLoginDao;
 import com.example.jsdengluprovider.pojo.BankCard;
+import com.example.jsdengluprovider.pojo.Equipment;
 import com.example.jsdengluprovider.service.BankLoginService;
 import org.springframework.stereotype.Service;
 
@@ -21,17 +22,25 @@ public class BankLoginServiceImpl implements BankLoginService {
     }
 
     @Override
-    public BankCard phoneLogin(String phone, String webpwd) {
-        return bankLoginDao.phoneLogin(phone,webpwd);
+    public BankCard phoneLogin(String phone) {
+        return bankLoginDao.phoneLogin(phone);
     }
 
     @Override
-    public BankCard cardLogin(String cardnum, String webpwd) {
-        return bankLoginDao.cardLogin(cardnum,webpwd);
+    public BankCard cardLogin(String cardnum) {
+        return bankLoginDao.cardLogin(cardnum);
     }
 
     @Override
-    public BankCard usernameLogin(String username, String webpwd) {
-        return bankLoginDao.usernameLogin(username,webpwd);
+    public BankCard usernameLogin(String username) {
+
+        return bankLoginDao.usernameLogin(username);
     }
+
+    @Override
+    public Integer stateSelect(String cardnum) {
+
+        return bankLoginDao.stateSelect(cardnum);
+    }
+
 }

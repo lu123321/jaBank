@@ -1,5 +1,8 @@
 package com.example.jsdengluprovider.pojo;
 
+
+import com.example.jsdengluprovider.util.date.DateUtil;
+
 import java.util.Date;
 
 //用户信息
@@ -13,7 +16,7 @@ public class BankUser {
     private Integer credit;//个人信用度
     private String jingpwd;//个人静态密码
     private Integer sex;//性别（1是男，2是女）
-    private Date birthday;//出生日期
+    private String birthday;//出生日期
     private Integer married;//结婚状态（1未婚，2已婚，3离异，4丧偶）
     private Integer education;//学历（1本科，2硕士，3博士，4大专，5高中，6初中）
     private String occupation;//职业
@@ -26,8 +29,8 @@ public class BankUser {
     private Integer webstate;//网上银行开通状态（0未开通，1已开通）
     private String reservedms;//网银预留信息
     private Integer faststate;//是否快捷支付（0否，1是）
-    private Date idcarddate;//身份证到期日期
-    private Date bankcarddate;//办卡日期
+    private String idcarddate;//身份证到期日期
+//    private String bankcarddate;//办卡日期
     private String e_mail;//邮箱
     private Double tallage;//所交税额
     private Integer integral;//个人积分
@@ -105,10 +108,10 @@ public class BankUser {
     }
 
     public Date getBirthday() {
-        return birthday;
+        return DateUtil.SchangeD(birthday);
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -208,21 +211,21 @@ public class BankUser {
         this.faststate = faststate;
     }
 
-    public Date getIdcarddate() {
+    public String getIdcarddate() {
         return idcarddate;
     }
 
-    public void setIdcarddate(Date idcarddate) {
+    public void setIdcarddate(String idcarddate) {
         this.idcarddate = idcarddate;
     }
 
-    public Date getBankcarddate() {
-        return bankcarddate;
-    }
-
-    public void setBankcarddate(Date bankcarddate) {
-        this.bankcarddate = bankcarddate;
-    }
+//    public Date getBankcarddate() {
+//        return DateUtil.SchangeD(bankcarddate);
+//    }
+//
+//    public void setBankcarddate(String bankcarddate) {
+//        this.bankcarddate = bankcarddate;
+//    }
 
     public String getE_mail() {
         return e_mail;

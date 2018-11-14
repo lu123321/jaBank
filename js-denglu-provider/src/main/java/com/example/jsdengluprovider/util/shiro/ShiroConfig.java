@@ -1,63 +1,77 @@
 package com.example.jsdengluprovider.util.shiro;
 
-import com.example.jsdengluprovider.util.JWT.JwtFilter;
+
+import com.example.jsdengluprovider.util.JWT.JWTFilter;
 import org.apache.shiro.mgt.DefaultSessionStorageEvaluator;
 import org.apache.shiro.mgt.DefaultSubjectDAO;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.Filter;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+@Configuration
 public class ShiroConfig {
-
-    @Bean("shiroFilter")
-    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
+    /**
+     * 创建ShiroFilterFactoryBean
+     */
+    @Bean
+    public ShiroFilterFactoryBean getShiroFilterFactoryBean(@Qualifier("securityManager")DefaultWebSecurityManager securityManager){
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
-        shiroFilterFactoryBean.setSecurityManager((org.apache.shiro.mgt.SecurityManager) securityManager);
-        //拦截器
-        Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
-        // 配置不会被拦截的链接 顺序判断
-        filterChainDefinitionMap.put("/login/**", "anon");
-        filterChainDefinitionMap.put("/**.js", "anon");
-        filterChainDefinitionMap.put("/druid/**", "anon");
-        filterChainDefinitionMap.put("/swagger**/**", "anon");
-        filterChainDefinitionMap.put("/webjars/**", "anon");
-        filterChainDefinitionMap.put("/v2/**", "anon");
-        // 添加自己的过滤器并且取名为jwt
-        Map<String, Filter> filterMap = new HashMap<String, Filter>(1);
-        filterMap.put("jwt", new JwtFilter());
-        shiroFilterFactoryBean.setFilters(filterMap);
-        //<!-- 过滤链定义，从上向下顺序执行，一般将/**放在最为下边
-        filterChainDefinitionMap.put("/**", "jwt");
+        //设置安全管理器
+        shiroFilterFactoryBean.setSecurityManager(securityManager);
+        //添加Shiro内置过滤器，可以实现权限相关的拦截器
+        /**
+         * Shiro内置过滤器，可以实现权限相关的拦截器
+         *      常用过滤器：
+         *          anon：无需验证（登录）可以访问
+         *          authc：必须认证才可以访问
+         *          user：如果使用rememberMe的功能可以直接访问
+         *          perms:该资源必须得到资源权限才可以访问
+         *          role:该资源必须得到角色权限才可以访问
+         */
+        Map<String,String> filterMap = new LinkedHashMap<String, String>();
+        filterMap.put("/home","anon");
+        //放行登录页面
+        filterMap.put("/login","anon");
+        filterMap.put("/*","authc");
+//        Map<String,Filter> filter = new HashMap<String, Filter>(1);
+//        filter.put("jwt",new JWTFilter());
+//        shiroFilterFactoryBean.setFilters(filter);
+//        filterMap.put("/**","jwt");
 
+        //修改跳转的登录页面
+        shiroFilterFactoryBean.setLoginUrl("/toLogin");
 
-        //未授权界面;
-        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
-
-        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
-
+        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
         return shiroFilterFactoryBean;
     }
-
-    @Bean("securityManager")
-    public DefaultWebSecurityManager securityManager(MyRealm myRealm) {
+    /**
+     *
+     * 创建DefaultWebSecurityManager
+     */
+    @Bean(name = "securityManager")
+    public DefaultWebSecurityManager getDefaultWebSecurityManager(@Qualifier("realm") Realm realm){
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        securityManager.setRealm(myRealm);
-
-        /*
-         * 关闭shiro自带的session，详情见文档
-         * http://shiro.apache.org/session-management.html#SessionManagement-StatelessApplications%28Sessionless%29
-         */
-        DefaultSubjectDAO subjectDAO = new DefaultSubjectDAO();
-        DefaultSessionStorageEvaluator defaultSessionStorageEvaluator = new DefaultSessionStorageEvaluator();
-        defaultSessionStorageEvaluator.setSessionStorageEnabled(false);
-        subjectDAO.setSessionStorageEvaluator(defaultSessionStorageEvaluator);
-        securityManager.setSubjectDAO(subjectDAO);
-
+        //关联Reaml
+        securityManager.setRealm(realm);
+//        DefaultSubjectDAO subjectDAO = new DefaultSubjectDAO();
+//        DefaultSessionStorageEvaluator defaultSessionStorageEvaluator = new DefaultSessionStorageEvaluator();
+//        defaultSessionStorageEvaluator.setSessionStorageEnabled(false);
+//        subjectDAO.setSessionStorageEvaluator(defaultSessionStorageEvaluator);
+//        securityManager.setSubjectDAO(subjectDAO);
         return securityManager;
+    }
+    /**
+     * 创建Realm
+     */
+    @Bean(name = "realm")
+    public Realm getRealm(){
+        return new Realm();
     }
 }

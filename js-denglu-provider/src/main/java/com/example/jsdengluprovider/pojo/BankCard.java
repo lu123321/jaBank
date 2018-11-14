@@ -1,19 +1,22 @@
 package com.example.jsdengluprovider.pojo;
 
+import com.example.jsdengluprovider.util.date.DateUtil;
+
 import java.util.Date;
 
 //银行卡信息
 public class BankCard {
     private Integer cardid;//银行卡ID
     private Integer cardtype;//银行卡类型（1是银行卡，2是信用卡）
-    private Integer userpwd;//银行卡密码
+    private String userpwd;//银行卡密码
     private String cardnum;//银行卡号
     private String username;//用户名
     private String phone;//银行卡预留手机号
+    private Integer userid; //用户ID
     private String webpwd;//网银登录密码
     private Integer state;//银行卡状态（0正常，1挂失，2临时挂失，3未激活）
     private Double balance;//卡内余额
-    private Date carddate;//办卡日期
+    private String carddate;//办卡日期
     private Integer webcardstate;//该卡是否是网银
     private String branchname;//办卡网点名称
     private Double  availablebalance;//可用余额
@@ -42,11 +45,11 @@ public class BankCard {
         this.webpwd = webpwd;
     }
 
-    public Integer getUserpwd() {
+    public String getUserpwd() {
         return userpwd;
     }
 
-    public void setUserpwd(Integer userpwd) {
+    public void setUserpwd(String userpwd) {
         this.userpwd = userpwd;
     }
 
@@ -67,10 +70,10 @@ public class BankCard {
     }
 
     public Date getCarddate() {
-        return carddate;
+        return DateUtil.SchangeD(carddate);
     }
 
-    public void setCarddate(Date carddate) {
+    public void setCarddate(String carddate) {
         this.carddate = carddate;
     }
 
@@ -104,6 +107,14 @@ public class BankCard {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Integer userid) {
+        this.userid = userid;
     }
 
     public Integer getState() {

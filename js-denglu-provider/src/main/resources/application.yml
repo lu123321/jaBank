@@ -7,7 +7,7 @@ eureka:
 spring:
   datasource:
     # 使用druid数据源
-    url: jdbc:mysql://localhost:3306/bank
+    url: jdbc:mysql://localhost:3306/bank?charecterEncoding=UTF-8&useSSL=false
     username: root
     password: root
     type: com.alibaba.druid.pool.DruidDataSource
@@ -29,12 +29,11 @@ spring:
     name: js-producer-login
   profiles:
     active: dev
-  zipkin: #追踪
-    base-url: http://localhost:7700
   sleuth:
     sampler:
       percentage: 1.0
-  redis:
-    host: 127.0.0.1
-    port: 6379
-    password:
+mybatis:
+  type-aliases-package: com.example.jsdengluprovider.pojo
+
+
+
