@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="js-consumer-account" />
         <module name="js-consumer-financial" />
+        <module name="js-consumer-list" />
         <module name="js-consumer-management" />
         <module name="js-consumer-options" />
         <module name="js-producer-account" />
