@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/jaBank.iml" filepath="$PROJECT_DIR$/.idea/jaBank.iml" />
+      <module fileurl="file://$PROJECT_DIR$/js-producer-account/js-producer-list.iml" filepath="$PROJECT_DIR$/js-producer-account/js-producer-list.iml" />
     </modules>
   </component>
 </project>
