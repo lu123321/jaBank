@@ -1,10 +1,12 @@
 package com.example.jsdengluprovider.pojo;
 
+import com.example.jsdengluprovider.util.date.DateUtil;
+
 import java.util.Date;
 
 public class Deal {
     private Integer dealid;
-    private Date dealdate;//交易日期
+    private String dealdate;//交易日期
     private String consumption;//消费类型
     private Double consumptionmoney;//交易金额
     private String massige;//对方信息
@@ -29,10 +31,10 @@ public class Deal {
     }
 
     public Date getDealdate() {
-        return dealdate;
+        return DateUtil.SchangeD(dealdate);
     }
 
-    public void setDealdate(Date dealdate) {
+    public void setDealdate(String dealdate) {
         this.dealdate = dealdate;
     }
 

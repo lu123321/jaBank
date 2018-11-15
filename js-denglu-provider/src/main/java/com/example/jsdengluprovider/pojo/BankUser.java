@@ -25,7 +25,7 @@ public class BankUser {
     private String administrative;//行政级别
     private Integer people;//供养人口
     private String work;//工作单位
-    private Date worktime;//开始工作时间
+    private String worktime;//开始工作时间
     private Integer webstate;//网上银行开通状态（0未开通，1已开通）
     private String reservedms;//网银预留信息
     private Integer faststate;//是否快捷支付（0否，1是）
@@ -180,10 +180,10 @@ public class BankUser {
     }
 
     public Date getWorktime() {
-        return worktime;
+        return DateUtil.SchangeD(worktime);
     }
 
-    public void setWorktime(Date worktime) {
+    public void setWorktime(String worktime) {
         this.worktime = worktime;
     }
 

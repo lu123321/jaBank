@@ -1,12 +1,14 @@
 package com.example.jsdengluprovider.pojo;
 
+import com.example.jsdengluprovider.util.date.DateUtil;
+
 import java.util.Date;
 
 //登录记录
 public class Record {
     private Integer recordid;//登录记录ID
-    private Date indate;//进入时间
-    private Date outtime;//退出时间
+    private String indate;//进入时间
+    private String outtime;//退出时间
     private String IPconfig;//IP地址
 
     public Integer getRecordid() {
@@ -18,18 +20,18 @@ public class Record {
     }
 
     public Date getIndate() {
-        return indate;
+        return DateUtil.SchangeD(indate);
     }
 
-    public void setIndate(Date indate) {
+    public void setIndate(String indate) {
         this.indate = indate;
     }
 
     public Date getOuttime() {
-        return outtime;
+        return DateUtil.SchangeD(outtime);
     }
 
-    public void setOuttime(Date outtime) {
+    public void setOuttime(String outtime) {
         this.outtime = outtime;
     }
 
