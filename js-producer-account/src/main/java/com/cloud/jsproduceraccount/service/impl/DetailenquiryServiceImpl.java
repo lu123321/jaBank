@@ -1,5 +1,6 @@
 package com.cloud.jsproduceraccount.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.cloud.jsproduceraccount.entity.Detailenquiry;
 import com.cloud.jsproduceraccount.dao.DetailenquiryDao;
 import com.cloud.jsproduceraccount.service.DetailenquiryService;
@@ -26,21 +27,23 @@ public class DetailenquiryServiceImpl implements DetailenquiryService {
      * @return 实例对象
      */
     @Override
-    public Detailenquiry queryById(Integer detailenquiryId) {
-        return this.detailenquiryDao.queryById(detailenquiryId);
+    public String queryById(Integer detailenquiryId) {
+        return JSON.toJSONString(this.detailenquiryDao.queryById(detailenquiryId));
     }
 
     /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
+     * 根据卡号 时间 流出 支出情况 查询明细
+     * @param detailenquiryNumber
+     * @param detailenquiryDataS
+     * @param detailenquiryFundflow
+     * @return
      */
     @Override
-    public List<Detailenquiry> queryAllByLimit(int offset, int limit) {
-        return this.detailenquiryDao.queryAllByLimit(offset, limit);
+    public String queryAll(String detailenquiryNumber, String detailenquiryDataS, String detailenquiryFundflow) {
+        List<Detailenquiry> detailenquiries = detailenquiryDao.queryAll(detailenquiryNumber, detailenquiryDataS, detailenquiryFundflow);
+        return JSON.toJSONString(detailenquiries);
     }
+
 
     /**
      * 新增数据
@@ -54,17 +57,7 @@ public class DetailenquiryServiceImpl implements DetailenquiryService {
         return detailenquiry;
     }
 
-    /**
-     * 修改数据
-     *
-     * @param detailenquiry 实例对象
-     * @return 实例对象
-     */
-    @Override
-    public Detailenquiry update(Detailenquiry detailenquiry) {
-        this.detailenquiryDao.update(detailenquiry);
-        return this.queryById(detailenquiry.getDetailenquiryId());
-    }
+
 
     /**
      * 通过主键删除数据

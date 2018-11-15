@@ -20,23 +20,26 @@ public interface DetailenquiryDao {
      */
     Detailenquiry queryById(Integer detailenquiryId);
 
-    /**
-     * 查询指定行数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    List<Detailenquiry> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
 
 
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param detailenquiry 实例对象
+     * @param detailenquiryNumber
      * @return 对象列表
      */
-    List<Detailenquiry> queryAll(Detailenquiry detailenquiry);
+    List<Detailenquiry> queryAll(String detailenquiryNumber,String detailenquiryDataS,String detailenquiryFundflow);
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * 新增数据

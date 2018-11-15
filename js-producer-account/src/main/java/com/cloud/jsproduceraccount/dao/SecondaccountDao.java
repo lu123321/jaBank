@@ -15,19 +15,10 @@ public interface SecondaccountDao {
     /**
      * 通过ID查询单条数据
      *
-     * @param accountId 主键
+     * @param accountUserid 主键
      * @return 实例对象
      */
-    Secondaccount queryById(Integer accountId);
-
-    /**
-     * 查询指定行数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    List<Secondaccount> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+    Secondaccount queryById(Integer accountUserid);
 
 
     /**
@@ -47,12 +38,18 @@ public interface SecondaccountDao {
     int insert(Secondaccount secondaccount);
 
     /**
+     * 根据卡号查询出价格
+     * @param accountCard
+     * @return
+     */
+    Secondaccount selprice(String accountCard);
+    /**
      * 修改数据
      *
-     * @param secondaccount 实例对象
+     * @param
      * @return 影响行数
      */
-    int update(Secondaccount secondaccount);
+    int update(@Param("price") Double price,@Param("accountCard") String accountCard);
 
     /**
      * 通过主键删除数据

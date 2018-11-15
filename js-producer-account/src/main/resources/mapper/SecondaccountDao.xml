@@ -6,83 +6,36 @@
         <result property="accountId" column="account_id" jdbcType="INTEGER"/>
         <result property="accountIdnumber" column="account_IDnumber" jdbcType="VARCHAR"/>
         <result property="accountCard" column="account_card" jdbcType="VARCHAR"/>
-        <result property="accountPrice" column="account_price" jdbcType="INTEGER"/>
+        <result property="accountPrice" column="account_price" jdbcType="DOUBLE"/>
         <result property="accountMycard" column="account_mycard" jdbcType="VARCHAR"/>
         <result property="accountOpenbank" column="account_openbank" jdbcType="INTEGER"/>
         <result property="accountPwd" column="account_pwd" jdbcType="INTEGER"/>
         <result property="accountUserid" column="account_userid" jdbcType="INTEGER"/>
+        <result property="accountPaynumber" column="account_paynumber" jdbcType="VARCHAR"/>
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="SecondaccountMap">
         select
-          account_id, account_IDnumber, account_card, account_openbank, account_pwd, account_userid
-        from js_bank_account.secondaccount
-        where account_id = #{accountId}
+          account_id, account_card, account_openbank
+        from secondaccount
+        where account_userid = #{accountUserid}
     </select>
 
-    <!--查询指定行数据-->
-    <select id="queryAllByLimit" resultMap="SecondaccountMap">
-        select
-          account_id, account_IDnumber, account_card, account_openbank, account_pwd, account_userid
-        from js_bank_account.secondaccount
-        limit #{offset}, #{limit}
-    </select>
 
-    <!--通过实体作为筛选条件查询-->
-    <select id="queryAll" resultMap="SecondaccountMap">
-        select
-          account_id, account_IDnumber, account_card, account_openbank, account_pwd, account_userid
-        from js_bank_account.secondaccount
-        <where>
-            <if test="accountId != null">
-                and account_id = #{accountId}
-            </if>
-            <if test="accountIdnumber != null and accountIdnumber != ''">
-                and account_IDnumber = #{accountIdnumber}
-            </if>
-            <if test="accountCard != null and accountCard != ''">
-                and account_card = #{accountCard}
-            </if>
-            <if test="accountOpenbank != null">
-                and account_openbank = #{accountOpenbank}
-            </if>
-            <if test="accountPwd != null">
-                and account_pwd = #{accountPwd}
-            </if>
-            <if test="accountUserid != null">
-                and account_userid = #{accountUserid}
-            </if>
-        </where>
-    </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="accountId" useGeneratedKeys="true" parameterType="com.cloud.jsproduceraccount.entity.Secondaccount">
         insert into secondaccount(account_IDnumber, account_card, account_mycard, account_openbank, account_pwd, account_userid)
         values (#{accountIdnumber}, #{accountCard}, #{accountMycard}, #{accountOpenbank}, #{accountPwd}, #{accountUserid})
     </insert>
-
+    <!--根据卡号查询出该卡号的余额-->
+    <select id="selprice" resultMap="SecondaccountMap">
+        select account_price from secondaccount where account_card = #{accountCard}
+    </select>
     <!--通过主键修改数据-->
     <update id="update">
-        update js_bank_account.secondaccount
-        <set>
-            <if test="accountIdnumber != null and accountIdnumber != ''">
-                account_IDnumber = #{accountIdnumber},
-            </if>
-            <if test="accountCard != null and accountCard != ''">
-                account_card = #{accountCard},
-            </if>
-            <if test="accountOpenbank != null">
-                account_openbank = #{accountOpenbank},
-            </if>
-            <if test="accountPwd != null">
-                account_pwd = #{accountPwd},
-            </if>
-            <if test="accountUserid != null">
-                account_userid = #{accountUserid},
-            </if>
-        </set>
-        where account_id = #{accountId}
+        update secondaccount set account_price = #{price} where account_card = #{accountCard}
     </update>
 
     <!--通过主键删除-->

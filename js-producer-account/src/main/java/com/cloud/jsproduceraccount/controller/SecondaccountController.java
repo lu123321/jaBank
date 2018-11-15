@@ -21,14 +21,14 @@ public class SecondaccountController {
     private SecondaccountService secondaccountService;
 
     /**
-     * 通过主键查询单条数据
+     * 通过用户ID查询二类账户卡号信息进行展示
      *
-     * @param id 主键
+     * @param accountUserid 主键
      * @return 单条数据
      */
-    @PostMapping("selectOne")
-    public Secondaccount selectOne(Integer id) {
-        return this.secondaccountService.queryById(id);
+    @RequestMapping(value = "selectOneId",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String selectOne(Integer accountUserid) {
+        return this.secondaccountService.queryById(accountUserid);
     }
 
     /**
@@ -62,6 +62,20 @@ public class SecondaccountController {
      */
     @RequestMapping(value = "applyfortwo",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String applyfor(Secondaccount secondaccount,String pwdone,String pwdtwo,String auth,String phone){
+
         return this.secondaccountService.insert(secondaccount,pwdone,pwdtwo,auth,phone);
+
+    }
+
+    /**
+     * 给二类账户汇款，修改价格
+     * @param price
+     * @param paynumber
+     * @param accountCard
+     * @return
+     */
+    @RequestMapping(value = "updataprice",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String updataprice(String price,String paynumber,String accountCard){
+        return this.secondaccountService.update(price,paynumber,accountCard);
     }
 }

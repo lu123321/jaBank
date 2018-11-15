@@ -17,16 +17,16 @@ public interface DetailenquiryService {
      * @param detailenquiryId 主键
      * @return 实例对象
      */
-    Detailenquiry queryById(Integer detailenquiryId);
+    String queryById(Integer detailenquiryId);
 
     /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
+     * 根据卡号 时间 流出 支出情况 查询明细
+     * @param detailenquiryNumber
+     * @param detailenquiryDataS
+     * @param detailenquiryFundflow
+     * @return
      */
-    List<Detailenquiry> queryAllByLimit(int offset, int limit);
+    String queryAll(String detailenquiryNumber,String detailenquiryDataS,String detailenquiryFundflow);
 
     /**
      * 新增数据
@@ -36,13 +36,7 @@ public interface DetailenquiryService {
      */
     Detailenquiry insert(Detailenquiry detailenquiry);
 
-    /**
-     * 修改数据
-     *
-     * @param detailenquiry 实例对象
-     * @return 实例对象
-     */
-    Detailenquiry update(Detailenquiry detailenquiry);
+
 
     /**
      * 通过主键删除数据

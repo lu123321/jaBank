@@ -21,10 +21,10 @@ public interface SecondaccountService {
     /**
      * 通过ID查询单条数据
      *
-     * @param accountId 主键
+     * @param accountUserid 主键
      * @return 实例对象
      */
-    Secondaccount queryById(Integer accountId);
+    String queryById(Integer accountUserid);
 
     /**
      * 发送验证码
@@ -43,10 +43,10 @@ public interface SecondaccountService {
     /**
      * 修改数据
      *
-     * @param secondaccount 实例对象
+     * @param
      * @return 实例对象
      */
-    Secondaccount update(Secondaccount secondaccount);
+    String update(String price,String paynumber,String accountCard);
 
     /**
      * 通过主键删除数据

@@ -15,11 +15,9 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * (Appointment)表服务实现类
@@ -164,8 +162,10 @@ public class AppointmentServiceImpl implements AppointmentService {
 //        String st = (String) redisUtil.get(appointment.getAppointmentId() + "");
 
 //        if (Token != null && !"".equals(Token) && Token.equals(st) ){
+
         Date date = new Date();
-        StringBuffer sb = new StringBuffer();
+
+        /*StringBuffer sb = new StringBuffer();
         String str = "0123456789";
         Random r = new Random();
         for(int i=0;i<7;i++){
@@ -177,10 +177,20 @@ public class AppointmentServiceImpl implements AppointmentService {
         String stro = new SimpleDateFormat("yyyyMM").format(date);
         Long m = Long.parseLong((stro)) * 10000000000000L;
         Long l = Long.parseLong(sb.toString());
-        Long ll = m + l;
+        Long ll = m + l;*/
 
-        appointment.setAppointmentNumber(String.valueOf(ll));//预约编号
-        appointment.setAppointmentUserid(1);//预约人ID  前台给
+        DateFormat format = new SimpleDateFormat("yyyyMMdd");
+        String time = format.format(date);
+        int hashCodeV = UUID.randomUUID().toString().hashCode();
+        if (hashCodeV < 0) {//有可能是负数
+            hashCodeV = -hashCodeV;
+        }
+        // 0 代表前面补充0
+        // 4 代表长度为4
+        // d 代表参数为正数型
+        String a = time + String.format("%011d", hashCodeV);
+
+        appointment.setAppointmentNumber(String.valueOf(a));//预约编号
         appointment.setAppointmentCurrency(1);//默认人名币 1 代表人名币
         String data = new SimpleDateFormat("yyyy-MM-dd").format(date);
         appointment.setAppointmentCurrentdata(data);
@@ -190,9 +200,8 @@ public class AppointmentServiceImpl implements AppointmentService {
         int insert = this.appointmentDao.insert(appointment);
 
         if (insert > 0){
-            Branch branch = branchDao.queryById(appointment.getAppointmentId());
-
-            return "[{\"200\"\":\""+ String.valueOf(ll) + "\"}" + "," + "{\"200\"\":\""+ branch.getBranchName() + "\"}" + "]";
+            Branch branch = branchDao.queryById(appointment.getAppointmentBranch());
+            return "[{\"200\"\":\""+ String.valueOf(a) + "\"}" + "," + "{\"200\"\":\""+ branch.getBranchName() + "\"}" + "]";
         }else {
             return "{\"401\":\"预约失败!\"}";
         }

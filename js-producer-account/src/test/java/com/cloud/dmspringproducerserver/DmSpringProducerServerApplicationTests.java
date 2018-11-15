@@ -3,6 +3,7 @@ package com.cloud.dmspringproducerserver;
 import com.cloud.jsproduceraccount.SMS.IndustrySMS;
 import com.cloud.jsproduceraccount.Voice.VoiceCode;
 import com.cloud.jsproduceraccount.uitl.RedisUtil;
+import io.netty.handler.codec.http.HttpMethod;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,10 +18,7 @@ import java.util.*;
 @SpringBootTest
 public class DmSpringProducerServerApplicationTests {
 
-   /* @Test
-    public void contextLoads() {
-    }
-*/
+
    /*public static final String PREFIX = "";
     private static long code;
     *//*public static void main(String[] args) {
@@ -92,7 +90,6 @@ public class DmSpringProducerServerApplicationTests {
     }*/
 
     public static void main(String[] args) throws ParseException {
-
             /*SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
             Date tmpDate = format.parse("2018-11-12");
@@ -132,9 +129,11 @@ public class DmSpringProducerServerApplicationTests {
         System.out.println(execute);*/
 //        String execute = VoiceCode.execute("0");
 
-
+        String name = HttpMethod.POST.name();
+        System.out.println(name);
 //        int i = new Random().nextInt(1000000);
 //        System.out.println(i);
+
 
     }
 }

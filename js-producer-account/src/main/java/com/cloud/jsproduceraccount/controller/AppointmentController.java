@@ -1,5 +1,7 @@
 package com.cloud.jsproduceraccount.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.cloud.jsproduceraccount.Voice.VoiceCode;
 import com.cloud.jsproduceraccount.entity.Appointment;
 import com.cloud.jsproduceraccount.service.AppointmentService;
@@ -51,17 +53,23 @@ public class AppointmentController {
         return this.appointmentService.sellAll(appId,Userid);
     }
     /**
-     * 添加预约信息
+     * 添加预约信息       消费者从网关redis那里得到电话传进来
      * @param appointment
      * @return
      */
-    @RequestMapping(value = "insertOne",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
-    public ModelAndView insertOne(@RequestBody Appointment appointment){
+    /*@RequestMapping(value = "insertOne",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public ModelAndView insertOne(Appointment appointment){
         System.out.println("controller");
         ModelAndView mav = new ModelAndView();
         mav.addObject("insert",appointmentService.insert(appointment));
         mav.setViewName("返回跳转页面");
         return mav;
+    }*/
+
+    @RequestMapping(value = "insertOne",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String insertOne(@RequestBody Appointment appointment){
+        System.out.println("controller");
+        return appointmentService.insert(appointment);
     }
 
     /**
@@ -74,7 +82,7 @@ public class AppointmentController {
         return appointmentService.update(appId);
     }
     String a = new Random().nextInt(1000000)+"";
-    @RequestMapping("/aa")
+    @RequestMapping(value = "/aa",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String aa(){
         VoiceCode.execute("0");
         System.out.println(redisUtil);

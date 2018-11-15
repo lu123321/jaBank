@@ -31,14 +31,6 @@ public interface BranchService {
      * 根据星期几和网点ID查询网点受理业务时间段
      */
     String queryIdAndTime(Integer branchId,String time) throws ParseException;
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    List<Branch> queryAllByLimit(int offset, int limit);
 
     /**
      * 新增数据
@@ -47,14 +39,6 @@ public interface BranchService {
      * @return 实例对象
      */
     Branch insert(Branch branch);
-
-    /**
-     * 修改数据
-     *
-     * @param branch 实例对象
-     * @return 实例对象
-     */
-//    Branch update(Branch branch);
 
     /**
      * 通过主键删除数据

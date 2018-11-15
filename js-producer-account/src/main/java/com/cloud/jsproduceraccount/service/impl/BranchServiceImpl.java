@@ -88,17 +88,6 @@ public class BranchServiceImpl implements BranchService {
         return data;
     }
 
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    @Override
-    public List<Branch> queryAllByLimit(int offset, int limit) {
-        return this.branchDao.queryAllByLimit(offset, limit);
-    }
 
     /**
      * 新增数据
@@ -112,17 +101,6 @@ public class BranchServiceImpl implements BranchService {
         return branch;
     }
 
-    /**
-     * 修改数据
-     *
-     * @param branch 实例对象
-     * @return 实例对象
-     */
-    /*@Override
-    public Branch update(Branch branch) {
-        this.branchDao.update(branch);
-        return this.queryById(branch.getBranchId());
-    }*/
 
     /**
      * 通过主键删除数据
