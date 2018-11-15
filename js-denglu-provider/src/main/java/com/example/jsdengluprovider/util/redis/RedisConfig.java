@@ -92,7 +92,7 @@ public class RedisConfig {
         //连接池
         JedisConnectionFactory.setPoolConfig(jedisPoolConfig);
         //IP地址
-        JedisConnectionFactory.setHostName("127.0.0.1");
+        JedisConnectionFactory.setHostName("39.105.14.47");
         //端口号
         JedisConnectionFactory.setPort(6379);
         //如果Redis设置有密码

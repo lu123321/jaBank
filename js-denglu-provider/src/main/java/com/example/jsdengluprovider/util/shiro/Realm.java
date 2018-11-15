@@ -3,6 +3,10 @@ package com.example.jsdengluprovider.util.shiro;
 import com.example.jsdengluprovider.pojo.BankCard;
 import com.example.jsdengluprovider.service.BankLoginService;
 ;
+import com.example.jsdengluprovider.util.JWT.CreatUtil;
+import com.example.jsdengluprovider.util.redis.RedisUtil;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -14,6 +18,11 @@ import javax.annotation.Resource;
 public class Realm extends AuthorizingRealm {
     @Resource
     private BankLoginService bankLoginService;
+    @Resource
+    private RedisUtil redisUtil;
+
+    private int userid;
+
 //    @Override
 //    public boolean supports(AuthenticationToken authenticationToken){
 //        return authenticationToken instanceof JWTToken;
@@ -34,13 +43,34 @@ public class Realm extends AuthorizingRealm {
 
 
         if (bankCard != null){
+            Integer userid = bankCard.getUserid();
+            this.userid = userid;
+            Claims claims = Jwts.claims();
+            claims.put("user",userid);
+            String s = CreatUtil.generateJwt(claims);
+            redisUtil.set(userid+"token",s,1800);
             return new SimpleAuthenticationInfo("",bankCard.getWebpwd(),"");
         }else if (bankCard1 != null){
+            Integer userid = bankCard1.getUserid();
+            this.userid = userid;
+            Claims claims = Jwts.claims();
+            claims.put("user",userid);
+            String s = CreatUtil.generateJwt(claims);
+            redisUtil.set(userid+"token",s,1800);
             return new SimpleAuthenticationInfo("",bankCard1.getWebpwd(),"");
         }else if (bankCard2!=null){
+            Integer userid = bankCard2.getUserid();
+            this.userid = userid;
+            Claims claims = Jwts.claims();
+            claims.put("user",userid);
+            String s = CreatUtil.generateJwt(claims);
+            redisUtil.set(userid+"token",s,1800);
             return new SimpleAuthenticationInfo("",bankCard2.getWebpwd(),"");
         }else {
             return null;
         }
+    }
+    public int getid(){
+        return userid;
     }
 }
