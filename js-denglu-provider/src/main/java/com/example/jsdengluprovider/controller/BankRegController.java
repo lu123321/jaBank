@@ -17,6 +17,7 @@ public class BankRegController {
     @RequestMapping(value = "zhuce",method = RequestMethod.POST)
     public String bankuser(BankUser bankuser,BankCard bankcard){
         String s = rs.addBankuser(bankuser, bankcard);
+
         return JSON.toJSONString(s);
     }
 }
