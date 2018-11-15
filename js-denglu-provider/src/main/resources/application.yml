@@ -32,6 +32,17 @@ spring:
   sleuth:
     sampler:
       percentage: 1.0
+  rabbitmq:
+    host: 123.206.255.244
+    port: 5672
+    username: rabbit
+    password: rabbit
+    virtual-host: /rabbit-1
+    publisher-confirms: true
+    publisher-returns: true
+    listener:
+        simple:
+          prefetch: 1
 mybatis:
   type-aliases-package: com.example.jsdengluprovider.pojo
 
