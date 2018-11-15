@@ -43,4 +43,14 @@ public class BankLoginServiceImpl implements BankLoginService {
         return bankLoginDao.stateSelect(cardnum);
     }
 
+    @Override
+    public Integer stateSelect1(String phone) {
+        return bankLoginDao.stateSelect1(phone);
+    }
+
+    @Override
+    public Integer stateSelect2(String username) {
+        return bankLoginDao.stateSelect2(username);
+    }
+
 }
