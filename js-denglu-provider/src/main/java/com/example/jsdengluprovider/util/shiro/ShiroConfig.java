@@ -1,17 +1,12 @@
 package com.example.jsdengluprovider.util.shiro;
 
 
-import com.example.jsdengluprovider.util.JWT.JWTFilter;
-import org.apache.shiro.mgt.DefaultSessionStorageEvaluator;
-import org.apache.shiro.mgt.DefaultSubjectDAO;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.servlet.Filter;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -39,7 +34,8 @@ public class ShiroConfig {
         filterMap.put("/home","anon");
         //放行登录页面
         filterMap.put("/login","anon");
-        filterMap.put("/*","anon");
+        filterMap.put("/yanzheng","anon");
+        filterMap.put("/*","authc");
 //        Map<String,Filter> filter = new HashMap<String, Filter>(1);
 //        filter.put("jwt",new JWTFilter());
 //        shiroFilterFactoryBean.setFilters(filter);
