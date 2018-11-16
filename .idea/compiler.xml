@@ -12,7 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="js-consumer-denglu" target="1.7" />
-      <module name="js-denglu-provider" target="1.7" />
+      <module name="js-denglu-provider" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

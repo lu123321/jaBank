@@ -1,24 +1,32 @@
 package com.example.jsdengluprovider.controller;
 
 
-import com.example.jsdengluprovider.dao.RecordMessageDao;
+import com.example.jsdengluprovider.pojo.BankCard;
 import com.example.jsdengluprovider.service.BankLoginService;
-import com.example.jsdengluprovider.service.RecordService;
-import com.example.jsdengluprovider.util.duanxin.IndustrySMS;
+import com.example.jsdengluprovider.util.JWT.CreatUtil;
+import com.example.jsdengluprovider.util.model.ResultMap;
+
 import com.example.jsdengluprovider.util.redis.RedisUtil;
 import com.example.jsdengluprovider.util.shiro.Realm;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
+
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+
 import javax.servlet.ServletException;
 import java.io.IOException;
 import java.util.regex.Matcher;
@@ -27,11 +35,7 @@ import java.util.regex.Pattern;
 @Controller
 public class BankLoginController {
     @Resource
-    private RecordMessageDao rm;
-    @Resource
     private final BankLoginService bankLoginService;
-    @Resource
-    private RecordService rs;
     @Resource
     private Realm realm;
     @Resource
@@ -49,7 +53,7 @@ public class BankLoginController {
         public ModelAndView Login(String name, String password, ModelAndView model)
             throws ServletException,IOException {
         final String sjh = "((13[0-9])|(14[5,7,9])|(15([0-3]|[5-9]))|(166)|(17[0,1,3,5,6,7,8])|(18[0-9])|(19[8|9]))\\d{8}$";
-        final String yhk = "^([1-9]{1})(\\d{18})$";
+        final String yhk = "^([1-9]{1})(\\d{14}|\\d{18})$";
         final String username = "^[A-Za-z0-9]{8,32}$";
 
         Pattern compile1 = Pattern.compile(sjh);
@@ -94,6 +98,7 @@ public class BankLoginController {
             //封装用户数据
             UsernamePasswordToken token = new UsernamePasswordToken(name,password);
             try {
+                //执行登录方法
                 subject.login(token);
                 int getid = realm.getid();
                 String t = (String) redisUtil.get(getid + "token");
@@ -101,37 +106,13 @@ public class BankLoginController {
                 model.addObject("token",t);
                 model.addObject("id",getid);
                 //判断是否是在设备上第一次登陆
-                String s = rs.selectRecord(getid);
-                if(s == "1"){
-                    //执行登录方法
-                    return model;
-                }else {
-                    //给手机号发送验证码，通过id拿到手机号码。
-               /*  解析token
-                  String  o = (String) redisUtil.get(getid + "token");
-                    byte[] secretKey = Base64.getEncoder().encode(CommonConstants.SECURITY_KEY.getBytes());
-                    Claims body = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(o).getBody();
-                    Integer id = (Integer) body.get("user");*/
-                    String ss = rm.selectPhone(getid);
-                    String execute = IndustrySMS.execute(ss);
-                    redisUtil.set("yzm", execute,180);
-//                    String yanz = null;
-//                    yz(yanz);
-                  /*  String s1 = rs.addRecord(getid);
-                    String yzm = (String) redisUtil.get("yzm");
-                    if(s1 == yzm){
-                        return model;
-                    }else {
-                        model.setViewName("手机验证失败");*/
-                    model.setViewName("yz");
-                        return model;
-//                    }
-                }
 
+
+                return model;
             }catch (UnknownAccountException e){
                 e.printStackTrace();
                 model.addObject("msg","用户名错误");
-                model.setViewName("login");
+                model.setViewName("/login");
                 return model;
             }catch (IncorrectCredentialsException e){
                 e.printStackTrace();
@@ -159,24 +140,4 @@ public class BankLoginController {
 
         return "/login";
     }
-
-    @RequestMapping(value = "yz",method = RequestMethod.POST)
-    public ModelAndView yz(String yanZheng,ModelAndView model){
-        int getid = realm.getid();
-        String yzm = (String) redisUtil.get("yzm");
-        System.out.println(yzm + "=============" + yanZheng);
-
-        if (yzm.equals(yanZheng)){
-            rs.addRecord(getid);
-            model.setViewName("test");
-            return model;
-        }else {
-            redisUtil.del(getid + "token");
-            Subject subject = SecurityUtils.getSubject();
-            subject.logout();
-            model.setViewName("login");
-            return model;
-        }
-    }
-
 }
