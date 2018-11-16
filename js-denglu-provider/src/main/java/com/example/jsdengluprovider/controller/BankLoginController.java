@@ -105,6 +105,8 @@ public class BankLoginController {
                 model.setViewName("/test");
                 model.addObject("token",t);
                 model.addObject("id",getid);
+                //判断是否是在设备上第一次登陆
+
 
                 return model;
             }catch (UnknownAccountException e){
