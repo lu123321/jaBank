@@ -1,13 +1,12 @@
 package com.cloud.jsproduceraccount.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.cloud.jsproduceraccount.Voice.VoiceCode;
 import com.cloud.jsproduceraccount.entity.Appointment;
 import com.cloud.jsproduceraccount.service.AppointmentService;
+import com.cloud.jsproduceraccount.service.pojovalue.Selectdetails;
+import com.cloud.jsproduceraccount.service.pojovalue.Selectone;
 import com.cloud.jsproduceraccount.uitl.RedisUtil;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.Random;
@@ -30,27 +29,27 @@ public class AppointmentController {
 
     /**
      * 通过UserId和时间段查询预约数据集合
-     * @param UserId
-     * @param timeone
-     * @param tiometwo
+     * @param
+     * @param
+     * @param
      * @return
      */
     @RequestMapping(value = "selectOne",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
-    public String selectOne(Integer UserId,String timeone, String tiometwo,Integer index,Integer pageSize) {
-
-        return this.appointmentService.queryById(UserId,timeone,tiometwo,index,pageSize);
+    public String selectOne(@RequestBody Selectone selectone) {
+        System.out.println("getUserId"+selectone.getUserId());
+        return this.appointmentService.queryById(selectone.getUserId(),selectone.getTimeone(),selectone.getTimetwo(),selectone.getIndex(),selectone.getPageSize());
 
     }
 
     /**
      * 根据预约信息ID和用户ID查询详细信息
-     * @param appId
-     * @param Userid
+     * @param
+     * @param
      * @return
      */
     @RequestMapping(value = "selectdetails",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
-    public String selectdetails(Integer appId,Integer Userid){
-        return this.appointmentService.sellAll(appId,Userid);
+    public String selectdetails(@RequestBody Selectdetails selectdetails){
+        return this.appointmentService.sellAll(selectdetails.getAppId(),selectdetails.getUserid());
     }
     /**
      * 添加预约信息       消费者从网关redis那里得到电话传进来
@@ -78,9 +77,13 @@ public class AppointmentController {
      * @return
      */
     @RequestMapping(value = "updatastate",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
-    public int updata(Integer appId){
+    public int updata(@RequestParam("appId") Integer appId){
+        System.out.println("appid +++ " + appId);
         return appointmentService.update(appId);
     }
+
+
+    ///****************************
     String a = new Random().nextInt(1000000)+"";
     @RequestMapping(value = "/aa",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String aa(){

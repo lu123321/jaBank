@@ -20,6 +20,13 @@ public interface BranchService {
      * @return 实例对象
      */
     String queryById(Integer branchId);
+
+    /**
+     * 根据ID查询网点信息
+     * @return
+     */
+    String queryByallid(Integer branchId);
+
     /**
      * 根据业务类型查询可办理银行
      * @param //branchBusinessone 预约人民币大额提现

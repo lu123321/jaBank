@@ -16,6 +16,8 @@ public class Branch implements Serializable {
     private String branchName;
     //网点地址
     private String branchSite;
+    //网点电话
+    private String branchPhone;
     //1 3 5 7受理业务的时间段  {"one":"09:30 - 12:30","two":"14:30 - 16:30"}
     private String branchData;
     //2 4 6受理业务的时间段  {"one":"09:00 - 10:30","two":"15:30 - 17:00"}
@@ -52,6 +54,14 @@ public class Branch implements Serializable {
 
     public void setBranchSite(String branchSite) {
         this.branchSite = branchSite;
+    }
+
+    public String getBranchPhone() {
+        return branchPhone;
+    }
+
+    public void setBranchPhone(String branchPhone) {
+        this.branchPhone = branchPhone;
     }
 
     public String getBranchData() {

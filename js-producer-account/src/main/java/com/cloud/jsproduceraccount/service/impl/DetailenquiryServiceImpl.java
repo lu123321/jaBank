@@ -52,9 +52,12 @@ public class DetailenquiryServiceImpl implements DetailenquiryService {
      * @return 实例对象
      */
     @Override
-    public Detailenquiry insert(Detailenquiry detailenquiry) {
-        this.detailenquiryDao.insert(detailenquiry);
-        return detailenquiry;
+    public String insert(Detailenquiry detailenquiry) {
+        int insert = this.detailenquiryDao.insert(detailenquiry);
+        if (insert > 0){
+            return "200";
+        }
+        return "500";
     }
 
 

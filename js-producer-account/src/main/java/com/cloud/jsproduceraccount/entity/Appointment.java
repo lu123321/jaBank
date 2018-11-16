@@ -21,7 +21,7 @@ public class Appointment implements Serializable {
     //币种  关联币种表
     private Integer appointmentCurrency;
     //预约取款金额
-    private Double appointmentPrice;
+    private String appointmentPrice;
     //预约办理网点  关联网点表
     private Integer appointmentBranch;
     //预约办理日期(年月日)
@@ -82,11 +82,11 @@ public class Appointment implements Serializable {
         this.appointmentCurrency = appointmentCurrency;
     }
 
-    public Double getAppointmentPrice() {
+    public String getAppointmentPrice() {
         return appointmentPrice;
     }
 
-    public void setAppointmentPrice(Double appointmentPrice) {
+    public void setAppointmentPrice(String appointmentPrice) {
         this.appointmentPrice = appointmentPrice;
     }
 

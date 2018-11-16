@@ -2,6 +2,7 @@ package com.cloud.dmspringproducerserver;
 
 import com.cloud.jsproduceraccount.SMS.IndustrySMS;
 import com.cloud.jsproduceraccount.Voice.VoiceCode;
+import com.cloud.jsproduceraccount.uitl.RandomCreditCardNumberGeneratorss;
 import com.cloud.jsproduceraccount.uitl.RedisUtil;
 import io.netty.handler.codec.http.HttpMethod;
 import org.junit.Test;
@@ -13,6 +14,8 @@ import javax.annotation.Resource;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -129,11 +132,25 @@ public class DmSpringProducerServerApplicationTests {
         System.out.println(execute);*/
 //        String execute = VoiceCode.execute("0");
 
-        String name = HttpMethod.POST.name();
-        System.out.println(name);
+        /*RandomCreditCardNumberGeneratorss ran = new RandomCreditCardNumberGeneratorss();
+        String[] main = ran.main();
+        System.out.println(main);*/
+
+        /*String name = HttpMethod.POST.name();
+        System.out.println(name);*/
 //        int i = new Random().nextInt(1000000);
 //        System.out.println(i);
 
+        /*Pattern pattern = Pattern.compile("[0-9]*");
+        Matcher isNum = pattern.matcher("123");
+        System.out.println(isNum.matches());*/
+
+      /*  Pattern PATTERN = Pattern.compile("0|([-]?[1-9][0-9]*)");
+        boolean matches = PATTERN.matcher("123.00").matches();
+        System.out.println(matches);
+        Pattern pattern = Pattern.compile("^[-\\+]?\\d+(\\.\\d*)?|\\.\\d+$");
+        boolean matches2 = pattern.matcher("123.00").matches();
+        System.out.println(matches2);*/
 
     }
 }

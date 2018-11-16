@@ -27,7 +27,7 @@ public class BranchController {
      * @param id 主键
      * @return 单条数据
      */
-    @RequestMapping("selectOnesite")
+    @RequestMapping(value = "selectOnesite",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String selectOne(Integer id) {
         return this.branchService.queryById(id);
     }
@@ -38,7 +38,7 @@ public class BranchController {
      * @param branchBusinesstwo
      * @return
      */
-    @RequestMapping("allbranch")
+    @RequestMapping(value = "allbranch",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String query(@RequestParam(value = "branchBusinessone",required = false) Integer branchBusinessone,@RequestParam(value = "branchBusinesstwo",required = false) Integer branchBusinesstwo){
         return branchService.query(branchBusinessone,branchBusinesstwo);
     }
@@ -49,8 +49,18 @@ public class BranchController {
      * @param time
      * @return
      */
-    @RequestMapping("querytime")
+    @RequestMapping(value = "querytime",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String queryTime(@RequestParam("branchId") Integer branchId,@RequestParam("time") String time) throws ParseException {
         return branchService.queryIdAndTime(branchId,time);
+    }
+
+    /**
+     * 根据ID查询网点信息
+     * @param branchId
+     * @return
+     */
+    @RequestMapping(value = "querybranch",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String queryaddid(@RequestParam("branchId") Integer branchId){
+        return branchService.queryByallid(branchId);
     }
 }

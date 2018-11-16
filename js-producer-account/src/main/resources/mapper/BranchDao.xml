@@ -6,6 +6,7 @@
         <result property="branchId" column="branch_id" jdbcType="INTEGER"/>
         <result property="branchName" column="branch_name" jdbcType="VARCHAR"/>
         <result property="branchSite" column="branch_site" jdbcType="VARCHAR"/>
+        <result property="branchPhone" column="branch_phone" jdbcType="VARCHAR"/>
         <result property="branchData" column="branch_data" jdbcType="VARCHAR"/>
         <result property="branchBusinessone" column="branch_businessone" jdbcType="INTEGER"/>
         <result property="branchBusinesstwo" column="branch_businesstwo" jdbcType="INTEGER"/>
@@ -13,7 +14,10 @@
         <result property="branchDimensionality" column="branch_dimensionality" jdbcType="VARCHAR"/>
         <result property="branchDataTwo" column="branch_datatwo" jdbcType="INTEGER"/>
     </resultMap>
-
+    <!--根据ID查网点-->
+    <select id="queryByallid" resultMap="BranchMap">
+        select branch_id,branch_name,branch_site,branch_phone from branch where branch_id = #{id}
+    </select>
     <!--查询单个网点地址-->
     <select id="queryById" resultMap="BranchMap">
         select branch_site from branch where branch_id = #{id}

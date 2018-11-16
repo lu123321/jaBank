@@ -74,7 +74,7 @@
   } ],
   "pkColumn" : null,
   "otherColumn" : null,
-  "savePackageName" : "com.cloud.dmspringproducerserver",
-  "savePath" : "./js-spring-producer2-server/src/main/java/com/cloud/dmspringproducerserver",
-  "saveModelName" : "js-spring-producer2-server"
+  "savePackageName" : "com.cloud.jsproducerremittance",
+  "savePath" : "./js-producer-remittance/src/main/java/com/cloud/jsproducerremittance",
+  "saveModelName" : "js-producer-remittance"
 }

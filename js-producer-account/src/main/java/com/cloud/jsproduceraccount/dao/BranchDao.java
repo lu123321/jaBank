@@ -23,6 +23,15 @@ public interface BranchDao {
     Branch queryById(@Param("id") Integer branchId);
 
     /**
+     * 根据ID查询网点信息
+     * @param branchId
+     * @return
+     */
+    Branch queryByallid(@Param("id") Integer branchId);
+
+
+
+    /**
      * 根据网址ID查询网点名称
      * @param branchId
      * @return

@@ -18,7 +18,7 @@
   } ],
   "pkColumn" : null,
   "otherColumn" : null,
-  "savePackageName" : "com.cloud.dmspringproducerserver",
-  "savePath" : "./js-spring-producer3-server/src/main/java/com/cloud/dmspringproducerserver",
-  "saveModelName" : "js-spring-producer3-server"
+  "savePackageName" : "com.cloud.jsproduceraccount",
+  "savePath" : "./js-producer-account/src/main/java/com/cloud/jsproduceraccount",
+  "saveModelName" : "js-producer-account"
 }

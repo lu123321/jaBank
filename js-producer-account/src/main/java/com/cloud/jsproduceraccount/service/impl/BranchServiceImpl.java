@@ -37,6 +37,18 @@ public class BranchServiceImpl implements BranchService {
         branchServicepojo.setBranchSite(branch.getBranchSite());
         return JSON.toJSONString(branchServicepojo);
     }
+
+    /**
+     * 根据ID查询出网点信息
+     * @param branchId
+     * @return
+     */
+    @Override
+    public String queryByallid(Integer branchId) {
+        Branch branch = branchDao.queryByallid(branchId);
+        return JSON.toJSONString(branch);
+    }
+
     /**
      * 根据业务类型查询可办理银行
      * @param //branchBusinessone 预约人民币大额提现

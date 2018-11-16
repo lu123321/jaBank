@@ -6,6 +6,7 @@ import com.cloud.jsproduceraccount.entity.Detailenquiry;
 import com.cloud.jsproduceraccount.entity.Secondaccount;
 import com.cloud.jsproduceraccount.dao.SecondaccountDao;
 import com.cloud.jsproduceraccount.service.SecondaccountService;
+import com.cloud.jsproduceraccount.uitl.RandomCreditCardNumberGeneratorss;
 import com.cloud.jsproduceraccount.uitl.RedisUtil;
 import org.springframework.stereotype.Service;
 
@@ -113,9 +114,10 @@ public class SecondaccountServiceImpl implements SecondaccountService {
             boolean matches = pattern.matcher(idnunber).matches();
                     if (matches){
 
-
+                        RandomCreditCardNumberGeneratorss ran = new RandomCreditCardNumberGeneratorss();
+                        String[] main = ran.main();
                         //只需要随机生成二类账户银行卡号
-
+                        secondaccount.setAccountCard(main[0]);
                         secondaccount.setAccountPwd(Integer.parseInt(pwdone));
                         int insert = this.secondaccountDao.insert(secondaccount);
                         if (insert > 0){

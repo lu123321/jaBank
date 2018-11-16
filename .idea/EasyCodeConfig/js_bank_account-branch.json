@@ -30,6 +30,20 @@
     "custom" : false,
     "ext" : { }
   }, {
+    "name" : "branchBusinessone",
+    "comment" : "网点可办理业务1:预约人民币大额提现",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "branchBusinesstwo",
+    "comment" : "网点可办理业务2:外币现金取款",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
     "name" : "branchLongitude",
     "comment" : "经度",
     "type" : "java.lang.String",
@@ -46,7 +60,7 @@
   } ],
   "pkColumn" : null,
   "otherColumn" : null,
-  "savePackageName" : "com.cloud.dmspringproducerserver",
-  "savePath" : "./js-spring-producer2-server/src/main/java/com/cloud/dmspringproducerserver",
-  "saveModelName" : "js-spring-producer2-server"
+  "savePackageName" : "com.cloud.jsproduceraccount",
+  "savePath" : "./js-producer-account/src/main/java/com/cloud/jsproduceraccount",
+  "saveModelName" : "js-producer-account"
 }

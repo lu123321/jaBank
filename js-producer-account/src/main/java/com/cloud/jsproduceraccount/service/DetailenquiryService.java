@@ -34,7 +34,7 @@ public interface DetailenquiryService {
      * @param detailenquiry 实例对象
      * @return 实例对象
      */
-    Detailenquiry insert(Detailenquiry detailenquiry);
+    String insert(Detailenquiry detailenquiry);
 
 
 

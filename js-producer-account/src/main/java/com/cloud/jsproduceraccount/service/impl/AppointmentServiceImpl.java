@@ -18,6 +18,8 @@ import javax.annotation.Resource;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * (Appointment)表服务实现类
@@ -154,30 +156,19 @@ public class AppointmentServiceImpl implements AppointmentService {
      */
     @Override
     public String insert(Appointment appointment) {
-        System.out.println("service");
-        /*boolean b = redisUtil.hasKey(appointment.getAppointmentId() + "");
-        if (!b){
-            return "401";
-        }*/
-//        String st = (String) redisUtil.get(appointment.getAppointmentId() + "");
+        //判断输入的金额是否是int类型
+        Pattern PATTERN = Pattern.compile("0|([-]?[1-9][0-9]*)");
+        boolean matcher = PATTERN.matcher(appointment.getAppointmentPrice()).matches();
+        //判断输入的金额是否是double类
+        Pattern pattern = Pattern.compile("^[-\\+]?\\d+(\\.\\d*)?|\\.\\d+$");
+        boolean matches = pattern.matcher(appointment.getAppointmentPrice()).matches();
 
-//        if (Token != null && !"".equals(Token) && Token.equals(st) ){
+        if (!matches && !matcher){
+            return "{\"200\":\"请输入正确的金额!\"}";
+        }
+        System.out.println("service");
 
         Date date = new Date();
-
-        /*StringBuffer sb = new StringBuffer();
-        String str = "0123456789";
-        Random r = new Random();
-        for(int i=0;i<7;i++){
-            int num = r.nextInt(str.length());
-            sb.append(str.charAt(num));
-            str = str.replace((str.charAt(num)+""), "");
-        }
-
-        String stro = new SimpleDateFormat("yyyyMM").format(date);
-        Long m = Long.parseLong((stro)) * 10000000000000L;
-        Long l = Long.parseLong(sb.toString());
-        Long ll = m + l;*/
 
         DateFormat format = new SimpleDateFormat("yyyyMMdd");
         String time = format.format(date);
@@ -198,15 +189,12 @@ public class AppointmentServiceImpl implements AppointmentService {
         appointment.setAppointmentResult(1);//预约结果
         System.out.println("金额"+appointment.getAppointmentPrice());
         int insert = this.appointmentDao.insert(appointment);
-
         if (insert > 0){
-            Branch branch = branchDao.queryById(appointment.getAppointmentBranch());
-            return "[{\"200\"\":\""+ String.valueOf(a) + "\"}" + "," + "{\"200\"\":\""+ branch.getBranchName() + "\"}" + "]";
+            Branch branch = branchDao.querybyid(appointment.getAppointmentBranch());
+            return "[{\"200\":\""+ String.valueOf(a) + "\"}" + "," + "{\"200\":\""+ branch.getBranchName() + "\"}" + "]";
         }else {
-            return "{\"401\":\"预约失败!\"}";
+            return "{\"200\":\"预约失败!\"}";
         }
-//        }
-//        return "401";
     }
 
     /**

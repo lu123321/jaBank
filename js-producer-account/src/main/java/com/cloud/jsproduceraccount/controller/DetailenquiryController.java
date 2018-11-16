@@ -8,12 +8,11 @@ import javax.annotation.Resource;
 
 /**
  * (Detailenquiry)表控制层
- *
+ * 添加明细
  * @author makejava
  * @since 2018-11-10 08:50:36
  */
 @RestController
-@RequestMapping("detailenquiry")
 public class DetailenquiryController {
     /**
      * 服务对象
@@ -24,12 +23,16 @@ public class DetailenquiryController {
     /**
      * 通过主键查询单条数据
      *
-     * @param id 主键
+     * @param
      * @return 单条数据
      */
-    @GetMapping("selectOne")
+    /*@GetMapping("selectOne")
     public Detailenquiry selectOne(Integer id) {
         return this.detailenquiryService.queryById(id);
-    }
+    }*/
 
+    @RequestMapping(value = "insertdetai",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String insert(@RequestBody Detailenquiry detailenquiry){
+       return detailenquiryService.insert(detailenquiry);
+    }
 }
