@@ -5,7 +5,9 @@ import com.example.jsdengluprovider.pojo.BankUser;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface BankRegisterDao {
     @Insert("insert into cardnumber(cardid,cardtype,cardnum,userpwd,userid,phone,state,balance,carddate,webcardstate,branchname," +
             "availablebalance) VALUES (0,#{cardtype},#{cardnum},#{userpwd},#{userid},#{phone},#{state},#{balance},#{carddate},#{webcardstate},#{branchname},#{availablebalance})")
