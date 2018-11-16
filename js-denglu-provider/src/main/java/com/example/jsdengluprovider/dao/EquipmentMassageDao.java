@@ -9,7 +9,7 @@ public interface EquipmentMassageDao {
     @Select("select equipmentname,time,equipment from equipment where userid=#{userid}")
     Equipment equSelect(@Param("userid") Integer userid);
     //设备信息名称修改（只能修改信息名称）
-    @Update("update equipment set equipmentname where equipmentid=#{equipmentid}")
+    @Update("update equipment set equipmentname={equipmentname} where equipmentid=#{equipmentid}")
     int equUpdate(@Param("equipmentid") Integer equipmentid);
     //设备信息删除
     @Delete("delete from equipment where equipmentid=#{equipmentid}")

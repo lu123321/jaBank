@@ -4,7 +4,6 @@ import com.example.jsdengluprovider.pojo.BankUser;
 import org.apache.ibatis.annotations.Update;
 
 public interface BankUpdateDao {
-    @Update("update bankuser set province,city,jingpwd,birthday,married,educatri,occupation,industry,skill,administrative," +
-            "")
+    @Update("")
     int bankUpdate(BankUser bankUser);
 }

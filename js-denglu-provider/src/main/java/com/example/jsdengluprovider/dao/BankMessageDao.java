@@ -20,6 +20,6 @@ public interface BankMessageDao {
     @Delete("delete from cardnumber where cardid=#{cardid}")
     int delCard(BankCard bankCard);
     //修改该卡信息
-    @Update("update cardnumber set username where cardid=#{cardid}")
+    @Update("update cardnumber set username=#{usernam} where cardid=#{cardid}")
     int updateCard(@Param("cardid") Integer cardid);
 }
