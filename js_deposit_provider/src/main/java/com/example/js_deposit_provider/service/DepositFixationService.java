@@ -34,7 +34,7 @@ public interface DepositFixationService {
      * @param depositFixation 实例对象
      * @return 实例对象
      */
-    DepositFixation insert(DepositFixation depositFixation);
+    String insert(DepositFixation depositFixation);
 
     /**
      * 修改数据
@@ -52,4 +52,18 @@ public interface DepositFixationService {
      */
     boolean deleteById(Integer depositFixationid);
 
+    /**
+     * 通过用户id查看所有订单信息
+     * @param userid
+     * @return
+     */
+   String getAllById(String userid);
+
+    /**
+     * 根据订单号和金额进行普通取款
+     * @param infromid
+     * @param money
+     * @return
+     */
+   String getmoney(String infromid,String money);
 }

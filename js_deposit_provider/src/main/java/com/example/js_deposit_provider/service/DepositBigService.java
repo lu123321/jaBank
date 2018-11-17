@@ -7,7 +7,7 @@ import java.util.List;
  * (DepositBig)表服务接口
  *
  * @author makejava
- * @since 2018-11-08 10:32:28
+ * @since 2018-11-16 19:58:52
  */
 public interface DepositBigService {
 
@@ -34,7 +34,7 @@ public interface DepositBigService {
      * @param depositBig 实例对象
      * @return 实例对象
      */
-    DepositBig insert(DepositBig depositBig);
+    String insert(DepositBig depositBig);
 
     /**
      * 修改数据
@@ -52,4 +52,18 @@ public interface DepositBigService {
      */
     boolean deleteById(Integer depositBigid);
 
+    /**
+     * 根据用户id查看用户所有订单信息
+     * @param userid
+     * @return
+     */
+    String getAllById(String userid);
+
+    /**
+     * 根据id和金额
+    * @param informid
+     * @param money
+     * @return
+     */
+    String getMoney(String informid,String money);
 }

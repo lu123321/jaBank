@@ -16,7 +16,7 @@ public class DepositInform implements Serializable {
     //通知存款订单名字
     private String depositInformnumber;
     //通知存款订单存款金额
-    private Integer depositInformmoney;
+    private Double depositInformmoney;
     //通知存款订单状态
     private String depositInformstate;
     //通知存款订单关联卡号
@@ -45,11 +45,11 @@ public class DepositInform implements Serializable {
         this.depositInformnumber = depositInformnumber;
     }
 
-    public Integer getDepositInformmoney() {
+    public Double getDepositInformmoney() {
         return depositInformmoney;
     }
 
-    public void setDepositInformmoney(Integer depositInformmoney) {
+    public void setDepositInformmoney(Double depositInformmoney) {
         this.depositInformmoney = depositInformmoney;
     }
 

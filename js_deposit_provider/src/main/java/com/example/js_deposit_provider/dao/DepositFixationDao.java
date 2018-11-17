@@ -4,6 +4,7 @@ import com.example.js_deposit_provider.entity.DepositFixation;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -64,5 +65,35 @@ public interface DepositFixationDao {
      * @return 影响行数
      */
     int deleteById(Integer depositFixationid);
+    /**
+     * 根据用户id查看订单信息
+     * @param userid
+     * @return
+     */
+    List<DepositFixation> getAllById(Integer userid);
 
+    /**
+     * 根据订单和金额取出相应的金钱
+     * @param infromid
+     * @param money
+     * @return
+     */
+    int getMoney(@Param("informid") int infromid,@Param("money") int money);
+
+    /**
+     * 根据订单id查询余额
+     * @param informid
+     * @return
+     */
+   DepositFixation getYE(@Param("informid") int informid);
+
+    /**
+     * 获取当天到期表中所有
+     * @return
+     */
+   List<DepositFixation> getAll(@Param("d") String d);
+   /*
+        根据id修改订单状态
+    */
+   int changeState(int informid);
 }

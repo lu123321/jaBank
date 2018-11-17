@@ -79,8 +79,9 @@ public interface DepositWithdrawalDao {
     /**
      * 通过id修改取款订单状态
      * @param id
+     * @param type
      * @return
      */
-    int updateByID(int id);
+    int updateByID(int type,int id);
 
 }

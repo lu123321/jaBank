@@ -2,17 +2,14 @@ package com.example.js_deposit_provider.dao;
 
 import com.example.js_deposit_provider.entity.DepositBig;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 /**
  * (DepositBig)表数据库访问层
  *
  * @author makejava
- * @since 2018-11-08 10:32:27
+ * @since 2018-11-16 19:58:52
  */
-@Component
 public interface DepositBigDao {
 
     /**
@@ -58,6 +55,13 @@ public interface DepositBigDao {
     int update(DepositBig depositBig);
 
     /**
+     * 提前取款
+     * @param informid
+     * @param money
+     * @return
+     */
+    int updatemoney(@Param("informid") int informid,@Param("money") int money);
+    /**
      * 通过主键删除数据
      *
      * @param depositBigid 主键
@@ -65,4 +69,24 @@ public interface DepositBigDao {
      */
     int deleteById(Integer depositBigid);
 
+    /**
+     * 根据用户id查看信息
+     * @param userid
+     * @return
+     */
+    List<DepositBig> getAllById(int userid);
+
+    /**
+     * 查今天的到期订单
+     * @param today
+     * @return
+     */
+    List<DepositBig> getAllNow(String today);
+
+    /**
+     * 根据id修改状态
+     * @param informid
+     * @return
+     */
+    int changestate(int informid);
 }

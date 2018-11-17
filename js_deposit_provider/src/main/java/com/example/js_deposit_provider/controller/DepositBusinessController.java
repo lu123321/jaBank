@@ -30,8 +30,23 @@ public class DepositBusinessController {
     public DepositBusiness selectOne(Integer id) {
         return this.depositBusinessService.queryById(id);
     }
-    @RequestMapping("getbytype")
+
+    /**
+     * 通过类型查询业务
+     * @param typeid
+     * @return
+     */
+    @RequestMapping(value = "getbytype",method = RequestMethod.GET,produces = "text/json;charset=utf-8")
     public String getbytype(@RequestParam String typeid){
         return  depositBusinessService.getByType(typeid);
+    }
+
+    /**
+     * 查询全部数据
+     * @return
+     */
+    @RequestMapping(value = "getAllBusiness",method = RequestMethod.GET,produces = "text/json;charset=utf-8")
+    public  void getAllBusiness(){
+        depositBusinessService.getAllBusiness();
     }
 }

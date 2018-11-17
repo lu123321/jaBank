@@ -12,10 +12,14 @@ import com.example.js_deposit_provider.service.DepositInformService;
 import com.example.js_deposit_provider.service.pojo.Qukuan;
 import com.example.js_deposit_provider.util.DateUtil;
 import com.example.js_deposit_provider.util.OrderNumberUtil;
+import com.example.js_deposit_provider.util.RedisUtil;
+import com.rabbitmq.tools.json.JSONUtil;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.text.DecimalFormat;
@@ -37,9 +41,10 @@ public class DepositInformServiceImpl implements DepositInformService {
     private DepositWithdrawalDao depositWithdrawalDao;
     @Autowired
     private RabbitTemplate rabbitTemplate;
+    @Resource
+    private RedisUtil redisUtil;
     /**
      * 通过ID查询单条数据
-     *
      * @param depositInformid 主键
      * @return 实例对象
      */
@@ -66,11 +71,12 @@ public class DepositInformServiceImpl implements DepositInformService {
      * @param depositInform 实例对象
      * @return 实例对象
      */
+
     @Override
     public String insert(DepositInform depositInform) {
         //此处还需要进行银行存款金额进行变化
+        List<Qukuan> qk = new ArrayList<Qukuan>();
         String nowDate = DateUtil.getNowDate();
-        System.out.println(nowDate);
         Date date = DateUtil.SchangeD(nowDate);
         depositInform.setDepositInformstate("0");
         depositInform.setDepositInformtime(date);
@@ -91,7 +97,7 @@ public class DepositInformServiceImpl implements DepositInformService {
     }
 
     /**
-     * 普通取款
+     * 普通取款 //需加分布式事务
      * @param informid
      * @param money
      * @return
@@ -103,26 +109,26 @@ public class DepositInformServiceImpl implements DepositInformService {
             //获得存款金额
             DepositInform depositInform = depositInformDao.selMoney(Integer.parseInt(informid));
             int i1 = Integer.parseInt(money);
-            Integer depositInformmoney = depositInform.getDepositInformmoney();
+            Double depositInformmoney = depositInform.getDepositInformmoney();
             //进行比较
             if(depositInformmoney>i1){
                  //进行存款减少
                 depositInformDao.withdrawal(Integer.parseInt(informid),i1);
-                DepositBusiness business = depositBusinessdao.queryById(depositInform.getDepositInformtype());
-                String depositBusinessrate = business.getDepositBusinessrate();
-                double v = Double.parseDouble(depositBusinessrate);
+                Map<Object, Object> hmget = redisUtil.hmget("1");
+               // DepositBusiness d = (DepositBusiness) hmget.get(depositInform.getDepositInformtype());
                 Date depositInformtime = depositInform.getDepositInformtime();
                 String nowDate = DateUtil.getNowDate();
                 String s = DateUtil.DchangeS(depositInformtime);
                 long daySub = DateUtil.getDaySub(s, nowDate);
                 Qukuan qukuan = new Qukuan();
-                qukuan.setBusinessName(business.getDepositBusinessname());
-                qukuan.setBusinessRate(v);
+                qukuan.setBusinessName("通知存款取款");
+                qukuan.setBusinessRate(0.3);
                 qukuan.setCardid(depositInform.getDepositInformcardid());
-                double mon = (i1+((i1*v*0.01)*daySub)/365);
+                double mon = (i1+((i1*0.3*0.01)*daySub)/365);
                 DecimalFormat df = new DecimalFormat(".00");
                 double x = Double.parseDouble(df.format(mon));
                 qukuan.setMoney(x);
+                qukuan.setState(1); //1取款
                 qk.add(qukuan);
                 rabbitTemplate.convertAndSend(RabbitConfig.QUEUE_WITHDRAWAL,JSON.toJSONString(qk));
                 return "200"; //返回卡号和金额，调用个人信息增加金额的接口；
@@ -172,23 +178,30 @@ public class DepositInformServiceImpl implements DepositInformService {
     public String subwithdrawal(String inforid, String money, String begintime, String endtime) {
         //先将预约存款信息存入表中
         if(inforid != null && inforid != "" && money != null && money != "" && begintime != null && begintime != "" && endtime != null && endtime != "" ){
-            DepositWithdrawal dep = new DepositWithdrawal();
-            dep.setDepositWithdrawalorderid(Integer.parseInt(inforid));
-            dep.setDepositWithdrawalmoney(Integer.parseInt(money));
-            dep.setDepositWithdrawalstate(0);
-            //此处需要从redis中取出用户对象，得到用户id，存入dep对象
-            dep.setDepositWithdrawalintime(DateUtil.SchangeD(begintime));
-            dep.setDepositWithdrawaouttime(DateUtil.SchangeD(endtime));
-            int insert = depositWithdrawalDao.insert(dep);
-            if(insert > 0){
-                DepositInform depositInform = new DepositInform();
-                depositInform.setDepositInformid(Integer.parseInt(inforid));
-                depositInform.setDepositInformstate("1");
-                depositInformDao.update(depositInform);
-                return "200"; //通知存款申请成功
+            DepositInform depositInform1 = depositInformDao.queryById(Integer.parseInt(inforid));
+            if(depositInform1.getDepositInformmoney() > Integer.parseInt(money)){
+                DepositWithdrawal dep = new DepositWithdrawal();
+                dep.setDepositWithdrawalorderid(Integer.parseInt(inforid));
+                dep.setDepositWithdrawalmoney(Integer.parseInt(money));
+                dep.setDepositWithdrawalstate(0);
+                dep.setDepositWithdrawalUserId(Integer.parseInt(depositInform1.getDepositInformuserid()));
+                //此处需要从redis中取出用户对象，得到用户id，存入dep对象
+                dep.setDepositWithdrawalintime(DateUtil.SchangeD(begintime));
+                dep.setDepositWithdrawaouttime(DateUtil.SchangeD(endtime));
+                int insert = depositWithdrawalDao.insert(dep);
+                if(insert > 0){
+                    DepositInform depositInform = new DepositInform();
+                    depositInform.setDepositInformid(Integer.parseInt(inforid));
+                    depositInform.setDepositInformstate("1");
+                    depositInformDao.update(depositInform);
+                    return "200"; //通知存款申请成功
+                }else {
+                    return "400"; //申请失败
+                }
             }else {
-                return "400"; //申请失败
+                return "401"; //余额不足
             }
+
         }else {
             return  "400"; //参数错误，申请失败
         }
@@ -219,32 +232,38 @@ public class DepositInformServiceImpl implements DepositInformService {
             //再进行操作
             Set<Integer> integers = changeList.keySet();
             for (Integer i : integers) {
-                //更新订单状态
-                depositWithdrawalDao.updateByID(i);
                 //从集合种得到对应订单对象
                 DepositWithdrawal de = changeList.get(i);
-                //从用户存款种扣钱
                 Integer il = de.getDepositWithdrawalmoney();
-                depositInformDao.withdrawal(de.getDepositWithdrawalorderid(), il);
                 //得到订单信息
                 DepositInform depositInform = depositInformDao.selMoney(de.getDepositWithdrawalorderid());
-                //得到业务信息
-                DepositBusiness business = depositBusinessdao.queryById(depositInform.getDepositInformtype());
-                //得到存入时间
-                Date depositInformtime = depositInform.getDepositInformtime();
-                //算出存入天数
-                long daySub = DateUtil.getDaySub(DateUtil.DchangeS(depositInformtime), nowDate);
-                //将结果存入Qukuan对象
-                Qukuan qukuan = new Qukuan();
-                qukuan.setBusinessName(business.getDepositBusinessname());
-                double v = Double.parseDouble(business.getDepositBusinessrate());
-                qukuan.setBusinessRate(v);
-                qukuan.setCardid(depositInform.getDepositInformcardid());
-                double mon = (il + ((il * v * 0.01) * daySub) / 365);
-                DecimalFormat df = new DecimalFormat(".00");
-                double x = Double.parseDouble(df.format(mon));
-                qukuan.setMoney(x);
-                returnQk.add(qukuan);
+                if(depositInform.getDepositInformmoney() >il){
+                    //更新订单状态 1取款成功
+                    depositWithdrawalDao.updateByID(1,i);
+                    //从用户存款种扣钱
+                    depositInformDao.withdrawal(de.getDepositWithdrawalorderid(), il);
+                    //得到业务信息
+                    DepositBusiness business = depositBusinessdao.queryById(depositInform.getDepositInformtype());
+                    //得到存入时间
+                    Date depositInformtime = depositInform.getDepositInformtime();
+                    //算出存入天数
+                    long daySub = DateUtil.getDaySub(DateUtil.DchangeS(depositInformtime), nowDate);
+                    //将结果存入Qukuan对象
+                    Qukuan qukuan = new Qukuan();
+                    qukuan.setBusinessName(business.getDepositBusinessname()+"到期");
+                    double v = Double.parseDouble(business.getDepositBusinessrate());
+                    qukuan.setBusinessRate(v);
+                    qukuan.setCardid(depositInform.getDepositInformcardid());
+                    double mon = (il + ((il * v * 0.01) * daySub) / 365);
+                    DecimalFormat df = new DecimalFormat(".00");
+                    double x = Double.parseDouble(df.format(mon));
+                    qukuan.setMoney(x);
+                    qukuan.setState(1); //1为取款
+                    returnQk.add(qukuan);
+                }else{
+                    //改变状态为取款失败
+                    depositWithdrawalDao.updateByID(2,i);
+                }
             }
             rabbitTemplate.convertAndSend(RabbitConfig.QUEUE_WITHDRAWAL,JSON.toJSONString(returnQk));
         }

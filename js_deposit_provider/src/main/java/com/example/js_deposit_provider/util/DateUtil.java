@@ -1,11 +1,15 @@
 package com.example.js_deposit_provider.util;
 
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class DateUtil {
+public class DateUtil{
     //获取时间相减天数的方法
     public  static  long getDaySub(String beginDatestr,String engDatestr){
         long day = 0;
@@ -77,4 +81,13 @@ public class DateUtil {
 
         return isSameDate;
     }
+    //得到几个月后的日期
+    public static  Date getfuture(Date date,int month){
+        Calendar c = Calendar.getInstance();//获得一个日历的实例
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        c.setTime(date);//设置日历时间
+        c.add(Calendar.MONTH,month);//在日历的月份上增加month个月
+        return c.getTime();
+    }
+
 }

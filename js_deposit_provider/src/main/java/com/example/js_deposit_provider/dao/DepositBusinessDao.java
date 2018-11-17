@@ -66,9 +66,15 @@ public interface DepositBusinessDao {
     int deleteById(Integer depositBusinessid);
 
     /**
-     * 通过类型id进行查询
-     * @param type
+     * 查询全部数据
      * @return
      */
-    List<DepositBusiness> getByType(@Param("type") int type);
+    List<DepositBusiness> getAll();
+
+    /**
+     * 通过业务id查看业务时长
+     * @param bussId
+     * @return
+     */
+    int getlong(int bussId);
 }

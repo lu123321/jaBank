@@ -4,10 +4,11 @@ import com.alibaba.fastjson.JSON;
 import com.example.js_deposit_provider.entity.DepositBusiness;
 import com.example.js_deposit_provider.dao.DepositBusinessDao;
 import com.example.js_deposit_provider.service.DepositBusinessService;
+import com.example.js_deposit_provider.util.RedisUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
+import java.util.*;
 
 /**
  * (DepositBusiness)表服务实现类
@@ -19,7 +20,8 @@ import java.util.List;
 public class DepositBusinessServiceImpl implements DepositBusinessService {
     @Resource
     private DepositBusinessDao depositBusinessDao;
-
+    @Resource
+    private RedisUtil redisUtil;
     /**
      * 通过ID查询单条数据
      *
@@ -80,15 +82,48 @@ public class DepositBusinessServiceImpl implements DepositBusinessService {
 
     @Override
     public String getByType(String typeid) {
+        List<DepositBusiness> bytype = new ArrayList<DepositBusiness>();
         try{
             if(typeid != null && typeid != ""){
-                List<DepositBusiness> byType = depositBusinessDao.getByType(Integer.parseInt(typeid));
-                return JSON.toJSONString(byType);
+                System.out.println(typeid);
+                Map<Object, Object> hmget = redisUtil.hmget(typeid);
+                Set<Object> objects = hmget.keySet();
+                for (Object o: objects) {
+                    DepositBusiness d = (DepositBusiness) hmget.get(o);
+                    bytype.add(d);
+                }
+                return JSON.toJSONString(bytype);
             }else {
                 return "404";
             }
         }catch (Exception e){
             return "404";
+        }
+    }
+
+    /**
+     * 查询全部业务类型数据
+     * @return
+     */
+    @Override
+    public void getAllBusiness() {
+        List<DepositBusiness> all = depositBusinessDao.getAll();
+        Map<Object,Object> map1 = new HashMap<Object,Object>();
+        Map<Object,Object> map2 = new HashMap<Object,Object>();
+        Map<Object,Object> map3 = new HashMap<Object,Object>();
+        for (DepositBusiness d: all) {
+            if("1".equals(d.getDepositBusinesstype())){
+                map1.put(d.getDepositBusinessid().toString(),d);
+                redisUtil.hmset("1",map1);
+            }
+            if("2".equals(d.getDepositBusinesstype())){
+                map2.put(d.getDepositBusinessid().toString(),d);
+                redisUtil.hmset("2",map2);
+            }
+            if("3".equals(d.getDepositBusinesstype())){
+                map3.put(d.getDepositBusinessid().toString(),d);
+                redisUtil.hmset("3",map3);
+            }
         }
     }
 }

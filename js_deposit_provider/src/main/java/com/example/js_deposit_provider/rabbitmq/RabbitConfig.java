@@ -18,7 +18,7 @@ public class RabbitConfig {
     private RabbitTemplate rabbitTemplate;
 
     public static final String QUEUE_WITHDRAWAL = "Queue_Withdrawal";//发送秒杀订单队列
-    public static final String QUEUE_SECKILL_LOSER = "Queue_Seckill_Loser";//接收秒杀订单失败队列
+    public static final String QUEUE_DEPOSIT = "QUEUE_deposit";//存款队列
 
     @Bean
     public Queue seckillOrderQueue() {
@@ -27,6 +27,6 @@ public class RabbitConfig {
 
     @Bean
     public Queue seckillLoserQueue() {
-        return new Queue(QUEUE_SECKILL_LOSER);
+        return new Queue(QUEUE_DEPOSIT);
     }
 }

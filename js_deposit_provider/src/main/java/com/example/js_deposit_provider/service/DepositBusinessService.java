@@ -58,4 +58,10 @@ public interface DepositBusinessService {
      * @return
      */
     String getByType(String typeid);
+
+    /**
+     * 查询全部数据
+     * @return
+     */
+    void getAllBusiness();
 }

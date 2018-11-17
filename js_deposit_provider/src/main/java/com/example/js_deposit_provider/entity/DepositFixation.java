@@ -18,9 +18,9 @@ public class DepositFixation implements Serializable {
     //定期存款管理卡号
     private String depositFixationcardid;
     //定期存款存入金额
-    private String depositFixationmoney;
+    private Double depositFixationmoney;
     //定期存款本金和利息
-    private String depositFixationmoneyandlx;
+    private Double deposit_fixationLv;
     //通知存款业务名称
     private String depositFixationbusinesstype;
     //定期存款存入时间
@@ -29,7 +29,16 @@ public class DepositFixation implements Serializable {
     private Date depositFixationouttime;
     //通知存款用户id
     private Integer depositFixationuserid;
+    //定期存款状态
+    private  Integer depositState;
 
+    public Integer getDepositState() {
+        return depositState;
+    }
+
+    public void setDepositState(Integer depositState) {
+        this.depositState = depositState;
+    }
 
     public Integer getDepositFixationid() {
         return depositFixationid;
@@ -55,20 +64,20 @@ public class DepositFixation implements Serializable {
         this.depositFixationcardid = depositFixationcardid;
     }
 
-    public String getDepositFixationmoney() {
+    public Double getDepositFixationmoney() {
         return depositFixationmoney;
     }
 
-    public void setDepositFixationmoney(String depositFixationmoney) {
+    public void setDepositFixationmoney(Double depositFixationmoney) {
         this.depositFixationmoney = depositFixationmoney;
     }
 
-    public String getDepositFixationmoneyandlx() {
-        return depositFixationmoneyandlx;
+    public Double getDeposit_fixationLv() {
+        return deposit_fixationLv;
     }
 
-    public void setDepositFixationmoneyandlx(String depositFixationmoneyandlx) {
-        this.depositFixationmoneyandlx = depositFixationmoneyandlx;
+    public void setDeposit_fixationLv(Double deposit_fixationLv) {
+        this.deposit_fixationLv = deposit_fixationLv;
     }
 
     public String getDepositFixationbusinesstype() {
