@@ -66,12 +66,12 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="depositWithdrawalid" useGeneratedKeys="true">
-        insert into deposit_withdrawal(deposit_withdrawalOrderId, deposit_withdrawalIntime, deposit_withdrawaOuttime, deposit_withdrawalMoney, deposit_withdrawalState)
-        values (#{depositWithdrawalorderid}, #{depositWithdrawalintime}, #{depositWithdrawaouttime}, #{depositWithdrawalmoney}, #{depositWithdrawalstate})
+        insert into deposit_withdrawal(deposit_withdrawalOrderId, deposit_withdrawalIntime, deposit_withdrawaOuttime, deposit_withdrawalMoney, deposit_withdrawalState,deposit_withdrawalUserId)
+        values (#{depositWithdrawalorderid}, #{depositWithdrawalintime}, #{depositWithdrawaouttime}, #{depositWithdrawalmoney}, #{depositWithdrawalstate},#{depositWithdrawalUserId})
     </insert>
     <update id="updateByID">
         update deposit_withdrawal
-        set deposit_withdrawalState = 1
+        set deposit_withdrawalState = #{type}
         where deposit_withdrawalId = #{id}
     </update>
     <!--通过主键修改数据-->
@@ -99,7 +99,7 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from js-deposit.deposit_withdrawal where deposit_withdrawalId = #{depositWithdrawalid}
+        delete from deposit_withdrawal where deposit_withdrawalId = #{depositWithdrawalid}
     </delete>
 
 </mapper>

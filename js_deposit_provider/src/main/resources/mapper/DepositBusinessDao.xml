@@ -87,9 +87,9 @@
     <delete id="deleteById">
         delete from js-deposit.deposit_business where deposit_businessId = #{depositBusinessid}
     </delete>
-    <select id="getByType" resultMap="DepositBusinessMap" parameterType="int">
-        select deposit_businessId, deposit_businessName, deposit_businessMoney, deposit_businessRate, deposit_businessLong
+    <select id="getAll" resultMap="DepositBusinessMap">
+        select deposit_businessId, deposit_businessName, deposit_businessMoney, deposit_businessRate, deposit_businessLong,deposit_businessType
         from deposit_business
-        where deposit_businessType = #{type}
     </select>
+
 </mapper>

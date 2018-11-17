@@ -6,34 +6,44 @@
         <result property="depositBigid" column="deposit_bigId" jdbcType="INTEGER"/>
         <result property="depositBignumber" column="deposit_bigNumber" jdbcType="VARCHAR"/>
         <result property="depositBigcardid" column="deposit_bigCardId" jdbcType="VARCHAR"/>
-        <result property="depositBigmoney" column="deposit_bigMoney" jdbcType="VARCHAR"/>
-        <result property="depositBigmoneyandinter" column="deposit_bigMoneyAndInter" jdbcType="VARCHAR"/>
-        <result property="depositBigbusname" column="deposit_bigBusName" jdbcType="VARCHAR"/>
+        <result property="depositBigmoney" column="deposit_bigMoney" jdbcType="DOUBLE"/>
+        <result property="depositBiglv" column="deposit_biglv" jdbcType="DOUBLE"/>
+        <result property="depositBigbustype" column="deposit_bigBusType" jdbcType="INTEGER"/>
         <result property="depositBigintime" column="deposit_bigInTime" jdbcType="TIMESTAMP"/>
-        <result property="depositBiglong" column="deposit_bigLong" jdbcType="VARCHAR"/>
+        <result property="depositBiglong" column="deposit_bigLong" jdbcType="INTEGER"/>
         <result property="depositBigouttime" column="deposit_bigOutTime" jdbcType="TIMESTAMP"/>
+        <result property="depositBiguserid" column="deposit_bigUserId" jdbcType="INTEGER"/>
+        <result property="depositBigState" column="deposit_bigState" jdbcType="INTEGER"/>
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="DepositBigMap">
         select
-          deposit_bigId, deposit_bigNumber, deposit_bigCardId, deposit_bigMoney, deposit_bigMoneyAndInter, deposit_bigBusName, deposit_bigInTime, deposit_bigLong, deposit_bigOutTime
-        from js-deposit.deposit_big
+          deposit_bigId,  deposit_bigCardId, deposit_bigMoney, deposit_biglv,  deposit_bigLong
+        from deposit_big
         where deposit_bigId = #{depositBigid}
     </select>
-
+    <select id="getAllNow" resultMap="DepositBigMap">
+        select  deposit_bigId,  deposit_bigCardId, deposit_bigMoney, deposit_biglv
+        from deposit_big
+        where deposit_bigOutTime = #{today}
+    </select>
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="DepositBigMap">
         select
-          deposit_bigId, deposit_bigNumber, deposit_bigCardId, deposit_bigMoney, deposit_bigMoneyAndInter, deposit_bigBusName, deposit_bigInTime, deposit_bigLong, deposit_bigOutTime
+          deposit_bigId, deposit_bigNumber, deposit_bigCardId, deposit_bigMoney, deposit_biglv, deposit_bigBusType, deposit_bigInTime, deposit_bigLong, deposit_bigOutTime, deposit_bigUserId
         from js-deposit.deposit_big
         limit #{offset}, #{limit}
     </select>
-
+    <select id="getAllById" resultMap="DepositBigMap">
+        select deposit_bigId, deposit_bigNumber, deposit_bigCardId, deposit_bigMoney, deposit_biglv, deposit_bigInTime, deposit_bigOutTime
+          from deposit_big
+          where deposit_bigUserId = #{userid}
+    </select>
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="DepositBigMap">
         select
-          deposit_bigId, deposit_bigNumber, deposit_bigCardId, deposit_bigMoney, deposit_bigMoneyAndInter, deposit_bigBusName, deposit_bigInTime, deposit_bigLong, deposit_bigOutTime
+          deposit_bigId, deposit_bigNumber, deposit_bigCardId, deposit_bigMoney, deposit_biglv, deposit_bigBusType, deposit_bigInTime, deposit_bigLong, deposit_bigOutTime, deposit_bigUserId
         from js-deposit.deposit_big
         <where>
             <if test="depositBigid != null">
@@ -45,14 +55,14 @@
             <if test="depositBigcardid != null and depositBigcardid != ''">
                 and deposit_bigCardId = #{depositBigcardid}
             </if>
-            <if test="depositBigmoney != null and depositBigmoney != ''">
+            <if test="depositBigmoney != null">
                 and deposit_bigMoney = #{depositBigmoney}
             </if>
-            <if test="depositBigmoneyandinter != null and depositBigmoneyandinter != ''">
-                and deposit_bigMoneyAndInter = #{depositBigmoneyandinter}
+            <if test="depositBiglv != null and depositBiglv != ''">
+                and deposit_biglv = #{depositBiglv}
             </if>
-            <if test="depositBigbusname != null and depositBigbusname != ''">
-                and deposit_bigBusName = #{depositBigbusname}
+            <if test="depositBigbustype != null">
+                and deposit_bigBusType = #{depositBigbustype}
             </if>
             <if test="depositBigintime != null">
                 and deposit_bigInTime = #{depositBigintime}
@@ -63,15 +73,22 @@
             <if test="depositBigouttime != null">
                 and deposit_bigOutTime = #{depositBigouttime}
             </if>
+            <if test="depositBiguserid != null">
+                and deposit_bigUserId = #{depositBiguserid}
+            </if>
         </where>
     </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="depositBigid" useGeneratedKeys="true">
-        insert into js-deposit.deposit_big(deposit_bigNumber, deposit_bigCardId, deposit_bigMoney, deposit_bigMoneyAndInter, deposit_bigBusName, deposit_bigInTime, deposit_bigLong, deposit_bigOutTime)
-        values (#{depositBignumber}, #{depositBigcardid}, #{depositBigmoney}, #{depositBigmoneyandinter}, #{depositBigbusname}, #{depositBigintime}, #{depositBiglong}, #{depositBigouttime})
+        insert into deposit_big(deposit_bigNumber, deposit_bigCardId, deposit_bigMoney, deposit_biglv, deposit_bigBusType, deposit_bigInTime, deposit_bigLong, deposit_bigOutTime, deposit_bigUserId,deposit_bigState)
+        values (#{depositBignumber}, #{depositBigcardid}, #{depositBigmoney}, #{depositBiglv}, #{depositBigbustype}, #{depositBigintime}, #{depositBiglong}, #{depositBigouttime}, #{depositBiguserid},0)
     </insert>
-
+    <update id="changestate">
+        update deposit_big
+        set deposit_bigState = 1
+        where deposit_bigId = #{informid}
+    </update>
     <!--通过主键修改数据-->
     <update id="update">
         update js-deposit.deposit_big
@@ -82,14 +99,14 @@
             <if test="depositBigcardid != null and depositBigcardid != ''">
                 deposit_bigCardId = #{depositBigcardid},
             </if>
-            <if test="depositBigmoney != null and depositBigmoney != ''">
+            <if test="depositBigmoney != null">
                 deposit_bigMoney = #{depositBigmoney},
             </if>
-            <if test="depositBigmoneyandinter != null and depositBigmoneyandinter != ''">
-                deposit_bigMoneyAndInter = #{depositBigmoneyandinter},
+            <if test="depositBiglv != null and depositBiglv != ''">
+                deposit_biglv = #{depositBiglv},
             </if>
-            <if test="depositBigbusname != null and depositBigbusname != ''">
-                deposit_bigBusName = #{depositBigbusname},
+            <if test="depositBigbustype != null">
+                deposit_bigBusType = #{depositBigbustype},
             </if>
             <if test="depositBigintime != null">
                 deposit_bigInTime = #{depositBigintime},
@@ -100,10 +117,17 @@
             <if test="depositBigouttime != null">
                 deposit_bigOutTime = #{depositBigouttime},
             </if>
+            <if test="depositBiguserid != null">
+                deposit_bigUserId = #{depositBiguserid},
+            </if>
         </set>
         where deposit_bigId = #{depositBigid}
     </update>
-
+    <update id="updatemoney">
+        update deposit_big
+        set deposit_bigMoney = deposit_bigMoney - #{money}
+        where deposit_bigId = #{informid}
+    </update>
     <!--通过主键删除-->
     <delete id="deleteById">
         delete from js-deposit.deposit_big where deposit_bigId = #{depositBigid}

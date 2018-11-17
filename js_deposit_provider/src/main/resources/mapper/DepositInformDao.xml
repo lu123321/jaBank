@@ -5,7 +5,7 @@
     <resultMap type="com.example.js_deposit_provider.entity.DepositInform" id="DepositInformMap">
         <result property="depositInformid" column="deposit_informId" jdbcType="INTEGER"/>
         <result property="depositInformnumber" column="deposit_informNumber" jdbcType="VARCHAR"/>
-        <result property="depositInformmoney" column="deposit_informMoney" jdbcType="INTEGER"/>
+        <result property="depositInformmoney" column="deposit_informMoney" jdbcType="DOUBLE"/>
         <result property="depositInformstate" column="deposit_informState" jdbcType="VARCHAR"/>
         <result property="depositInformcardid" column="deposit_informCardId" jdbcType="VARCHAR"/>
         <result property="depositInformuserid" column="deposit_informUserId" jdbcType="VARCHAR"/>
