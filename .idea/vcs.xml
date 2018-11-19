@@ -6,8 +6,8 @@
     <mapping directory="$PROJECT_DIR$/js-consumer-list" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/js-consumer-management" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/js-consumer-options" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/js-producer-account" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/js-producer-financial" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/js-producer-list" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/js-producer-management" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/js-producer-options" vcs="svn" />
   </component>

@@ -20,6 +20,7 @@
         <option value="$PROJECT_DIR$/js-producer-management/pom.xml" />
         <option value="$PROJECT_DIR$/js-producer-options/pom.xml" />
         <option value="$PROJECT_DIR$/js-consumer-list/pom.xml" />
+        <option value="$PROJECT_DIR$/js-producer-list/pom.xml" />
       </list>
     </option>
   </component>

@@ -16,8 +16,5 @@
         <module name="js-producer-options" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="js-producer-list" target="1.7" />
-    </bytecodeTargetLevel>
   </component>
 </project>
