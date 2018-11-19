@@ -19,4 +19,7 @@ public interface RecordMessageDao {
     //通过用户ID查到手机号码
     @Select("select phone from cardnumber where userid=#{userid}")
     String selectPhone(@Param("userid") Integer userid);
+
+
+
 }

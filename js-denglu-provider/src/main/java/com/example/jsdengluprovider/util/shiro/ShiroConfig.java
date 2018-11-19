@@ -35,7 +35,7 @@ public class ShiroConfig {
         //放行登录页面
         filterMap.put("/login","anon");
         filterMap.put("/yanzheng","anon");
-        filterMap.put("/*","authc");
+        filterMap.put("/*","anon");
 //        Map<String,Filter> filter = new HashMap<String, Filter>(1);
 //        filter.put("jwt",new JWTFilter());
 //        shiroFilterFactoryBean.setFilters(filter);

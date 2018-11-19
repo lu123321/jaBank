@@ -5,10 +5,12 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 //所有信息查询
+@Component
 public interface BankMessageDao {
     //该用户所有卡信息
     @Select("select cardid,cardtype,cardnum,userpwd,username,webpwd,phone,state,balance,carddate,webcardstate,branchname,availablebalance from cardnumber where userid=#{userid}")
@@ -22,4 +24,17 @@ public interface BankMessageDao {
     //修改该卡信息
     @Update("update cardnumber set username=#{usernam} where cardid=#{cardid}")
     int updateCard(@Param("cardid") Integer cardid);
+
+    //修改手机号码信息
+    @Update("update cardnumber set phone=#{phone} where cardnum=#{cardnum}")
+    int updatePhone(@Param("phone") String phone,@Param("cardnum") String cardnum);
+
+    //通过用户id和是否开通网银查找卡号
+    @Select("select cardnum from cardnumber where userid=#{userid} and webcardstate=#{webcardstate}")
+    String selectCardnum(@Param("userid") Integer userid,@Param("webcardstate") Integer webcardstate);
+
+    //通过selectCardnum()找到该卡的手机号码
+    @Select("select phone from cardnumber where cardnum=#{cardnum}")
+    String selectPhone(@Param("cardnum") String cardnum);
+
 }

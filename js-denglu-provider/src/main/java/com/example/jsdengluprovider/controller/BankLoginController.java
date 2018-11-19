@@ -64,7 +64,7 @@ public class BankLoginController {
         System.out.println(matches + "" + matches1 + "" + matches2);
         System.out.println("**************************************88");
         if ("".equals(name) && "".equals(password)) {
-            model.setViewName("/login");
+            model.setViewName("login");
             return model;
         } else {
             if (matches && !matches1&&!matches2){
@@ -82,7 +82,7 @@ public class BankLoginController {
                 aa(integer,name,password,model);
                 return model;
             } else {
-                model.setViewName("/login");
+                model.setViewName("login");
                 return model;
             }
         }
@@ -97,7 +97,7 @@ public class BankLoginController {
                 subject.login(token);
                 int getid = realm.getid();
                 String t = (String) redisUtil.get(getid + "token");
-                model.setViewName("/test");
+                model.setViewName("test");
                 model.addObject("token",t);
                 model.addObject("id",getid);
                 //判断是否是在设备上第一次登陆
