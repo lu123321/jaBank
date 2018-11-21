@@ -15,7 +15,7 @@ public class Batch implements Serializable {
     //收款人姓名
     private String batchName;
     //收款人卡号
-    private Integer batchNumber;
+    private String batchNumber;
     //收款人地区
     private String batchSite;
     //汇款金额
@@ -25,12 +25,15 @@ public class Batch implements Serializable {
     //付款人姓名
     private String batchPayname;
     //付款卡号
-    private Integer batchPaynumber;
+    private String batchPaynumber;
     //付款人ID
     private Integer batchPayuserid;
+    //当前交易时间
+    private String batchTime;
     //币种
     private String batchCurrency;
-
+    //短信留言
+    private String SMSmessage;
 
     public Integer getBatchId() {
         return batchId;
@@ -48,11 +51,11 @@ public class Batch implements Serializable {
         this.batchName = batchName;
     }
 
-    public Integer getBatchNumber() {
+    public String getBatchNumber() {
         return batchNumber;
     }
 
-    public void setBatchNumber(Integer batchNumber) {
+    public void setBatchNumber(String batchNumber) {
         this.batchNumber = batchNumber;
     }
 
@@ -88,11 +91,11 @@ public class Batch implements Serializable {
         this.batchPayname = batchPayname;
     }
 
-    public Integer getBatchPaynumber() {
+    public String getBatchPaynumber() {
         return batchPaynumber;
     }
 
-    public void setBatchPaynumber(Integer batchPaynumber) {
+    public void setBatchPaynumber(String batchPaynumber) {
         this.batchPaynumber = batchPaynumber;
     }
 
@@ -104,6 +107,14 @@ public class Batch implements Serializable {
         this.batchPayuserid = batchPayuserid;
     }
 
+    public String getBatchTime() {
+        return batchTime;
+    }
+
+    public void setBatchTime(String batchTime) {
+        this.batchTime = batchTime;
+    }
+
     public String getBatchCurrency() {
         return batchCurrency;
     }
@@ -112,4 +123,11 @@ public class Batch implements Serializable {
         this.batchCurrency = batchCurrency;
     }
 
+    public String getSMSmessage() {
+        return SMSmessage;
+    }
+
+    public void setSMSmessage(String SMSmessage) {
+        this.SMSmessage = SMSmessage;
+    }
 }

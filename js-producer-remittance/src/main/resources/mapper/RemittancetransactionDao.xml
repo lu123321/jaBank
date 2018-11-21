@@ -22,48 +22,28 @@
         where remittancetransaction_id = #{remittancetransactionId}
     </select>
 
-    <!--查询指定行数据-->
-    <select id="queryAllByLimit" resultMap="RemittancetransactionMap">
-        select
-          remittancetransaction_id, remittancetransaction_name, remittancetransaction_cardnumber, remittancetransaction_blank, remittancetransaction_price, remittancetransaction_time, remittancetransaction_current, remittancetransaction_number, remittancetransaction_payuserid
-        from js_bank_account.remittancetransaction
-        limit #{offset}, #{limit}
-    </select>
+
 
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="RemittancetransactionMap">
         select
-          remittancetransaction_id, remittancetransaction_name, remittancetransaction_cardnumber, remittancetransaction_blank, remittancetransaction_price, remittancetransaction_time, remittancetransaction_current, remittancetransaction_number, remittancetransaction_payuserid
-        from js_bank_account.remittancetransaction
+          remittancetransaction_id, remittancetransaction_cardnumber, remittancetransaction_blank, remittancetransaction_price, remittancetransaction_time, remittancetransaction_number
+        from remittancetransaction
         <where>
-            <if test="remittancetransactionId != null">
-                and remittancetransaction_id = #{remittancetransactionId}
+            <if test="Cardnumber != null and Cardnumber != ''">
+                and remittancetransaction_cardnumber = #{Cardnumber}
             </if>
-            <if test="remittancetransactionName != null and remittancetransactionName != ''">
-                and remittancetransaction_name = #{remittancetransactionName}
+
+            <if test="Number != null and Number != ''">
+                and remittancetransaction_number = #{Number}
             </if>
-            <if test="remittancetransactionCardnumber != null and remittancetransactionCardnumber != ''">
-                and remittancetransaction_cardnumber = #{remittancetransactionCardnumber}
+
+            <if test="onetime != null and onetime != '' and twotime != null and twotime != ''">
+                and remittancetransaction_current between #{onetime} and #{twotime}
             </if>
-            <if test="remittancetransactionBlank != null">
-                and remittancetransaction_blank = #{remittancetransactionBlank}
-            </if>
-            <if test="remittancetransactionPrice != null and remittancetransactionPrice != ''">
-                and remittancetransaction_price = #{remittancetransactionPrice}
-            </if>
-            <if test="remittancetransactionTime != null">
-                and remittancetransaction_time = #{remittancetransactionTime}
-            </if>
-            <if test="remittancetransactionCurrent != null and remittancetransactionCurrent != ''">
-                and remittancetransaction_current = #{remittancetransactionCurrent}
-            </if>
-            <if test="remittancetransactionNumber != null and remittancetransactionNumber != ''">
-                and remittancetransaction_number = #{remittancetransactionNumber}
-            </if>
-            <if test="remittancetransactionPayuserid != null">
-                and remittancetransaction_payuserid = #{remittancetransactionPayuserid}
-            </if>
+
         </where>
+
     </select>
 
     <!--新增所有列-->

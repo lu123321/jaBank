@@ -20,23 +20,15 @@ public interface RemittancetransactionDao {
      */
     Remittancetransaction queryById(Integer remittancetransactionId);
 
-    /**
-     * 查询指定行数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    List<Remittancetransaction> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
 
 
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param remittancetransaction 实例对象
+     * @param
      * @return 对象列表
      */
-    List<Remittancetransaction> queryAll(Remittancetransaction remittancetransaction);
+    List<Remittancetransaction> queryAll(@Param("Cardnumber") String Cardnumber,@Param("Number") String Number,@Param("onetime") String onetime,@Param("twotime") String twotime);
 
     /**
      * 新增数据

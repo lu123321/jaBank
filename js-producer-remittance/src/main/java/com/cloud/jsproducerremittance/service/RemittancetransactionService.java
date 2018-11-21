@@ -1,6 +1,7 @@
 package com.cloud.jsproducerremittance.service;
 
 import com.cloud.jsproducerremittance.entity.Remittancetransaction;
+import com.cloud.jsproducerremittance.pojovalue.Remittansel;
 import com.cloud.jsproducerremittance.service.valuepojo.Remittanvalue;
 
 import java.util.List;
@@ -44,6 +45,13 @@ public interface RemittancetransactionService {
      * @return 实例对象
      */
     Remittancetransaction update(Remittancetransaction remittancetransaction);
+
+    /**
+     * 查询单笔汇款明细
+     * @param remittansel
+     * @return
+     */
+    String selALL(Remittansel remittansel);
 
     /**
      * 通过主键删除数据

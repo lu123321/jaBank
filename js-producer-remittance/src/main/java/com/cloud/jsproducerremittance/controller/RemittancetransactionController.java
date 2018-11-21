@@ -1,6 +1,7 @@
 package com.cloud.jsproducerremittance.controller;
 
 import com.cloud.jsproducerremittance.entity.Remittancetransaction;
+import com.cloud.jsproducerremittance.pojovalue.Remittansel;
 import com.cloud.jsproducerremittance.service.RemittancetransactionService;
 import com.cloud.jsproducerremittance.service.valuepojo.Remittanvalue;
 import org.springframework.web.bind.annotation.*;
@@ -48,7 +49,18 @@ public class RemittancetransactionController {
      * @return
      */
     @RequestMapping(value = "/SMSinsertremittan",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
-    public String SMSinsertremittan(@RequestBody Remittanvalue remittanvalue) {
+    public String SMSinsertremittan(Remittanvalue remittanvalue) {
         return remittancetransactionService.SMSMQ(remittanvalue);
+    }
+
+    /**
+     * 单笔汇款明细查询
+     * @param remittansel
+     * @return
+     */
+    @RequestMapping(value = "/Singlerem",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String Singlerem(Remittansel remittansel){
+        System.out.println(111);
+        return remittancetransactionService.selALL(remittansel);
     }
 }

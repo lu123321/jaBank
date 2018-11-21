@@ -1,9 +1,9 @@
 package com.cloud.jsproducerremittance.service.valuepojo;
 
 public class Remittanvalue {
-    private String phone;
-    private String auth;
-    private String userid;
+    private String phone;//电话
+    private String auth;//验证码
+    private String userid;//付款人ID
 
     public String getPhone() {
         return phone;

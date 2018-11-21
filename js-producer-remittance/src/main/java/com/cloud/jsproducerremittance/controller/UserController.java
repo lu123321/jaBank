@@ -31,7 +31,7 @@ public class UserController {
         System.out.println("fasonngchengg");
     }
 
-    @RabbitListener(queues = RabbitConfig.QUEUE_REMITTANCE)
+//    @RabbitListener(queues = RabbitConfig.QUEUE_REMITTANCE)
     public void bb(String msg){
         System.out.println(msg);
     }
