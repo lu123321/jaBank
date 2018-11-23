@@ -3,10 +3,14 @@ package com.cloud.jsproducerremittance.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.cloud.jsproducerremittance.entity.Batch;
 import com.cloud.jsproducerremittance.dao.BatchDao;
+import com.cloud.jsproducerremittance.entity.Remittancetransaction;
+import com.cloud.jsproducerremittance.pojovalue.Batchvalue;
 import com.cloud.jsproducerremittance.rabbitmqUitl.RabbitConfig;
 import com.cloud.jsproducerremittance.service.BatchService;
 import com.cloud.jsproducerremittance.uitl.ExcelUtil;
 import com.cloud.jsproducerremittance.uitl.GetBank;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -36,8 +40,8 @@ public class BatchServiceImpl implements BatchService {
      * @return 实例对象
      */
     @Override
-    public Batch queryById(Integer batchId) {
-        return this.batchDao.queryById(batchId);
+    public String queryById(Integer batchId) {
+        return JSON.toJSONString(this.batchDao.queryById(batchId));
     }
 
     /**
@@ -54,6 +58,26 @@ public class BatchServiceImpl implements BatchService {
         if (b)
             return "200";
         return "请输入正确银行卡号!";
+    }
+
+    /**
+     * 根据卡号和时间段查询批量明细 分页
+     * @param ba
+     * @return
+     */
+    @Override
+    public String queryAll(Batchvalue ba) {
+        if (ba.getType() == 0){
+            List<Batch> batches = batchDao.queryAll("",ba.getBatchNumber(), ba.getOneTime(), ba.getTwoTime());
+            PageHelper.startPage(ba.getIndex(),ba.getPageSize());
+            PageInfo<Batch> p = new PageInfo<>(batches);
+            return JSON.toJSONString(p);
+        }else{
+            List<Batch> batches = batchDao.queryAll(ba.getBatchNumber(),"", ba.getOneTime(), ba.getTwoTime());
+            PageHelper.startPage(ba.getIndex(),ba.getPageSize());
+            PageInfo<Batch> p = new PageInfo<>(batches);
+            return JSON.toJSONString(p);
+        }
     }
 
 
@@ -136,8 +160,7 @@ public class BatchServiceImpl implements BatchService {
             }
         }
         try {
-            String format1 = new SimpleDateFormat("yyyyMMddHHmmss").format(date);
-            String fileName = batches.get(0).getBatchPaynumber() + ".xls";        // 定义文件名
+            String fileName = batches.get(0).getBatchPaynumber() + ".xls";     // 定义文件名
             String headString = "批量汇款表";          // 定义表格标题
             String sheetName = "批量汇款";                  // 定义工作表表名
             String filePath = "E:\\test\\";             // 文件本地保存路径
@@ -146,10 +169,8 @@ public class BatchServiceImpl implements BatchService {
 
             HSSFWorkbook wb = new HSSFWorkbook();           // 创建Excel文档对象
             HSSFSheet sheet = wb.createSheet(sheetName);    // 创建工作表
-
             // ①创建表格标题
             ExcelUtil.createHeadTittle(wb, sheet, headString, result.get(0).size() - 1);
-
             // result.get(0).size() - 1为表格占用列数，从0开始
             // ②创建表头
             ExcelUtil.createThead(wb, sheet, thead, sheetWidth);
@@ -162,24 +183,12 @@ public class BatchServiceImpl implements BatchService {
             wb.close();
         }catch (IOException e){
             e.printStackTrace();
-            return batches.get(0).getBatchPaynumber() + "生成纸质汇款单失效";
+            return batches.get(0).getBatchPaynumber() + "生成纸质汇款单失败";
         }
         if (a == batches.size()){
-            return "汇款成功!";
+            return "200汇款成功!";
         }
-        return "汇款失败!";
-    }
-
-    /**
-     * 修改数据
-     *
-     * @param batch 实例对象
-     * @return 实例对象
-     */
-    @Override
-    public Batch update(Batch batch) {
-        this.batchDao.update(batch);
-        return this.queryById(batch.getBatchId());
+        return "400汇款失败!";
     }
 
     /**

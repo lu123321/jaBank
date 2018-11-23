@@ -31,6 +31,12 @@ public interface RemittancetransactionDao {
     List<Remittancetransaction> queryAll(@Param("Cardnumber") String Cardnumber,@Param("Number") String Number,@Param("onetime") String onetime,@Param("twotime") String twotime);
 
     /**
+     * 根据明细ID查询详细信息
+     * @param id
+     * @return
+     */
+    Remittancetransaction queryone(@Param("id") Integer id);
+    /**
      * 新增数据
      *
      * @param remittancetransaction 实例对象

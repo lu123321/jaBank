@@ -2,9 +2,7 @@ package com.cloud.jsproducerremittance.service;
 
 import com.cloud.jsproducerremittance.entity.Remittancetransaction;
 import com.cloud.jsproducerremittance.pojovalue.Remittansel;
-import com.cloud.jsproducerremittance.service.valuepojo.Remittanvalue;
-
-import java.util.List;
+import com.cloud.jsproducerremittance.pojovalue.Remittanvalue;
 
 /**
  * (Remittancetransaction)表服务接口
@@ -53,6 +51,12 @@ public interface RemittancetransactionService {
      */
     String selALL(Remittansel remittansel);
 
+    /**
+     * 根据明细ID查询详细信息
+     * @param id
+     * @return
+     */
+    String selone(Integer id);
     /**
      * 通过主键删除数据
      *

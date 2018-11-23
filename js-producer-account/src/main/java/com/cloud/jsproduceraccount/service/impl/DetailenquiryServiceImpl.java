@@ -4,10 +4,19 @@ import com.alibaba.fastjson.JSON;
 import com.cloud.jsproduceraccount.entity.Detailenquiry;
 import com.cloud.jsproduceraccount.dao.DetailenquiryDao;
 import com.cloud.jsproduceraccount.service.DetailenquiryService;
+import com.cloud.jsproduceraccount.service.pojo.AppointmentServicepojo;
+import com.cloud.jsproduceraccount.service.pojovalue.Detailenreturn;
+import com.cloud.jsproduceraccount.service.pojovalue.Detailenvalue;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * (Detailenquiry)表服务实现类
@@ -28,20 +37,83 @@ public class DetailenquiryServiceImpl implements DetailenquiryService {
      */
     @Override
     public String queryById(Integer detailenquiryId) {
-        return JSON.toJSONString(this.detailenquiryDao.queryById(detailenquiryId));
+        Detailenquiry x = this.detailenquiryDao.queryById(detailenquiryId);
+        Detailenreturn detai = new Detailenreturn();
+        detai.setDetailenquiryId(x.getDetailenquiryId());
+        detai.setDetailenquiryNumber(x.getDetailenquiryNumber());
+        detai.setDetailenquiryData(x.getDetailenquiryData());
+        detai.setDetailenquiryPlace(x.getDetailenquiryPlace());
+        detai.setDetailenquiryAbstract(x.getDetailenquiryAbstract());
+        detai.setDetailenquiryCountries(x.getDetailenquiryCountries());
+        detai.setDetailenquiryOtherinformation(x.getDetailenquiryOtherinformation());
+        detai.setDetailenquiryPaper(x.getDetailenquiryPaper());
+        detai.setDetailenquiryFundflow(x.getDetailenquiryFundflow() == 1? "支出":"流入");
+        detai.setDetailenquiryBalance(x.getDetailenquiryBalance());
+        if (x.getDetailenquiryFundflow() == 1){
+            detai.setDetailenquiryMoney("<span style='color:red'>-" +x.getDetailenquiryMoney() + "</span>");
+        }else {
+            detai.setDetailenquiryMoney("<span style='color:green'>+" +x.getDetailenquiryMoney() + "</span>");
+        }
+
+        try {
+            Integer integer = x.getDetailenquiryTransactioncurrency();
+            InputStream in = DetailenquiryServiceImpl.class.getClassLoader().getResourceAsStream("currencytable.properties");
+            Properties pro = new Properties();
+            pro.load(in);
+            String property = pro.getProperty(integer + "");
+            String gbk = new String(property.getBytes("iso8859-1"), "GBK");
+            detai.setDetailenquiryTransactioncurrency(gbk);
+        }catch (IOException e){
+            e.printStackTrace();
+            return null;
+        }
+        return JSON.toJSONString(detai);
     }
 
     /**
      * 根据卡号 时间 流出 支出情况 查询明细
-     * @param detailenquiryNumber
-     * @param detailenquiryDataS
-     * @param detailenquiryFundflow
+     * @param
+     * @param
+     * @param
      * @return
      */
     @Override
-    public String queryAll(String detailenquiryNumber, String detailenquiryDataS, String detailenquiryFundflow) {
-        List<Detailenquiry> detailenquiries = detailenquiryDao.queryAll(detailenquiryNumber, detailenquiryDataS, detailenquiryFundflow);
-        return JSON.toJSONString(detailenquiries);
+    public String queryAll(Detailenvalue de) {
+        List<Detailenquiry> det = detailenquiryDao.queryAll(de.getNumber(), de.getOnetime(), de.getTwotime(),de.getFundflow());
+        List<Detailenreturn> deta = new ArrayList<>();
+        for (Detailenquiry x:det) {
+            Detailenreturn detai = new Detailenreturn();
+            detai.setDetailenquiryId(x.getDetailenquiryId());
+            detai.setDetailenquiryData(x.getDetailenquiryData());
+            detai.setDetailenquiryAbstract(x.getDetailenquiryAbstract());
+            detai.setDetailenquiryOtherinformation(x.getDetailenquiryOtherinformation());
+            detai.setDetailenquiryFundflow(x.getDetailenquiryFundflow() == 1? "支出":"流入");
+            detai.setDetailenquiryBalance(x.getDetailenquiryBalance());
+            if (x.getDetailenquiryFundflow() == 1){
+                detai.setDetailenquiryMoney("<span style='color:red'>-" +x.getDetailenquiryMoney() + "</span>");
+            }else {
+                detai.setDetailenquiryMoney("<span style='color:green'>+" +x.getDetailenquiryMoney() + "</span>");
+            }
+
+            try {
+                Integer integer = x.getDetailenquiryTransactioncurrency();
+                InputStream in = DetailenquiryServiceImpl.class.getClassLoader().getResourceAsStream("currencytable.properties");
+                Properties pro = new Properties();
+                pro.load(in);
+                String property = pro.getProperty(integer + "");
+                String gbk = new String(property.getBytes("iso8859-1"), "GBK");
+                detai.setDetailenquiryTransactioncurrency(gbk);
+            }catch (IOException e){
+                e.printStackTrace();
+                return null;
+            }
+            deta.add(detai);
+        }
+        //分页
+        PageHelper.startPage(de.getIndex(),de.getPageSize());
+        PageInfo<Detailenreturn> p = new PageInfo<>(deta);
+
+        return JSON.toJSONString(p);
     }
 
 

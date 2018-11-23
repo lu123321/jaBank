@@ -1,5 +1,6 @@
 package com.cloud.dmspringproducerserver;
 
+import com.cloud.jsproducerremittance.entity.Batch;
 import com.cloud.jsproducerremittance.rabbitmqUitl.RabbitConfig;
 import com.cloud.jsproducerremittance.uitl.ExcelUtil;
 import org.apache.commons.lang.StringUtils;
@@ -12,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.*;
+import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -48,7 +50,7 @@ public class DmSpringProducerServerApplicationTests {
 
 
 
-        List<Map<String, String>> result = new ArrayList<>();
+       /* List<Map<String, String>> result = new ArrayList<>();
         Map<String, String> map = new LinkedHashMap<>();
         map.put("U_ID", "123");
         map.put("UDT_STATE","456");
@@ -81,6 +83,75 @@ public class DmSpringProducerServerApplicationTests {
         // filePath,fileName是如上定义的文件保存路径及文件名
         wb.write(fos);
         fos.close();
-        wb.close();
+        wb.close();*/
+
+       /*String a = "1";
+       String b = "1.11";
+        double v = Double.parseDouble(a);
+        System.out.println(v);
+        System.out.println(v == 1);
+        double v1 = Double.parseDouble(b);
+        System.out.println(v1);*/
+
+//        System.out.println(40.01 > 40);
+        /*String a = "6212260502017442620";
+        String substring = a.substring(a.length() - 4);
+        System.out.println(substring);*/
+
+        /*long now = System.currentTimeMillis();
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyyMMdd");
+        String time=dateFormat.format(now);
+        System.out.println(now);
+        String yyyyMMdd = new SimpleDateFormat("yyyyMMdd").format(new Date());
+        System.out.println(yyyyMMdd);*/
+
+        /*int a = 7;
+        彩票
+        Integer[] b = new Integer[6];
+        int c = 0;
+        while (true){
+            List<Integer> list = Arrays.asList(b);
+            int i = (int)(Math.random()*100);
+            if (i < 33 && i > 0){
+                boolean contains = list.contains(i);
+                if (!contains){
+                    b[c] = i;
+
+                    a --;
+                    System.out.println(i);
+                }
+            }
+            if (a == 0){
+                break;
+            }
+        }*/
+
+                /* Date d = new Date();
+                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                 Calendar ca = Calendar.getInstance();
+                 ca.add(Calendar.DATE, 3);// num为增加的天数，可以改变的
+                 d = ca.getTime();
+                 String enddate = format.format(d);
+                 System.out.println("增加天数以后的日期：" + enddate);*/
+
+
+        /*Batch batch = new Batch();
+        try{        //判断对象的属性是否为空
+        for(Field f : batch.getClass().getDeclaredFields()){
+            f.setAccessible(true);
+            //log.info(f.getName());
+            if ("".equals(f.get(batch))){
+                System.out.println("空字符串");
+            }
+            if(f.get(batch) == null){
+                System.out.println("null");
+            }
+        }
+        }catch (IllegalAccessException e){
+            System.out.println("异常");
+        }*/
+
+
     }
+
 }

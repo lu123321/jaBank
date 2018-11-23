@@ -29,20 +29,20 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="DetailenquiryMap">
         select
-          detailenquiry_id, detailenquiry_data, detailenquiry_abstract, detailenquiry_otherinformation, detailenquiry_balance, detailenquiry_transactioncurrency, detailenquiry_money
+          detailenquiry_id, detailenquiry_data, detailenquiry_abstract, detailenquiry_otherinformation,detailenquiry_fundflow, detailenquiry_balance, detailenquiry_transactioncurrency, detailenquiry_money
         from detailenquiry
         <where>
 
-            <if test="detailenquiryNumber != null and detailenquiryNumber != ''">
-                and detailenquiry_number = #{detailenquiryNumber}
+            <if test="number != null and number != ''">
+                and detailenquiry_number = #{number}
             </if>
 
-            <if test="detailenquiryData != null and detailenquiryData != ''">
-                and detailenquiry_data = #{detailenquiryData}
+            <if test="onetime != null and onetime != '' and  twotime != null and twotime != ''">
+                and detailenquiry_data between #{onetime} and #{twotime}
             </if>
 
-            <if test="detailenquiryFundflow != null">
-                and detailenquiry_fundflow = #{detailenquiryFundflow}
+            <if test="Fundflow != null">
+                and detailenquiry_fundflow = #{Fundflow}
             </if>
 
         </where>

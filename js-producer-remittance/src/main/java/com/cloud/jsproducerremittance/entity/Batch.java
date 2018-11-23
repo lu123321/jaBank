@@ -13,7 +13,7 @@ public class Batch implements Serializable {
     //批量汇款ID
     private Integer batchId;
     //收款人姓名
-    private String batchName;
+    private String batchName = "";
     //收款人卡号
     private String batchNumber;
     //收款人地区

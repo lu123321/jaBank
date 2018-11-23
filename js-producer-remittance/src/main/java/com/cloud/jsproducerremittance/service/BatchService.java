@@ -1,6 +1,8 @@
 package com.cloud.jsproducerremittance.service;
 
 import com.cloud.jsproducerremittance.entity.Batch;
+import com.cloud.jsproducerremittance.pojovalue.Batchvalue;
+
 import java.util.List;
 
 /**
@@ -17,7 +19,7 @@ public interface BatchService {
      * @param batchId 主键
      * @return 实例对象
      */
-    Batch queryById(Integer batchId);
+    String queryById(Integer batchId);
 
     /**
      * 验证输入是银行卡号
@@ -27,6 +29,12 @@ public interface BatchService {
     String verifycard(String number);
 
     /**
+     * 根据卡号和时间段查询批量明细
+     * @param ba
+     * @return
+     */
+    String queryAll(Batchvalue ba);
+    /**
      * 新增数据
      *
      * @param batch 实例对象
@@ -34,13 +42,7 @@ public interface BatchService {
      */
     String insert(String batch);
 
-    /**
-     * 修改数据
-     *
-     * @param batch 实例对象
-     * @return 实例对象
-     */
-    Batch update(Batch batch);
+
 
     /**
      * 通过主键删除数据

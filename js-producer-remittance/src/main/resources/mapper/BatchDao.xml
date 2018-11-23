@@ -17,60 +17,32 @@
     </resultMap>
 
     <!--查询单个-->
-    <select id="queryById" resultMap="BatchMap">
+    <select id="queryById" resultMap="BatchMap" parameterType="Integer">
         select
-          batch_id, batch_name, batch_number, batch_site, batch_price, batch_phone, batch_payname, batch_paynumber, batch_payuserid, batch_time, batch_currency
-        from js_bank_account.batch
+          batch_id, batch_name, batch_number, batch_site, batch_price, batch_phone, batch_payname, batch_paynumber, batch_payuserid, batch_time
+        from batch
         where batch_id = #{batchId}
-    </select>
-
-    <!--查询指定行数据-->
-    <select id="queryAllByLimit" resultMap="BatchMap">
-        select
-          batch_id, batch_name, batch_number, batch_site, batch_price, batch_phone, batch_payname, batch_paynumber, batch_payuserid, batch_time, batch_currency
-        from js_bank_account.batch
-        limit #{offset}, #{limit}
     </select>
 
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="BatchMap">
         select
-          batch_id, batch_name, batch_number, batch_site, batch_price, batch_phone, batch_payname, batch_paynumber, batch_payuserid, batch_time, batch_currency
-        from js_bank_account.batch
+          batch_id, batch_number, batch_site, batch_price, batch_paynumber, batch_payuserid, batch_time
+        from batch
         <where>
-            <if test="batchId != null">
-                and batch_id = #{batchId}
-            </if>
-            <if test="batchName != null and batchName != ''">
-                and batch_name = #{batchName}
-            </if>
+
             <if test="batchNumber != null and batchNumber != ''">
                 and batch_number = #{batchNumber}
             </if>
-            <if test="batchSite != null and batchSite != ''">
-                and batch_site = #{batchSite}
-            </if>
-            <if test="batchPrice != null and batchPrice != ''">
-                and batch_price = #{batchPrice}
-            </if>
-            <if test="batchPhone != null and batchPhone != ''">
-                and batch_phone = #{batchPhone}
-            </if>
-            <if test="batchPayname != null and batchPayname != ''">
-                and batch_payname = #{batchPayname}
-            </if>
+
             <if test="batchPaynumber != null and batchPaynumber != ''">
                 and batch_paynumber = #{batchPaynumber}
             </if>
-            <if test="batchPayuserid != null">
-                and batch_payuserid = #{batchPayuserid}
+
+            <if test="oneTime != null and oneTime != '' and twoTime != null and twoTime != ''">
+                and batch_time between #{oneTime} and #{twoTime}
             </if>
-            <if test="batchTime != null and batchTime != ''">
-                and batch_time = #{batchTime}
-            </if>
-            <if test="batchCurrency != null and batchCurrency != ''">
-                and batch_currency = #{batchCurrency}
-            </if>
+
         </where>
     </select>
 

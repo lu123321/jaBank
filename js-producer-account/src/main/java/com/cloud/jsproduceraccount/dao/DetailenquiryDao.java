@@ -25,10 +25,10 @@ public interface DetailenquiryDao {
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param detailenquiryNumber
+     * @param
      * @return 对象列表
      */
-    List<Detailenquiry> queryAll(String detailenquiryNumber,String detailenquiryDataS,String detailenquiryFundflow);
+    List<Detailenquiry> queryAll(@Param("number") String Number,@Param("onetime") String onetime,@Param("twotime") String twotime,@Param("Fundflow") Integer Fundflow);
 
 
 

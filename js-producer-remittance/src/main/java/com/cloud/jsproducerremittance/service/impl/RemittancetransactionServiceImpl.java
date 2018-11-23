@@ -1,20 +1,24 @@
 package com.cloud.jsproducerremittance.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.cloud.jsproducerremittance.SMS.IndustrySMS;
-import com.cloud.jsproducerremittance.entity.Remittancetransaction;
+import com.cloud.jsproducerremittance.SMS.IndustrySMSRem;
+import com.cloud.jsproducerremittance.Voice.VoiceCode;
 import com.cloud.jsproducerremittance.dao.RemittancetransactionDao;
+import com.cloud.jsproducerremittance.entity.Remittancetransaction;
 import com.cloud.jsproducerremittance.pojovalue.Remittansel;
+import com.cloud.jsproducerremittance.pojovalue.Remvalue;
 import com.cloud.jsproducerremittance.rabbitmqUitl.RabbitConfig;
 import com.cloud.jsproducerremittance.service.RemittancetransactionService;
-import com.cloud.jsproducerremittance.service.valuepojo.Remittanvalue;
+import com.cloud.jsproducerremittance.pojovalue.Remittanvalue;
 import com.cloud.jsproducerremittance.uitl.GetBank;
 import com.cloud.jsproducerremittance.uitl.RedisUtil;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -54,61 +58,98 @@ public class RemittancetransactionServiceImpl implements RemittancetransactionSe
     /**
      * 新增数据
      *
-     * @param remittancetransaction 实例对象
+     * @param rem 实例对象
      * @return 实例对象
      */
     @Override
-    public String insert(Remittancetransaction remittancetransaction) {
-
-        if (remittancetransaction.getRemittancetransactionNumber().equals(remittancetransaction.getRemittancetransactionCardnumber())){
+    public String insert(Remittancetransaction rem) {
+        if (rem.getRemittancetransactionNumber().equals(rem.getRemittancetransactionCardnumber())){
             return "收款卡号和付款卡号不能相同!";
         }
         //判断是否是汉字  收款人姓名
-        boolean hanzi = remittancetransaction.getRemittancetransactionName().matches("[\\u4e00-\\u9fa5]+");
+        boolean hanzi = rem.getRemittancetransactionName().matches("[\\u4e00-\\u9fa5]+");
         //判断是否是银行卡号 收款卡号
-        boolean kahao = GetBank.checkBankCard(remittancetransaction.getRemittancetransactionCardnumber());
+        boolean kahao = GetBank.checkBankCard(rem.getRemittancetransactionCardnumber());
         //判断输入的金额是否是int类型
         Pattern PATTERN = Pattern.compile("0|([-]?[1-9][0-9]*)");
-        boolean intt = PATTERN.matcher(remittancetransaction.getRemittancetransactionPrice()).matches();
+        boolean intt = PATTERN.matcher(rem.getRemittancetransactionPrice()).matches();
         //判断输入的金额是否是double类
         Pattern pattern = Pattern.compile("^[-\\+]?\\d+(\\.\\d*)?|\\.\\d+$");
-        boolean doublee = pattern.matcher(remittancetransaction.getRemittancetransactionPrice()).matches();
+        boolean doublee = pattern.matcher(rem.getRemittancetransactionPrice()).matches();
         if (hanzi && kahao && (intt || doublee)){
-
+            double v = Double.parseDouble(rem.getRemittancetransactionPrice());
+            if (v > 20000){
+                return "单笔汇款，单笔仅支持20000.00";
+            }
+            //付款卡号 限制每日汇款总额度
+            String num = rem.getRemittancetransactionNumber();
+            String price = rem.getRemittancetransactionPrice();
+            if (redisUtil.get("remitt" + num) == null){
+                redisUtil.set("remitt" + num,price,30);
+            }else{
+                Double doo = Double.parseDouble(redisUtil.get("remitt" + num).toString());
+                long expire = redisUtil.getExpire("remitt" + num);
+                Double a = doo + Double.parseDouble(price);
+                if (a > 40000){
+                    return "今日汇款已限额!最多累加40000.00!";
+                }
+                redisUtil.set("remitt" + num,a.toString(),expire);
+            }
             //汇款发起时间
-            remittancetransaction.setRemittancetransactionCurrent(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            //            //发送验证码
-            //String execute = IndustrySMS.execute(remittancetransaction.getPhone());
-            //设置短信验证码时间为5分钟失效
-            redisUtil.hset("rem",remittancetransaction.getPhone(),"12345",60*5);
+            rem.setRemittancetransactionCurrent(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            //发送语音验证码
+            String execute = VoiceCode.execute(rem.getPhone());
+            //设置语音验证码时间为5分钟失效
+            redisUtil.hset("rem",rem.getPhone(),execute,60*5);
             //将汇款信息放入到redis中
-            String string = JSON.toJSONString(remittancetransaction);
-            redisUtil.hset("remit",remittancetransaction.getRemittancetransactionPayuserid() + "",string,60*5);
+            String string = JSON.toJSONString(rem);
+            redisUtil.hset("remit",rem.getRemittancetransactionPayuserid() + "",string,60*5);
             return "200输入正确已发送验证码";
         }
         return "400请正确输入";
     }
 
     //汇款发送验证码  验证验证码 添加汇款交易表 和 发送MQ给瀚文
-    public String SMSMQ(Remittanvalue remittanvalue) {
+    public String SMSMQ(Remittanvalue remi) {
         //根据Userid将汇款信息从redis拿出来
-        String o = (String) redisUtil.hget("remit",remittanvalue.getUserid());
-        String au = (String) redisUtil.hget("rem",remittanvalue.getPhone());
+        String o = (String) redisUtil.hget("remit",remi.getUserid());
+        String au = (String) redisUtil.hget("rem",remi.getPhone());
         if (o == null || au == null){
             return "操作超时!请重新操作!";
         }
-        redisUtil.hdel("remit",remittanvalue.getUserid());
-        redisUtil.hdel("rem",remittanvalue.getPhone());
+        redisUtil.hdel("rem",remi.getPhone());
         //反序列化成对象
         Remittancetransaction re = JSON.parseObject(o, Remittancetransaction.class);
-        if (au != null && au.equals(remittanvalue.getAuth())) {
+        if (au != null && au.equals(remi.getAuth())) {
+            //发送卡号和名字给瀚文验证
+            String NumName = re.getRemittancetransactionCardnumber() + "," + re.getRemittancetransactionName() + "," +
+                    re.getRemittancetransactionPayuserid() + "," + re.getPhone();
+
+            rabbitTemplate.convertAndSend(RabbitConfig.QUEUE_SELNUMBER_NAME,NumName);
+
+            /*Integer ba = re.getRemittancetransactionBlank();
+            int insert = 0;
+            Double dd = 0.00;
+            if (ba == 3){
                 //添加汇款加以表
-            int insert = this.remittancetransactionDao.insert(re);
+                re.setRemittancetransactionProcedure("0");
+                insert = this.remittancetransactionDao.insert(re);
+            }else {
+                dd = Double.parseDouble(re.getRemittancetransactionPrice()) * 0.01;
+                if (dd > 50) {
+                    dd = 50.00;
+                }else if (dd < 2){
+                    dd = 2.00;
+                }
+                re.setRemittancetransactionProcedure(dd.toString());
+                insert = this.remittancetransactionDao.insert(re);
+            }
                 if (insert > 0) {
                     //调MQ发送汇款给瀚文
                     String json = "[{\"one\":\"" + re.getRemittancetransactionCardnumber() + "\"}" + ","
                             + "{\"two\":\"" + re.getRemittancetransactionNumber() + "\"}" + ","
-                            + "{\"three\":\"" + re.getRemittancetransactionPrice() + "\"}]";
+                            + "{\"three\":\"" + re.getRemittancetransactionPrice() + "\"}" + ","
+                            +  "{\"four\":\"" + dd + "\"}]";
                     //生成汇款文件
                     try {
                         rabbitTemplate.convertAndSend(RabbitConfig.QUEUE_REMITTANCE, json);
@@ -131,6 +172,7 @@ public class RemittancetransactionServiceImpl implements RemittancetransactionSe
                         String gbk = new String(property.getBytes("iso8859-1"), "GBK");
                         sb.append("收款银行:" + gbk + "\r\n");
                         sb.append("汇款金额:" + re.getRemittancetransactionPrice() + "\r\n");
+                        sb.append("手续费:" + dd + "\r\n");
                         //
                         InputStream in1 = RemittancetransactionServiceImpl.class.getClassLoader().getResourceAsStream("time.properties");
                         pro.load(in1);
@@ -148,10 +190,91 @@ public class RemittancetransactionServiceImpl implements RemittancetransactionSe
                     }
                     return "汇款成功" + re.getRemittancetransactionPrice() + "元";
                 }
-            return "汇款失败";
+            return "汇款失败";*/
             }
         return "验证码错误";
     }
+
+    //监听瀚文验证卡号姓名后的队列
+    @RabbitListener(queues = RabbitConfig.QUEUE_HANWEN)
+    public String QUEUEVoic(String msg){
+        //返回000则是不匹配 汇款失败 短信通知   接收 验证后状态码0 收款卡号1 姓名2 付款人ID3 付款人电话4
+        String[] split = msg.split(",");
+        if ("000".equals(split[0])){
+            IndustrySMSRem.execute(split[4],"****"+split[1].substring(split[1].length() - 4) + "," + split[2]);
+            System.out.println("短信通知汇款人，汇款失败原因。");
+            redisUtil.hdel("remit",split[3]);
+            return "400";
+        }
+        String o = (String) redisUtil.hget("remit",split[3]);
+        redisUtil.hdel("remit",split[3]);
+        Remittancetransaction re = JSON.parseObject(o, Remittancetransaction.class);
+        Integer ba = re.getRemittancetransactionBlank();
+        int insert = 0;
+        Double dd = 0.00;
+        if (ba == 3){
+            //添加汇款加以表 本行不付手续费
+            re.setRemittancetransactionProcedure("0");
+            insert = this.remittancetransactionDao.insert(re);
+        }else {
+            dd = Double.parseDouble(re.getRemittancetransactionPrice()) * 0.01;
+            if (dd > 50) {
+                dd = 50.00;
+            }else if (dd < 2){
+                dd = 2.00;
+            }
+            re.setRemittancetransactionProcedure(dd.toString());
+            insert = this.remittancetransactionDao.insert(re);
+        }
+        if (insert > 0) {
+            //调MQ发送汇款给瀚文 收款卡号 付款卡号 交易金额 手续费
+            String json = re.getRemittancetransactionCardnumber() + ","
+                        + re.getRemittancetransactionNumber() + ","
+                        + re.getRemittancetransactionPrice()  + ","
+                        + dd ;
+            //生成汇款文件
+            try {
+                rabbitTemplate.convertAndSend(RabbitConfig.QUEUE_REMITTANCE, json);
+                //fw 中的true和false是设置写入文本的数据是否覆盖原来的，不覆盖设置 false 追加在后面
+                FileWriter fw = new FileWriter("D://remittan.txt",false);
+                //时间
+                Date date = new Date();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String format = simpleDateFormat.format(date);
+                //设置文本内容
+                StringBuilder sb = new StringBuilder();
+                sb.append("当前时间"+format + "\r\n");
+                sb.append("收款人姓名:\r\t" + re.getRemittancetransactionName() + "\r\n");
+                sb.append("收款卡号:\r\t" + re.getRemittancetransactionCardnumber() + "\r\n");
+                //获取配置文件 读取数据
+                InputStream in = RemittancetransactionServiceImpl.class.getClassLoader().getResourceAsStream("database.properties");
+                Properties pro = new Properties();
+                pro.load(in);
+                String property = pro.getProperty(re.getRemittancetransactionBlank() + "");
+                String gbk = new String(property.getBytes("iso8859-1"), "GBK");
+                sb.append("收款银行:" + gbk + "\r\n");
+                sb.append("汇款金额:" + re.getRemittancetransactionPrice() + "\r\n");
+                sb.append("手续费:" + dd + "\r\n");
+                //
+                InputStream in1 = RemittancetransactionServiceImpl.class.getClassLoader().getResourceAsStream("time.properties");
+                pro.load(in1);
+                String property1 = pro.getProperty(re.getRemittancetransactionTime() + "");
+                String time = new String(property1.getBytes("iso8859-1"), "GBK");
+                sb.append("汇款时间:" + time + "\r\n");
+                sb.append("汇款时间:" + re.getRemittancetransactionCurrent() + "\r\n");
+                sb.append("付款卡号:" + re.getRemittancetransactionNumber() + "\r\n");
+                String a = sb.toString();
+                fw.write(a);
+                fw.close();
+            }catch (IOException e){
+                e.printStackTrace();
+                return "生成纸质汇款单失效";
+            }
+            return "汇款成功" + re.getRemittancetransactionPrice() + "元";
+        }
+        return "汇款失败";
+    }
+
     /**
      * 修改数据
      *
@@ -175,12 +298,52 @@ public class RemittancetransactionServiceImpl implements RemittancetransactionSe
             List<Remittancetransaction> remittancetransactions = this.remittancetransactionDao.queryAll("",rem.getCardnumber(), rem.getOnetime(), rem.getTwotime());
             System.out.println("000");
             System.out.println(JSON.toJSONString(remittancetransactions));
-            return JSON.toJSONString(remittancetransactions);
+            PageHelper.startPage(rem.getIndex(),rem.getPageSize());
+            PageInfo<Remittancetransaction> p = new PageInfo<>(remittancetransactions);
+            return JSON.toJSONString(p);
         }
         List<Remittancetransaction> remittancetransactions = this.remittancetransactionDao.queryAll(rem.getCardnumber(), "", rem.getOnetime(), rem.getTwotime());
-        return JSON.toJSONString(remittancetransactions);
+        PageHelper.startPage(rem.getIndex(),rem.getPageSize());
+        PageInfo<Remittancetransaction> p = new PageInfo<>(remittancetransactions);
+        return JSON.toJSONString(p);
     }
 
+    /**
+     * 根据明细ID查询详细信息
+     * @param id
+     * @return
+     */
+    @Override
+    public String selone(Integer id) {
+        try {
+            Remittancetransaction queryone = this.remittancetransactionDao.queryone(id);
+            //汇款时间方式
+            InputStream in1 = RemittancetransactionServiceImpl.class.getClassLoader().getResourceAsStream("time.properties");
+            Properties pro = new Properties();
+            pro.load(in1);
+            String property1 = pro.getProperty(queryone.getRemittancetransactionTime() + "");
+            String time = new String(property1.getBytes("iso8859-1"), "GBK");
+            //汇款银行
+            InputStream in = RemittancetransactionServiceImpl.class.getClassLoader().getResourceAsStream("database.properties");
+            pro.load(in);
+            String property = pro.getProperty(queryone.getRemittancetransactionBlank() + "");
+            String gbk = new String(property.getBytes("iso8859-1"), "GBK");
+
+            Remvalue remvalue = new Remvalue();
+            remvalue.setRemittancetransactionBlank(gbk);
+            remvalue.setRemittancetransactionCardnumber(queryone.getRemittancetransactionCardnumber());
+            remvalue.setRemittancetransactionCurrent(queryone.getRemittancetransactionCurrent());
+            remvalue.setRemittancetransactionName(queryone.getRemittancetransactionName());
+            remvalue.setRemittancetransactionPayuserid(queryone.getRemittancetransactionPayuserid());
+            remvalue.setRemittancetransactionPrice(queryone.getRemittancetransactionPrice());
+            remvalue.setRemittancetransactionTime(time);
+            remvalue.setRemittancetransactionNumber(queryone.getRemittancetransactionNumber());
+            return JSON.toJSONString(remvalue);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
     /**
      * 通过主键删除数据
      *

@@ -6,24 +6,26 @@ import java.io.Serializable;
  * (Makeremittance)实体类
  *
  * @author makejava
- * @since 2018-11-10 08:51:56
+ * @since 2018-11-22 21:01:21
  */
 public class Makeremittance implements Serializable {
-    private static final long serialVersionUID = -64080405017726016L;
+    private static final long serialVersionUID = 428957473204745073L;
     //预约汇款表
     private Integer makeremittanceId;
     //预约编号
     private Integer makeremittanceSerialnumber;
     //预约时间
     private String makeremittanceTime;
+    //当前时间
+    private String makeremittanceData;
     //预约汇款金额
     private String makeremittancePrice;
     //预约付款卡号
-    private Integer makeremittancePaynumber;
+    private String makeremittancePaynumber;
     //收款人姓名
     private String makeremittanceName;
     //预约收款卡号
-    private Integer makeremittanceNumber;
+    private String makeremittanceNumber;
     //预约付款人ID
     private Integer makeremittancePayuserid;
     //预约汇款人 付款人
@@ -56,6 +58,14 @@ public class Makeremittance implements Serializable {
         this.makeremittanceTime = makeremittanceTime;
     }
 
+    public String getMakeremittanceData() {
+        return makeremittanceData;
+    }
+
+    public void setMakeremittanceData(String makeremittanceData) {
+        this.makeremittanceData = makeremittanceData;
+    }
+
     public String getMakeremittancePrice() {
         return makeremittancePrice;
     }
@@ -64,11 +74,11 @@ public class Makeremittance implements Serializable {
         this.makeremittancePrice = makeremittancePrice;
     }
 
-    public Integer getMakeremittancePaynumber() {
+    public String getMakeremittancePaynumber() {
         return makeremittancePaynumber;
     }
 
-    public void setMakeremittancePaynumber(Integer makeremittancePaynumber) {
+    public void setMakeremittancePaynumber(String makeremittancePaynumber) {
         this.makeremittancePaynumber = makeremittancePaynumber;
     }
 
@@ -80,11 +90,11 @@ public class Makeremittance implements Serializable {
         this.makeremittanceName = makeremittanceName;
     }
 
-    public Integer getMakeremittanceNumber() {
+    public String getMakeremittanceNumber() {
         return makeremittanceNumber;
     }
 
-    public void setMakeremittanceNumber(Integer makeremittanceNumber) {
+    public void setMakeremittanceNumber(String makeremittanceNumber) {
         this.makeremittanceNumber = makeremittanceNumber;
     }
 

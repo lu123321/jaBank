@@ -1,6 +1,8 @@
 package com.cloud.jsproduceraccount.service;
 
 import com.cloud.jsproduceraccount.entity.Detailenquiry;
+import com.cloud.jsproduceraccount.service.pojovalue.Detailenvalue;
+
 import java.util.List;
 
 /**
@@ -21,12 +23,12 @@ public interface DetailenquiryService {
 
     /**
      * 根据卡号 时间 流出 支出情况 查询明细
-     * @param detailenquiryNumber
-     * @param detailenquiryDataS
-     * @param detailenquiryFundflow
+     * @param
+     * @param
+     * @param
      * @return
      */
-    String queryAll(String detailenquiryNumber,String detailenquiryDataS,String detailenquiryFundflow);
+    String queryAll(Detailenvalue de);
 
     /**
      * 新增数据

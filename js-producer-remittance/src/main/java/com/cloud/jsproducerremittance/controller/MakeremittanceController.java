@@ -10,10 +10,9 @@ import javax.annotation.Resource;
  * (Makeremittance)表控制层
  *
  * @author makejava
- * @since 2018-11-10 08:51:56
+ * @since 2018-11-22 20:51:09
  */
 @RestController
-@RequestMapping("makeremittance")
 public class MakeremittanceController {
     /**
      * 服务对象

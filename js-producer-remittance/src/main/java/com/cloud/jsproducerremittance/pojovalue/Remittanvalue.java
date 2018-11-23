@@ -1,4 +1,4 @@
-package com.cloud.jsproducerremittance.service.valuepojo;
+package com.cloud.jsproducerremittance.pojovalue;
 
 public class Remittanvalue {
     private String phone;//电话

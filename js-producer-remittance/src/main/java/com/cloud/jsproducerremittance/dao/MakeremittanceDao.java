@@ -8,7 +8,7 @@ import java.util.List;
  * (Makeremittance)表数据库访问层
  *
  * @author makejava
- * @since 2018-11-10 08:51:56
+ * @since 2018-11-22 20:51:09
  */
 public interface MakeremittanceDao {
 
@@ -40,7 +40,7 @@ public interface MakeremittanceDao {
 
     /**
      * 新增数据
-     *
+     *  添加预约汇款信息
      * @param makeremittance 实例对象
      * @return 影响行数
      */

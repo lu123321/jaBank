@@ -23,6 +23,13 @@
     "custom" : false,
     "ext" : { }
   }, {
+    "name" : "makeremittanceData",
+    "comment" : "当前时间",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
     "name" : "makeremittancePrice",
     "comment" : "预约汇款金额",
     "type" : "java.lang.String",
@@ -32,7 +39,7 @@
   }, {
     "name" : "makeremittancePaynumber",
     "comment" : "预约付款卡号",
-    "type" : null,
+    "type" : "java.lang.String",
     "shortType" : null,
     "custom" : false,
     "ext" : { }
@@ -46,7 +53,7 @@
   }, {
     "name" : "makeremittanceNumber",
     "comment" : "预约收款卡号",
-    "type" : null,
+    "type" : "java.lang.String",
     "shortType" : null,
     "custom" : false,
     "ext" : { }

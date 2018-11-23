@@ -1,15 +1,7 @@
-package com.cloud.jsproduceraccount.entity;
+package com.cloud.jsproduceraccount.service.pojovalue;
 
-import java.io.Serializable;
+public class Detailenreturn {
 
-/**
- * (Detailenquiry)实体类
- *
- * @author makejava
- * @since 2018-11-10 08:50:36
- */
-public class Detailenquiry implements Serializable {
-    private static final long serialVersionUID = -26286492554399739L;
     //明细查询ID
     private Integer detailenquiryId;
     //卡号
@@ -27,14 +19,13 @@ public class Detailenquiry implements Serializable {
     //钞汇标志
     private String detailenquiryPaper;
     //资金流向 1 支出 2 流入
-    private Integer detailenquiryFundflow;
+    private String detailenquiryFundflow;
     //余额
     private String detailenquiryBalance;
-    //交易币种 
-    private Integer detailenquiryTransactioncurrency;
+    //交易币种
+    private String detailenquiryTransactioncurrency;
     //交易金额
     private String detailenquiryMoney;
-
 
     public Integer getDetailenquiryId() {
         return detailenquiryId;
@@ -100,11 +91,11 @@ public class Detailenquiry implements Serializable {
         this.detailenquiryPaper = detailenquiryPaper;
     }
 
-    public Integer getDetailenquiryFundflow() {
+    public String getDetailenquiryFundflow() {
         return detailenquiryFundflow;
     }
 
-    public void setDetailenquiryFundflow(Integer detailenquiryFundflow) {
+    public void setDetailenquiryFundflow(String detailenquiryFundflow) {
         this.detailenquiryFundflow = detailenquiryFundflow;
     }
 
@@ -116,11 +107,11 @@ public class Detailenquiry implements Serializable {
         this.detailenquiryBalance = detailenquiryBalance;
     }
 
-    public Integer getDetailenquiryTransactioncurrency() {
+    public String getDetailenquiryTransactioncurrency() {
         return detailenquiryTransactioncurrency;
     }
 
-    public void setDetailenquiryTransactioncurrency(Integer detailenquiryTransactioncurrency) {
+    public void setDetailenquiryTransactioncurrency(String detailenquiryTransactioncurrency) {
         this.detailenquiryTransactioncurrency = detailenquiryTransactioncurrency;
     }
 

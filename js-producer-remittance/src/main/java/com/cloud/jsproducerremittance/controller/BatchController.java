@@ -1,6 +1,7 @@
 package com.cloud.jsproducerremittance.controller;
 
 import com.cloud.jsproducerremittance.entity.Batch;
+import com.cloud.jsproducerremittance.pojovalue.Batchvalue;
 import com.cloud.jsproducerremittance.service.BatchService;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,12 +24,12 @@ public class BatchController {
     /**
      * 通过主键查询单条数据
      *
-     * @param id 主键
+     * @param batid 主键
      * @return 单条数据
      */
-    //@GetMapping("selectOne")
-    public Batch selectOne(Integer id) {
-        return this.batchService.queryById(id);
+    @RequestMapping(value = "/selectOnebatch",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String selectOne(Integer batid) {
+        return this.batchService.queryById(batid);
     }
 
     /**
@@ -49,5 +50,15 @@ public class BatchController {
     @RequestMapping(value = "/verifycard",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String verifycard(String number){
         return batchService.verifycard(number);
+    }
+
+    /**
+     * 根据卡号和时间段查询批量明细 分页
+     * @param ba
+     * @return
+     */
+    @RequestMapping(value = "/querybatch",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String queryallbatch(Batchvalue ba){
+       return batchService.queryAll(ba);
     }
 }

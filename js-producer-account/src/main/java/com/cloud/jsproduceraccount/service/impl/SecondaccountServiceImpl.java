@@ -103,7 +103,7 @@ public class SecondaccountServiceImpl implements SecondaccountService {
         String compare = Compare(pwdone, pwdtwo);
         if ("{\"500\":\"200\"}".equals(compare)){
         try{
-//                if(redisUtil.hget("secondaccount",phone).equals(auth)){
+                if(redisUtil.hget("secondaccount",phone).equals(auth)){
 
             //验证身份证号
             String str = "[1-9]{2}[0-9]{4}(19|20)[0-9]{2}"
@@ -126,9 +126,9 @@ public class SecondaccountServiceImpl implements SecondaccountService {
                         return "{\"500\":\"申请失败\"}";
                     }
                     return "{\"500\":\"请输入正确的身份证号·\"}";
-               /* }else {
+                }else {
                     return "{\"500\":\"验证码错误,请输入正确验证码!\"}";
-                }*/
+                }
             }catch (Exception e){
                 e.printStackTrace();
                 return "{\"500\":\"验证码错误,请输入正确验证码!\"}";

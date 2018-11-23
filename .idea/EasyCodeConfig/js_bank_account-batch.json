@@ -18,7 +18,7 @@
   }, {
     "name" : "batchNumber",
     "comment" : "收款人卡号",
-    "type" : null,
+    "type" : "java.lang.String",
     "shortType" : null,
     "custom" : false,
     "ext" : { }
@@ -53,7 +53,7 @@
   }, {
     "name" : "batchPaynumber",
     "comment" : "付款卡号",
-    "type" : null,
+    "type" : "java.lang.String",
     "shortType" : null,
     "custom" : false,
     "ext" : { }
@@ -61,6 +61,13 @@
     "name" : "batchPayuserid",
     "comment" : "付款人ID",
     "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "batchTime",
+    "comment" : "当前交易时间",
+    "type" : "java.lang.String",
     "shortType" : null,
     "custom" : false,
     "ext" : { }

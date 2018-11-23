@@ -3,7 +3,7 @@ package com.cloud.jsproducerremittance.controller;
 import com.cloud.jsproducerremittance.entity.Remittancetransaction;
 import com.cloud.jsproducerremittance.pojovalue.Remittansel;
 import com.cloud.jsproducerremittance.service.RemittancetransactionService;
-import com.cloud.jsproducerremittance.service.valuepojo.Remittanvalue;
+import com.cloud.jsproducerremittance.pojovalue.Remittanvalue;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -21,17 +21,6 @@ public class RemittancetransactionController {
      */
     @Resource
     private RemittancetransactionService remittancetransactionService;
-
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
-    @GetMapping("selectOne")
-    public Remittancetransaction selectOne(Integer id) {
-        return this.remittancetransactionService.queryById(id);
-    }
 
     /**
      * 添加汇款信息
@@ -60,7 +49,16 @@ public class RemittancetransactionController {
      */
     @RequestMapping(value = "/Singlerem",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String Singlerem(Remittansel remittansel){
-        System.out.println(111);
         return remittancetransactionService.selALL(remittansel);
+    }
+
+    /**
+     * 根据明细ID查询详细信息
+     * @param remid
+     * @return
+     */
+    @RequestMapping(value = "/selonerem",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String selonerem(Integer remid){
+        return remittancetransactionService.selone(remid);
     }
 }

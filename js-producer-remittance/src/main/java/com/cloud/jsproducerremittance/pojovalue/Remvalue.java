@@ -1,16 +1,9 @@
-package com.cloud.jsproducerremittance.entity;
+package com.cloud.jsproducerremittance.pojovalue;
 
 import java.io.Serializable;
 
-/**
- * (Remittancetransaction)实体类
- *
- * @author makejava
- * @since 2018-11-10 08:51:20
- */
-public class Remittancetransaction implements Serializable {
+public class Remvalue implements Serializable {
 
-    private static final long serialVersionUID = 728147037638518041L;
     //汇款交易记录ID
     private Integer remittancetransactionId;
     //收款人姓名
@@ -18,11 +11,11 @@ public class Remittancetransaction implements Serializable {
     //收款卡号
     private String remittancetransactionCardnumber;
     //收款银行1:中行2:建行3:工行4:农行5:交行6:民行7:招行8:邮行9:浦发10: 中信
-    private Integer remittancetransactionBlank;
+    private String remittancetransactionBlank;
     //汇款金额
     private String remittancetransactionPrice;
     //汇款时间1：实时汇款2：普通汇款3：次日汇款
-    private Integer remittancetransactionTime;
+    private String remittancetransactionTime;
     //当前时间 (汇款时间)年月日
     private String remittancetransactionCurrent;
     //付款卡号
@@ -31,8 +24,6 @@ public class Remittancetransaction implements Serializable {
     private Integer remittancetransactionPayuserid;
     //付款人电话
     private String phone;
-    //手续费
-    private String remittancetransactionProcedure;
 
     public Integer getRemittancetransactionId() {
         return remittancetransactionId;
@@ -58,13 +49,7 @@ public class Remittancetransaction implements Serializable {
         this.remittancetransactionCardnumber = remittancetransactionCardnumber;
     }
 
-    public Integer getRemittancetransactionBlank() {
-        return remittancetransactionBlank;
-    }
 
-    public void setRemittancetransactionBlank(Integer remittancetransactionBlank) {
-        this.remittancetransactionBlank = remittancetransactionBlank;
-    }
 
     public String getRemittancetransactionPrice() {
         return remittancetransactionPrice;
@@ -74,11 +59,19 @@ public class Remittancetransaction implements Serializable {
         this.remittancetransactionPrice = remittancetransactionPrice;
     }
 
-    public Integer getRemittancetransactionTime() {
+    public String getRemittancetransactionBlank() {
+        return remittancetransactionBlank;
+    }
+
+    public void setRemittancetransactionBlank(String remittancetransactionBlank) {
+        this.remittancetransactionBlank = remittancetransactionBlank;
+    }
+
+    public String getRemittancetransactionTime() {
         return remittancetransactionTime;
     }
 
-    public void setRemittancetransactionTime(Integer remittancetransactionTime) {
+    public void setRemittancetransactionTime(String remittancetransactionTime) {
         this.remittancetransactionTime = remittancetransactionTime;
     }
 
@@ -112,13 +105,5 @@ public class Remittancetransaction implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getRemittancetransactionProcedure() {
-        return remittancetransactionProcedure;
-    }
-
-    public void setRemittancetransactionProcedure(String remittancetransactionProcedure) {
-        this.remittancetransactionProcedure = remittancetransactionProcedure;
     }
 }

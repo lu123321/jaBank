@@ -1,22 +1,22 @@
-package com.cloud.jsproducerremittance.pojovalue;
+package com.cloud.jsproduceraccount.service.pojovalue;
 
 import java.io.Serializable;
 
-public class Remittansel implements Serializable {
+public class Detailenvalue implements Serializable {
 
-    private String Cardnumber;//卡号
-    private String onetime;//开始时间
-    private String twotime;//结束时间
-    private Integer type;// 0付款 or 1收款
-    private Integer index;
-    private Integer pageSize;
+    private String Number;
+    private String onetime;
+    private String twotime;
+    private Integer Fundflow;
+    private Integer index; //分页
+    private Integer pageSize;//分页
 
-    public String getCardnumber() {
-        return Cardnumber;
+    public String getNumber() {
+        return Number;
     }
 
-    public void setCardnumber(String cardnumber) {
-        Cardnumber = cardnumber;
+    public void setNumber(String number) {
+        Number = number;
     }
 
     public String getOnetime() {
@@ -35,12 +35,12 @@ public class Remittansel implements Serializable {
         this.twotime = twotime;
     }
 
-    public Integer getType() {
-        return type;
+    public Integer getFundflow() {
+        return Fundflow;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setFundflow(Integer fundflow) {
+        Fundflow = fundflow;
     }
 
     public Integer getIndex() {

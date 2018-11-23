@@ -6,10 +6,11 @@
         <result property="makeremittanceId" column="makeremittance_id" jdbcType="INTEGER"/>
         <result property="makeremittanceSerialnumber" column="makeremittance_serialnumber" jdbcType="INTEGER"/>
         <result property="makeremittanceTime" column="makeremittance_time" jdbcType="VARCHAR"/>
+        <result property="makeremittanceData" column="makeremittance_data" jdbcType="VARCHAR"/>
         <result property="makeremittancePrice" column="makeremittance_price" jdbcType="VARCHAR"/>
-        <result property="makeremittancePaynumber" column="makeremittance_paynumber" jdbcType="INTEGER"/>
+        <result property="makeremittancePaynumber" column="makeremittance_paynumber" jdbcType="VARCHAR"/>
         <result property="makeremittanceName" column="makeremittance_name" jdbcType="VARCHAR"/>
-        <result property="makeremittanceNumber" column="makeremittance_number" jdbcType="INTEGER"/>
+        <result property="makeremittanceNumber" column="makeremittance_number" jdbcType="VARCHAR"/>
         <result property="makeremittancePayuserid" column="makeremittance_payuserid" jdbcType="INTEGER"/>
         <result property="makeremittancePayname" column="makeremittance_payname" jdbcType="VARCHAR"/>
         <result property="makeremittanceBranch" column="makeremittance_branch" jdbcType="INTEGER"/>
@@ -18,7 +19,7 @@
     <!--查询单个-->
     <select id="queryById" resultMap="MakeremittanceMap">
         select
-          makeremittance_id, makeremittance_serialnumber, makeremittance_time, makeremittance_price, makeremittance_paynumber, makeremittance_name, makeremittance_number, makeremittance_payuserid, makeremittance_payname, makeremittance_branch
+          makeremittance_id, makeremittance_serialnumber, makeremittance_time, makeremittance_data, makeremittance_price, makeremittance_paynumber, makeremittance_name, makeremittance_number, makeremittance_payuserid, makeremittance_payname, makeremittance_branch
         from js_bank_account.makeremittance
         where makeremittance_id = #{makeremittanceId}
     </select>
@@ -26,7 +27,7 @@
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="MakeremittanceMap">
         select
-          makeremittance_id, makeremittance_serialnumber, makeremittance_time, makeremittance_price, makeremittance_paynumber, makeremittance_name, makeremittance_number, makeremittance_payuserid, makeremittance_payname, makeremittance_branch
+          makeremittance_id, makeremittance_serialnumber, makeremittance_time, makeremittance_data, makeremittance_price, makeremittance_paynumber, makeremittance_name, makeremittance_number, makeremittance_payuserid, makeremittance_payname, makeremittance_branch
         from js_bank_account.makeremittance
         limit #{offset}, #{limit}
     </select>
@@ -34,7 +35,7 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="MakeremittanceMap">
         select
-          makeremittance_id, makeremittance_serialnumber, makeremittance_time, makeremittance_price, makeremittance_paynumber, makeremittance_name, makeremittance_number, makeremittance_payuserid, makeremittance_payname, makeremittance_branch
+          makeremittance_id, makeremittance_serialnumber, makeremittance_time, makeremittance_data, makeremittance_price, makeremittance_paynumber, makeremittance_name, makeremittance_number, makeremittance_payuserid, makeremittance_payname, makeremittance_branch
         from js_bank_account.makeremittance
         <where>
             <if test="makeremittanceId != null">
@@ -46,16 +47,19 @@
             <if test="makeremittanceTime != null and makeremittanceTime != ''">
                 and makeremittance_time = #{makeremittanceTime}
             </if>
+            <if test="makeremittanceData != null and makeremittanceData != ''">
+                and makeremittance_data = #{makeremittanceData}
+            </if>
             <if test="makeremittancePrice != null and makeremittancePrice != ''">
                 and makeremittance_price = #{makeremittancePrice}
             </if>
-            <if test="makeremittancePaynumber != null">
+            <if test="makeremittancePaynumber != null and makeremittancePaynumber != ''">
                 and makeremittance_paynumber = #{makeremittancePaynumber}
             </if>
             <if test="makeremittanceName != null and makeremittanceName != ''">
                 and makeremittance_name = #{makeremittanceName}
             </if>
-            <if test="makeremittanceNumber != null">
+            <if test="makeremittanceNumber != null and makeremittanceNumber != ''">
                 and makeremittance_number = #{makeremittanceNumber}
             </if>
             <if test="makeremittancePayuserid != null">
@@ -72,8 +76,8 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="makeremittanceId" useGeneratedKeys="true">
-        insert into js_bank_account.makeremittance(makeremittance_serialnumber, makeremittance_time, makeremittance_price, makeremittance_paynumber, makeremittance_name, makeremittance_number, makeremittance_payuserid, makeremittance_payname, makeremittance_branch)
-        values (#{makeremittanceSerialnumber}, #{makeremittanceTime}, #{makeremittancePrice}, #{makeremittancePaynumber}, #{makeremittanceName}, #{makeremittanceNumber}, #{makeremittancePayuserid}, #{makeremittancePayname}, #{makeremittanceBranch})
+        insert into js_bank_account.makeremittance(makeremittance_serialnumber, makeremittance_time, makeremittance_data, makeremittance_price, makeremittance_paynumber, makeremittance_name, makeremittance_number, makeremittance_payuserid, makeremittance_payname, makeremittance_branch)
+        values (#{makeremittanceSerialnumber}, #{makeremittanceTime}, #{makeremittanceData}, #{makeremittancePrice}, #{makeremittancePaynumber}, #{makeremittanceName}, #{makeremittanceNumber}, #{makeremittancePayuserid}, #{makeremittancePayname}, #{makeremittanceBranch})
     </insert>
 
     <!--通过主键修改数据-->
@@ -86,16 +90,19 @@
             <if test="makeremittanceTime != null and makeremittanceTime != ''">
                 makeremittance_time = #{makeremittanceTime},
             </if>
+            <if test="makeremittanceData != null and makeremittanceData != ''">
+                makeremittance_data = #{makeremittanceData},
+            </if>
             <if test="makeremittancePrice != null and makeremittancePrice != ''">
                 makeremittance_price = #{makeremittancePrice},
             </if>
-            <if test="makeremittancePaynumber != null">
+            <if test="makeremittancePaynumber != null and makeremittancePaynumber != ''">
                 makeremittance_paynumber = #{makeremittancePaynumber},
             </if>
             <if test="makeremittanceName != null and makeremittanceName != ''">
                 makeremittance_name = #{makeremittanceName},
             </if>
-            <if test="makeremittanceNumber != null">
+            <if test="makeremittanceNumber != null and makeremittanceNumber != ''">
                 makeremittance_number = #{makeremittanceNumber},
             </if>
             <if test="makeremittancePayuserid != null">

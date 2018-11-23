@@ -13,7 +13,6 @@ import javax.annotation.Resource;
  * @since 2018-11-10 08:52:16
  */
 @RestController
-@RequestMapping("branch")
 public class BranchController {
     /**
      * 服务对象
@@ -27,9 +26,9 @@ public class BranchController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("selectOne")
+    /*@GetMapping("selectOne")
     public Branch selectOne(Integer id) {
         return this.branchService.queryById(id);
-    }
+    }*/
 
 }

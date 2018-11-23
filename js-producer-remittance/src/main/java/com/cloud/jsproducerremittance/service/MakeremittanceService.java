@@ -1,13 +1,14 @@
 package com.cloud.jsproducerremittance.service;
 
 import com.cloud.jsproducerremittance.entity.Makeremittance;
+
 import java.util.List;
 
 /**
  * (Makeremittance)表服务接口
  *
  * @author makejava
- * @since 2018-11-10 08:51:56
+ * @since 2018-11-22 20:51:09
  */
 public interface MakeremittanceService {
 
@@ -31,10 +32,10 @@ public interface MakeremittanceService {
     /**
      * 新增数据
      *
-     * @param makeremittance 实例对象
+     * @param ma 实例对象
      * @return 实例对象
      */
-    Makeremittance insert(Makeremittance makeremittance);
+    String insert(Makeremittance ma);
 
     /**
      * 修改数据
