@@ -13,7 +13,7 @@ public class Makeremittance implements Serializable {
     //预约汇款表
     private Integer makeremittanceId;
     //预约编号
-    private Integer makeremittanceSerialnumber;
+    private String makeremittanceSerialnumber;
     //预约时间
     private String makeremittanceTime;
     //当前时间
@@ -30,9 +30,14 @@ public class Makeremittance implements Serializable {
     private Integer makeremittancePayuserid;
     //预约汇款人 付款人
     private String makeremittancePayname;
+    //预约信息状态1 待审核 2通过 3取消
+    private Integer makeremittanceType;
+    //状态信息
+    private String type;
     //预约网点  关联网点表
     private Integer makeremittanceBranch;
-
+    //网点信息 展示网点名称
+    private String Branchname;
 
     public Integer getMakeremittanceId() {
         return makeremittanceId;
@@ -42,11 +47,11 @@ public class Makeremittance implements Serializable {
         this.makeremittanceId = makeremittanceId;
     }
 
-    public Integer getMakeremittanceSerialnumber() {
+    public String getMakeremittanceSerialnumber() {
         return makeremittanceSerialnumber;
     }
 
-    public void setMakeremittanceSerialnumber(Integer makeremittanceSerialnumber) {
+    public void setMakeremittanceSerialnumber(String makeremittanceSerialnumber) {
         this.makeremittanceSerialnumber = makeremittanceSerialnumber;
     }
 
@@ -114,6 +119,14 @@ public class Makeremittance implements Serializable {
         this.makeremittancePayname = makeremittancePayname;
     }
 
+    public Integer getMakeremittanceType() {
+        return makeremittanceType;
+    }
+
+    public void setMakeremittanceType(Integer makeremittanceType) {
+        this.makeremittanceType = makeremittanceType;
+    }
+
     public Integer getMakeremittanceBranch() {
         return makeremittanceBranch;
     }
@@ -122,4 +135,19 @@ public class Makeremittance implements Serializable {
         this.makeremittanceBranch = makeremittanceBranch;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getBranchname() {
+        return Branchname;
+    }
+
+    public void setBranchname(String branchname) {
+        Branchname = branchname;
+    }
 }

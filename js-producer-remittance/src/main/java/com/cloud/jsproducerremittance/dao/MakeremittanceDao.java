@@ -15,28 +15,18 @@ public interface MakeremittanceDao {
     /**
      * 通过ID查询单条数据
      *
-     * @param makeremittanceId 主键
+     * @param Serialnumber 根据预约编号 和用户ID
      * @return 实例对象
      */
-    Makeremittance queryById(Integer makeremittanceId);
-
-    /**
-     * 查询指定行数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    List<Makeremittance> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
-
+    Makeremittance queryByIdd(@Param("Serialnumber") String Serialnumber,@Param("userid") Integer userid);
 
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param makeremittance 实例对象
+     * @param
      * @return 对象列表
      */
-    List<Makeremittance> queryAll(Makeremittance makeremittance);
+    List<Makeremittance> queryAll(@Param("onetime") String onetime,@Param("twotime") String twotime,@Param("userid") Integer userid);
 
     /**
      * 新增数据
@@ -47,12 +37,12 @@ public interface MakeremittanceDao {
     int insert(Makeremittance makeremittance);
 
     /**
-     * 修改数据
+     * 修改数据 修改预约状态为取消  撤销操作
      *
-     * @param makeremittance 实例对象
+     * @param Serialnumber 实例对象
      * @return 影响行数
      */
-    int update(Makeremittance makeremittance);
+    int update(@Param("Serialnumber") String Serialnumber,@Param("userid") Integer userid);
 
     /**
      * 通过主键删除数据

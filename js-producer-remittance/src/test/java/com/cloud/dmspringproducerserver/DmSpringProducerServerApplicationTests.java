@@ -105,8 +105,8 @@ public class DmSpringProducerServerApplicationTests {
         String yyyyMMdd = new SimpleDateFormat("yyyyMMdd").format(new Date());
         System.out.println(yyyyMMdd);*/
 
-        /*int a = 7;
-        彩票
+        int a = 6;
+       // 彩票
         Integer[] b = new Integer[6];
         int c = 0;
         while (true){
@@ -116,7 +116,6 @@ public class DmSpringProducerServerApplicationTests {
                 boolean contains = list.contains(i);
                 if (!contains){
                     b[c] = i;
-
                     a --;
                     System.out.println(i);
                 }
@@ -124,7 +123,14 @@ public class DmSpringProducerServerApplicationTests {
             if (a == 0){
                 break;
             }
-        }*/
+        }
+        while (true){
+            int i = (int)(Math.random()*100);
+            if (i < 16 && i > 0){
+                System.out.println("蓝号"+i);
+                break;
+            }
+        }
 
                 /* Date d = new Date();
                  SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

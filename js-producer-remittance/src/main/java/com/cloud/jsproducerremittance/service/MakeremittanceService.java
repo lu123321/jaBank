@@ -13,21 +13,12 @@ import java.util.List;
 public interface MakeremittanceService {
 
     /**
-     * 通过ID查询单条数据
+     * 通过时间 预约编号 用户ID 查询预约信息表
      *
-     * @param makeremittanceId 主键
+     * @param
      * @return 实例对象
      */
-    Makeremittance queryById(Integer makeremittanceId);
-
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    List<Makeremittance> queryAllByLimit(int offset, int limit);
+    String queryAll(String selmaker);
 
     /**
      * 新增数据
@@ -38,12 +29,19 @@ public interface MakeremittanceService {
     String insert(Makeremittance ma);
 
     /**
+     * 根据预约编号 和用户ID
+     * @param selonemaker
+     * @return
+     */
+    String selonemaker(String selonemaker);
+
+   /**
      * 修改数据
      *
-     * @param makeremittance 实例对象
-     * @return 实例对象
-     */
-    Makeremittance update(Makeremittance makeremittance);
+     * @param updatamaker userid 实例对象
+     * @return 实例对象*/
+
+    String update(String updatamaker);
 
     /**
      * 通过主键删除数据

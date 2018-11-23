@@ -21,14 +21,44 @@ public class MakeremittanceController {
     private MakeremittanceService makeremittanceService;
 
     /**
-     * 通过主键查询单条数据
+     * 通过时间 用户ID 查询预约信息表
      *
-     * @param id 主键
-     * @return 单条数据
+     * @param
+     * @return JSON字符串 对象集合
      */
-    @GetMapping("selectOne")
-    public Makeremittance selectOne(Integer id) {
-        return this.makeremittanceService.queryById(id);
+    @RequestMapping(value = "/selectmakere",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String selectOne(String selmaker) {
+        return this.makeremittanceService.queryAll(selmaker);
+    }
+
+    /**
+     * 添加预约汇款信息
+     * @param ma
+     * @return
+     */
+    @RequestMapping(value = "/insertmakere",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String insetmaker(Makeremittance ma){
+        return this.makeremittanceService.insert(ma);
+    }
+
+    /**
+     * 根据预约编号 和用户ID 查询单条预约详细信息
+     * @param selonemaker
+     * @return  JSON字符串 对象
+     */
+    @RequestMapping(value = "/selonemaker",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String selonemaker(String selonemaker){
+        return this.makeremittanceService.selonemaker(selonemaker);
+    }
+
+    /**
+     * 根据预约编号和用户ID 修改撤销状态
+     * @param updatamaker
+     * @return
+     */
+    @RequestMapping(value = "/updatamaker",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String updatamaker(String updatamaker){
+        return this.makeremittanceService.update(updatamaker);
     }
 
 }
