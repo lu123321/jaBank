@@ -164,8 +164,6 @@ public class BankLoginController {
     public ModelAndView yz(String yanZheng,ModelAndView model){
         int getid = realm.getid();
         String yzm = (String) redisUtil.get("yzm");
-        System.out.println(yzm + "=============" + yanZheng);
-
         if (yzm.equals(yanZheng)){
             rs.addRecord(getid);
             model.setViewName("test");
@@ -178,5 +176,8 @@ public class BankLoginController {
             return model;
         }
     }
+
+
+
 
 }

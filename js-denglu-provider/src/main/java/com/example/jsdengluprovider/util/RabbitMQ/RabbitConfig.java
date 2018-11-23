@@ -33,7 +33,12 @@ public class RabbitConfig {
     @Value("${spring.rabbitmq.publisher-confirms}")
     private boolean publisherConfirms;
 
+    public static final String QUEUE_PHONE = "QUEUE_PHONE";
 
+    @Bean
+    public Queue phoneQueue() {
+        return new Queue(QUEUE_PHONE);
+    }
     /**
      * 申明hello对列
      * @return

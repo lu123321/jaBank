@@ -49,9 +49,9 @@ public class BankMessageController {
         String execute = (String) redisUtil.get("execute");
         if(execute.equals(yanzheng)){
             bankMassgeService.updatePhone(phone);
-            return "1";
+            return "修改成功";
         }else {
-            return "0";
+            return "修改失败";
         }
 
     }
@@ -68,4 +68,14 @@ public class BankMessageController {
         redisUtil.set("execute",execute);
         return s1;
     }
+
+
+    public void a(String message){
+        String[] split = message.split(",");
+
+
+    }
+
+
+
 }

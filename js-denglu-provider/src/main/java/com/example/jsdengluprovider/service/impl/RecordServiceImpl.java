@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.List;
 
 @Service
 public class RecordServiceImpl implements RecordService {
@@ -45,5 +46,11 @@ public class RecordServiceImpl implements RecordService {
         }else {
             return "0";
         }
+    }
+
+    @Override
+    public List<Record> selectAll(Integer userid) {
+        List<Record> records = rm.selectAll(userid);
+        return records;
     }
 }

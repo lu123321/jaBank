@@ -36,8 +36,9 @@ public class Record {
         this.indate = indate;
     }
 
-    public Date getOuttime() {
-        return DateUtil.SchangeD(outtime);
+
+    public String getOuttime() {
+        return outtime;
     }
 
     public void setOuttime(String outtime) {
