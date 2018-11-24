@@ -122,7 +122,6 @@ public class DepositInformServiceImpl implements DepositInformService {
                 long daySub = DateUtil.getDaySub(s, nowDate);
                 Qukuan qukuan = new Qukuan();
                 qukuan.setBusinessName("通知存款取款");
-                qukuan.setBusinessRate(0.3);
                 qukuan.setCardid(depositInform.getDepositInformcardid());
                 double mon = (i1+((i1*0.3*0.01)*daySub)/365);
                 DecimalFormat df = new DecimalFormat(".00");
@@ -252,7 +251,6 @@ public class DepositInformServiceImpl implements DepositInformService {
                     Qukuan qukuan = new Qukuan();
                     qukuan.setBusinessName(business.getDepositBusinessname()+"到期");
                     double v = Double.parseDouble(business.getDepositBusinessrate());
-                    qukuan.setBusinessRate(v);
                     qukuan.setCardid(depositInform.getDepositInformcardid());
                     double mon = (il + ((il * v * 0.01) * daySub) / 365);
                     DecimalFormat df = new DecimalFormat(".00");

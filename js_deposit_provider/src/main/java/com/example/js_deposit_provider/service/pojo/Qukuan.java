@@ -7,7 +7,6 @@ public class Qukuan {
     private Double money; //金额
     private  String cardid; //卡号
     private  String businessName;//业务名字
-    private  Double businessRate;//业务利率
     private  int state; //业务类型
 
     public int getState() {
@@ -16,14 +15,6 @@ public class Qukuan {
 
     public void setState(int state) {
         this.state = state;
-    }
-
-    public Double getBusinessRate() {
-        return businessRate;
-    }
-
-    public void setBusinessRate(Double businessRate) {
-        this.businessRate = businessRate;
     }
 
     public String getBusinessName() {
