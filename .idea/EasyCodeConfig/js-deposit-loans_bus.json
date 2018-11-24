@@ -1,0 +1,31 @@
+{
+  "name" : "LoansBus",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "loansBusid",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "loansBusname",
+    "comment" : "业务名",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "loansTypeid",
+    "comment" : "类型id",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.example.jsproducerloans",
+  "savePath" : "./js-producer-loans/src/main/java/com/example/jsproducerloans",
+  "saveModelName" : "js-producer-loans"
+}

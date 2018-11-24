@@ -1,0 +1,66 @@
+{
+  "name" : "DepositInform",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "depositInformid",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "depositInformnumber",
+    "comment" : "通知存款订单名字",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "depositInformmoney",
+    "comment" : "通知存款订单存款金额",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "depositInformstate",
+    "comment" : "通知存款订单状态",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "depositInformcardid",
+    "comment" : "通知存款订单关联卡号",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "depositInformuserid",
+    "comment" : "用户id",
+    "type" : "java.lang.String",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "depositInformtype",
+    "comment" : "通知存款业务id",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "depositInformtime",
+    "comment" : "通知存款存入时间",
+    "type" : "java.util.Date",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.example.js_deposit_provider",
+  "savePath" : "./js_deposit_provider/src/main/java/com/example/js_deposit_provider",
+  "saveModelName" : "js_deposit_provider"
+}
