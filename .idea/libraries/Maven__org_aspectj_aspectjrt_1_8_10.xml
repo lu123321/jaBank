@@ -1,6 +1,7 @@
 <component name="libraryTable">
   <library name="Maven: org.aspectj:aspectjrt:1.8.10">
     <CLASSES>
+<<<<<<< HEAD
       <root url="jar://D:/LocalFactory/org/aspectj/aspectjrt/1.8.10/aspectjrt-1.8.10.jar!/" />
     </CLASSES>
     <JAVADOC>
@@ -8,6 +9,15 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://D:/LocalFactory/org/aspectj/aspectjrt/1.8.10/aspectjrt-1.8.10-sources.jar!/" />
+=======
+      <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjrt/1.8.10/aspectjrt-1.8.10.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjrt/1.8.10/aspectjrt-1.8.10-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjrt/1.8.10/aspectjrt-1.8.10-sources.jar!/" />
+>>>>>>> c45bc5b578674ea6179fc66cd8c16587d5c4f482
     </SOURCES>
   </library>
 </component>

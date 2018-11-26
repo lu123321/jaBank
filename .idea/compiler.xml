@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+<<<<<<< HEAD
         <module name="js-consumer-deposit" />
         <module name="js-producer-loans" />
         <module name="js_deposit_provider" />
@@ -15,6 +16,15 @@
       <module name="js-consumer-deposit" target="1.7" />
       <module name="js-producer-loans" target="1.7" />
       <module name="js_deposit_provider" target="1.7" />
+=======
+        <module name="js-consumer-denglu" />
+        <module name="js-denglu-provider" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="js-consumer-denglu" target="1.7" />
+      <module name="js-denglu-provider" target="8" />
+>>>>>>> c45bc5b578674ea6179fc66cd8c16587d5c4f482
     </bytecodeTargetLevel>
   </component>
 </project>

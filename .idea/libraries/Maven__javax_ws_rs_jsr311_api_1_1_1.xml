@@ -1,6 +1,7 @@
 <component name="libraryTable">
   <library name="Maven: javax.ws.rs:jsr311-api:1.1.1">
     <CLASSES>
+<<<<<<< HEAD
       <root url="jar://D:/LocalFactory/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar!/" />
     </CLASSES>
     <JAVADOC>
@@ -8,6 +9,15 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://D:/LocalFactory/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1-sources.jar!/" />
+=======
+      <root url="jar://$MAVEN_REPOSITORY$/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1-sources.jar!/" />
+>>>>>>> c45bc5b578674ea6179fc66cd8c16587d5c4f482
     </SOURCES>
   </library>
 </component>

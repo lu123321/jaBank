@@ -1,6 +1,7 @@
 <component name="libraryTable">
   <library name="Maven: org.springframework.cloud:spring-cloud-starter-zipkin:1.2.5.RELEASE">
     <CLASSES>
+<<<<<<< HEAD
       <root url="jar://D:/LocalFactory/org/springframework/cloud/spring-cloud-starter-zipkin/1.2.5.RELEASE/spring-cloud-starter-zipkin-1.2.5.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC>
@@ -8,6 +9,15 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://D:/LocalFactory/org/springframework/cloud/spring-cloud-starter-zipkin/1.2.5.RELEASE/spring-cloud-starter-zipkin-1.2.5.RELEASE-sources.jar!/" />
+=======
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-starter-zipkin/1.2.5.RELEASE/spring-cloud-starter-zipkin-1.2.5.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-starter-zipkin/1.2.5.RELEASE/spring-cloud-starter-zipkin-1.2.5.RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-starter-zipkin/1.2.5.RELEASE/spring-cloud-starter-zipkin-1.2.5.RELEASE-sources.jar!/" />
+>>>>>>> c45bc5b578674ea6179fc66cd8c16587d5c4f482
     </SOURCES>
   </library>
 </component>
