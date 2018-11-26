@@ -3,14 +3,5 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
-  <component name="MavenProjectsManager">
-    <option name="originalFiles">
-      <list>
-        <option value="$PROJECT_DIR$/js_deposit_provider/pom.xml" />
-        <option value="$PROJECT_DIR$/js-consumer-deposit/pom.xml" />
-        <option value="$PROJECT_DIR$/js-producer-loans/pom.xml" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>
