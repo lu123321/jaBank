@@ -2,8 +2,9 @@ package com.example.jsdengluprovider.dao;
 
 import com.example.jsdengluprovider.pojo.Equipment;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public interface EquipmentMassageDao {
     //设备信息查询
     @Select("select equipmentname,time,equipment from equipment where userid=#{userid}")

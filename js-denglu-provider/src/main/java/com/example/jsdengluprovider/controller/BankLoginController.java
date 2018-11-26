@@ -46,7 +46,7 @@ public class BankLoginController {
     }
 
     @RequestMapping(value = "/login")
-        public ModelAndView Login(String name, String password, ModelAndView model)
+    public ModelAndView Login(String name, String password, ModelAndView model)
             throws ServletException,IOException {
         final String sjh = "((13[0-9])|(14[5,7,9])|(15([0-3]|[5-9]))|(166)|(17[0,1,3,5,6,7,8])|(18[0-9])|(19[8|9]))\\d{8}$";
         final String yhk = "^([1-9]{1})(\\d{18})$";
@@ -124,7 +124,7 @@ public class BankLoginController {
                     }else {
                         model.setViewName("手机验证失败");*/
                     model.setViewName("yz");
-                        return model;
+                    return model;
 //                    }
                 }
 

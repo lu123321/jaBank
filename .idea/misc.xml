@@ -6,8 +6,14 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/js_deposit_provider/pom.xml" />
+        <option value="$PROJECT_DIR$/js-consumer-deposit/pom.xml" />
+        <option value="$PROJECT_DIR$/js-producer-loans/pom.xml" />
+=======
         <option value="$PROJECT_DIR$/js-consumer-denglu/pom.xml" />
         <option value="$PROJECT_DIR$/js-denglu-provider/pom.xml" />
+>>>>>>> c45bc5b578674ea6179fc66cd8c16587d5c4f482
       </list>
     </option>
   </component>

@@ -1,6 +1,15 @@
 <component name="libraryTable">
   <library name="Maven: org.springframework:spring-tx:4.3.10.RELEASE">
     <CLASSES>
+<<<<<<< HEAD
+      <root url="jar://D:/LocalFactory/org/springframework/spring-tx/4.3.10.RELEASE/spring-tx-4.3.10.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/LocalFactory/org/springframework/spring-tx/4.3.10.RELEASE/spring-tx-4.3.10.RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/LocalFactory/org/springframework/spring-tx/4.3.10.RELEASE/spring-tx-4.3.10.RELEASE-sources.jar!/" />
+=======
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.3.10.RELEASE/spring-tx-4.3.10.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC>
@@ -8,6 +17,7 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.3.10.RELEASE/spring-tx-4.3.10.RELEASE-sources.jar!/" />
+>>>>>>> c45bc5b578674ea6179fc66cd8c16587d5c4f482
     </SOURCES>
   </library>
 </component>

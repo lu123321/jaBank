@@ -5,9 +5,18 @@ public class Address {
     private Integer addressid;//地址ID
     private String address;//具体地址
     private String phone;//固定电话
+    private Integer userid;
     private String addresstype;//地址类型（1家里，2公司）
     private Integer addressstate;//是否是常用地址
     private Integer phonestate;//是否是常用电话
+
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Integer userid) {
+        this.userid = userid;
+    }
 
     public Integer getAddressid() {
         return addressid;

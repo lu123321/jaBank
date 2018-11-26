@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/js-consumer-deposit" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js-producer-loans" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js_deposit_provider" charset="UTF-8" />
+=======
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/js-consumer-denglu" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/js-denglu-provider" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
+>>>>>>> c45bc5b578674ea6179fc66cd8c16587d5c4f482
   </component>
 </project>

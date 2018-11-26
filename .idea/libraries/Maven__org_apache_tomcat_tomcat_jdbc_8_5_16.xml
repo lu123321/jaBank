@@ -1,6 +1,15 @@
 <component name="libraryTable">
   <library name="Maven: org.apache.tomcat:tomcat-jdbc:8.5.16">
     <CLASSES>
+<<<<<<< HEAD
+      <root url="jar://D:/LocalFactory/org/apache/tomcat/tomcat-jdbc/8.5.16/tomcat-jdbc-8.5.16.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/LocalFactory/org/apache/tomcat/tomcat-jdbc/8.5.16/tomcat-jdbc-8.5.16-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/LocalFactory/org/apache/tomcat/tomcat-jdbc/8.5.16/tomcat-jdbc-8.5.16-sources.jar!/" />
+=======
       <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/tomcat-jdbc/8.5.16/tomcat-jdbc-8.5.16.jar!/" />
     </CLASSES>
     <JAVADOC>
@@ -8,6 +17,7 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/tomcat-jdbc/8.5.16/tomcat-jdbc-8.5.16-sources.jar!/" />
+>>>>>>> c45bc5b578674ea6179fc66cd8c16587d5c4f482
     </SOURCES>
   </library>
 </component>

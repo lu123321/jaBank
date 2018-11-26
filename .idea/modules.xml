@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/.idea/bank.iml" filepath="$PROJECT_DIR$/.idea/bank.iml" />
+      <module fileurl="file://$PROJECT_DIR$/js-consumer-deposit/js-consumer-deposit.iml" filepath="$PROJECT_DIR$/js-consumer-deposit/js-consumer-deposit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/js-producer-loans/js-producer-loans.iml" filepath="$PROJECT_DIR$/js-producer-loans/js-producer-loans.iml" />
+      <module fileurl="file://$PROJECT_DIR$/js_deposit_provider/js_deposit_provider.iml" filepath="$PROJECT_DIR$/js_deposit_provider/js_deposit_provider.iml" />
+=======
       <module fileurl="file://$PROJECT_DIR$/.idea/jaBank.iml" filepath="$PROJECT_DIR$/.idea/jaBank.iml" />
       <module fileurl="file://$PROJECT_DIR$/js-consumer-denglu/js-consumer-denglu.iml" filepath="$PROJECT_DIR$/js-consumer-denglu/js-consumer-denglu.iml" />
       <module fileurl="file://$PROJECT_DIR$/js-denglu-provider/js-denglu-provider.iml" filepath="$PROJECT_DIR$/js-denglu-provider/js-denglu-provider.iml" />
+>>>>>>> c45bc5b578674ea6179fc66cd8c16587d5c4f482
     </modules>
   </component>
 </project>
