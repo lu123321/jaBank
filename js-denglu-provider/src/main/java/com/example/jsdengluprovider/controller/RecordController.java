@@ -20,6 +20,7 @@ public class RecordController {
 
     @RequestMapping(value ="selectAll",method = RequestMethod.POST)
     public String selectAll(@RequestParam("userid") Integer userid){
+        System.out.println(userid);
         List<Record> records = rs.selectAll(userid);
         return JSON.toJSONString(records);
     }
