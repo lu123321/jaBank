@@ -115,9 +115,9 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="alwaysUpdateSnapshots" value="true" />
-        <option name="localRepository" value="E:\LocalRepository" />
-        <option name="mavenHome" value="E:/maven/apache-maven-3.5.3" />
-        <option name="userSettingsFile" value="E:\maven\apache-maven-3.5.3\conf\settings.xml" />
+        <option name="localRepository" value="D:\LocalFactory" />
+        <option name="mavenHome" value="D:/Meven/apache-maven-3.5.3" />
+        <option name="userSettingsFile" value="D:\Meven\apache-maven-3.5.3\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -471,9 +471,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -497,7 +497,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.testRunning" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -682,6 +682,8 @@
       <workItem from="1542327625304" duration="29821000" />
       <workItem from="1543198160196" duration="64000" />
       <workItem from="1543198288846" duration="143000" />
+      <workItem from="1543198513729" duration="95000" />
+      <workItem from="1543198631386" duration="176000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1541641380424</created>
@@ -862,7 +864,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182509000" />
+    <option name="totallyTimeSpent" value="182780000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -872,7 +874,7 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.5005365" side_tool="true" weight="0.21307778" />
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.5005365" side_tool="true" weight="0.21276596" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.3289689" />
       <window_info anchor="right" id="Maven Projects" order="10" weight="0.3299356" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
@@ -882,7 +884,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="right" id="Remote Host" order="4" weight="0.3299356" />
       <window_info id="Designer" order="5" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4994363" visible="true" weight="0.26701966" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4994363" visible="true" weight="0.27458397" />
       <window_info anchor="right" id="Database" order="6" weight="0.3299356" />
       <window_info anchor="right" id="BPMNPalette" order="3" />
       <window_info id="Structure" order="1" sideWeight="0.5005637" side_tool="true" weight="0.25" />
