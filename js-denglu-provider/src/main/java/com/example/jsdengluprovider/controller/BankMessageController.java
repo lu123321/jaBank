@@ -6,10 +6,7 @@ import com.example.jsdengluprovider.pojo.BankCard;
 import com.example.jsdengluprovider.service.BankMassgeService;
 import com.example.jsdengluprovider.util.duanxin.IndustrySMS;
 import com.example.jsdengluprovider.util.redis.RedisUtil;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -69,13 +66,11 @@ public class BankMessageController {
         return s1;
     }
 
-
-    public void a(String message){
-        String[] split = message.split(",");
-
-
+    //进入账户列表页显示该用户的所有银行卡以及余额
+    @RequestMapping(value = "selectCard",method = RequestMethod.POST)
+    public String selectCard(@RequestParam("userid") Integer userid){
+        return bankMassgeService.selectAll(userid);
     }
-
 
 
 }

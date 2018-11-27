@@ -1,9 +1,5 @@
 package com.example.jsdengluprovider.pojo;
 
-import com.example.jsdengluprovider.util.date.DateUtil;
-
-import java.util.Date;
-
 //银行卡信息
 public class BankCard {
     private Integer cardid;//银行卡ID
@@ -20,6 +16,7 @@ public class BankCard {
     private Integer webcardstate;//该卡是否是网银
     private String branchname;//办卡网点名称
     private Double  availablebalance;//可用余额
+
 
     public Double getAvailablebalance() {
         return availablebalance;
@@ -69,8 +66,8 @@ public class BankCard {
         this.branchname = branchname;
     }
 
-    public Date getCarddate() {
-        return DateUtil.SchangeD(carddate);
+    public String getCarddate() {
+        return carddate;
     }
 
     public void setCarddate(String carddate) {

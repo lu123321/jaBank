@@ -7,6 +7,7 @@ import com.example.jsdengluprovider.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,7 +17,13 @@ public class BankRegController {
 
     @RequestMapping(value = "zhuce",method = RequestMethod.POST)
     public String bankuser(BankUser bankuser,BankCard bankcard){
-        String s = rs.addBankuser(bankuser, bankcard);
+        String s = rs.addBankCard(bankuser,bankcard);
         return JSON.toJSONString(s);
+    }
+
+    @RequestMapping(value = "kaitong",method = RequestMethod.POST)
+    public String bankCard(@RequestParam("cardnum")String cardnum,@RequestParam("idcard")String idcard,@RequestParam("phone")String phone){
+        String s = rs.selectCard(cardnum, idcard, phone);
+        return s;
     }
 }

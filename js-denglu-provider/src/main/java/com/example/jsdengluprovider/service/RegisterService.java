@@ -3,18 +3,27 @@ package com.example.jsdengluprovider.service;
 import com.example.jsdengluprovider.pojo.BankCard;
 import com.example.jsdengluprovider.pojo.BankUser;
 
+import java.util.List;
+
 public interface RegisterService {
-    String addBankuser(BankUser bankuser,BankCard bankcard);
 
-    void addBankcard(BankCard bankcard);
 
-    String updateBank(BankCard bankcard);
+    String addBankCard(BankUser bankuser,BankCard bankcard);
 
-    boolean selectOne(String phone);
+    void addBankUser(BankUser bankuser);
+
+    List<BankCard> selectOne(String phone);
 
     boolean selectState(String idcard);
 
-    boolean a(BankUser bankuser,BankCard bankcard);
+    boolean a(BankUser bankuser);
 
     boolean b(BankCard bankcard);
+
+    String selectCard(String cardnum,String idcard,String phone);
+
+
+
+
+
 }

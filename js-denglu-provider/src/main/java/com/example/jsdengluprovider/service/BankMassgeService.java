@@ -8,8 +8,7 @@ public interface BankMassgeService {
     String dealSelect(Integer bankcardid);
     String delCard(BankCard bankCard);
     String updateCard(Integer cardid);
-
     int updatePhone(String phone);
-
     String selectPhone(Integer userid);
+    String selectAll(Integer userid);
 }

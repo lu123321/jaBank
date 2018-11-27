@@ -4,6 +4,7 @@ package com.example.jsdengluprovider.controller;
 import com.example.jsdengluprovider.dao.RecordMessageDao;
 import com.example.jsdengluprovider.service.BankLoginService;
 import com.example.jsdengluprovider.service.RecordService;
+import com.example.jsdengluprovider.util.IPUtil.IpUtil;
 import com.example.jsdengluprovider.util.duanxin.IndustrySMS;
 import com.example.jsdengluprovider.util.redis.RedisUtil;
 import com.example.jsdengluprovider.util.shiro.Realm;
@@ -20,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -46,7 +48,7 @@ public class BankLoginController {
     }
 
     @RequestMapping(value = "/login")
-    public ModelAndView Login(String name, String password, ModelAndView model)
+    public ModelAndView Login(String name, String password, ModelAndView model,HttpServletRequest request)
             throws ServletException,IOException {
         final String sjh = "((13[0-9])|(14[5,7,9])|(15([0-3]|[5-9]))|(166)|(17[0,1,3,5,6,7,8])|(18[0-9])|(19[8|9]))\\d{8}$";
         final String yhk = "^([1-9]{1})(\\d{18})$";
@@ -68,26 +70,44 @@ public class BankLoginController {
             return model;
         } else {
             if (matches && !matches1&&!matches2){
-                Integer integer = bankLoginService.stateSelect2(name);
-                aa(integer,name,password,model);
-                return model;
+                String s = bankLoginService.selectState2(name);
+                if (s == "0"){
+                    Integer integer = bankLoginService.stateSelect2(name);
+                    aa(integer,name,password,model,request);
+                    return model;
+                }else {
+                    model.setViewName("login");
+                    return model;
+                }
             }
             if (matches1&&!matches2) {
+                String s = bankLoginService.selectState1(name);
+                if (s == "0"){
                 Integer integer = bankLoginService.stateSelect1(name);
-                aa(integer,name,password,model);
+                aa(integer,name,password,model,request);
                 return model;
+                }else {
+                    model.setViewName("login");
+                    return model;
+                }
             }
             if (matches2) {
+                String s = bankLoginService.selectState(name);
+                if (s == "0"){
                 Integer integer = bankLoginService.stateSelect(name);
-                aa(integer,name,password,model);
+                aa(integer,name,password,model,request);
                 return model;
+                }else {
+                    model.setViewName("login");
+                    return model;
+                }
             } else {
                 model.setViewName("login");
                 return model;
             }
         }
     }
-    public ModelAndView aa(int integer,String name,String password,ModelAndView model){
+    public ModelAndView aa(int integer, String name, String password, ModelAndView model, HttpServletRequest request){
         if (integer == 1){
             //获取subject
             Subject subject = SecurityUtils.getSubject();
@@ -101,9 +121,10 @@ public class BankLoginController {
                 model.addObject("token",t);
                 model.addObject("id",getid);
                 //判断是否是在设备上第一次登陆
-                String s = rs.selectRecord(getid);
+                String s = rs.selectRecord(IpUtil.getIpAddr(request));
                 if(s == "1"){
                     //执行登录方法
+                    rs.addRecord(getid,request);
                     return model;
                 }else {
                     //给手机号发送验证码，通过id拿到手机号码。
@@ -160,13 +181,17 @@ public class BankLoginController {
         return "/login";
     }
 
-    @RequestMapping(value = "yz",method = RequestMethod.POST)
-    public ModelAndView yz(String yanZheng,ModelAndView model){
+    @RequestMapping(value = "yz",method = RequestMethod.POST,produces = "test/html;charset=utf-8")
+    public ModelAndView yz(String yanZheng,ModelAndView model,HttpServletRequest request){
         int getid = realm.getid();
         String yzm = (String) redisUtil.get("yzm");
         if (yzm.equals(yanZheng)){
-            rs.addRecord(getid);
+            rs.addRecord(getid,request);
+            rs.addEquipment(getid,request);
+            String t = (String) redisUtil.get(getid + "token");
             model.setViewName("test");
+            model.addObject("token",t);
+            model.addObject("id",getid);
             return model;
         }else {
             redisUtil.del(getid + "token");

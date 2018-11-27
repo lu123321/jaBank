@@ -2,7 +2,6 @@ package com.example.jsdengluprovider.service.impl;
 
 import com.example.jsdengluprovider.dao.BankLoginDao;
 import com.example.jsdengluprovider.pojo.BankCard;
-import com.example.jsdengluprovider.pojo.Equipment;
 import com.example.jsdengluprovider.service.BankLoginService;
 import org.springframework.stereotype.Service;
 
@@ -51,6 +50,21 @@ public class BankLoginServiceImpl implements BankLoginService {
     @Override
     public Integer stateSelect2(String username) {
         return bankLoginDao.stateSelect2(username);
+    }
+
+    @Override
+    public String selectState(String cardnum) {
+        return bankLoginDao.selectState(cardnum);
+    }
+
+    @Override
+    public String selectState1(String phone) {
+        return bankLoginDao.selectState1(phone);
+    }
+
+    @Override
+    public String selectState2(String username) {
+        return bankLoginDao.selectState2(username);
     }
 
 }

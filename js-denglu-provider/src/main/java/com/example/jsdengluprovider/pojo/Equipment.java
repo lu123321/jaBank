@@ -1,15 +1,21 @@
 package com.example.jsdengluprovider.pojo;
 
-import com.example.jsdengluprovider.util.date.DateUtil;
-
-import java.util.Date;
+import java.io.Serializable;
 
 //登录设备信息
-public class Equipment {
+public class Equipment implements Serializable{
+    private Integer userid;
     private Integer equipmentid;//设备ID
     private String equipmentname;//设备名称
     private String time;//绑定时间
-    private String equipment;//设备登录支付类型
+    private String IPconfig;
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Integer userid) {
+        this.userid = userid;
+    }
 
     public Integer getEquipmentid() {
         return equipmentid;
@@ -27,19 +33,19 @@ public class Equipment {
         this.equipmentname = equipmentname;
     }
 
-    public Date getTime() {
-        return DateUtil.SchangeD(time);
+    public String getTime(){
+        return time;
     }
 
     public void setTime(String time) {
         this.time = time;
     }
 
-    public String getEquipment() {
-        return equipment;
+    public String getIPconfig() {
+        return IPconfig;
     }
 
-    public void setEquipment(String equipment) {
-        this.equipment = equipment;
+    public void setIPconfig(String IPconfig) {
+        this.IPconfig = IPconfig;
     }
 }

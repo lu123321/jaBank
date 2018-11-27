@@ -37,6 +37,20 @@ public class DateUtil {
         NowTime = sd.format(dt);
         return NowTime;
     }
+
+    //获取当前时间包括时分秒
+    public static String getNowDateTime(){
+        String NowTime = "";
+        Date dt = new Date();
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        NowTime = sd.format(dt);
+        return NowTime;
+    }
+
+
+
+
+
     //date转String方法
     public static  String DchangeS(Date d){
         SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");

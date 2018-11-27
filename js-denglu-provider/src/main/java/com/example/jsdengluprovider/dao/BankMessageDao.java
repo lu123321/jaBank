@@ -37,4 +37,9 @@ public interface BankMessageDao {
     @Select("select phone from cardnumber where cardnum=#{cardnum}")
     String selectPhone(@Param("cardnum") String cardnum);
 
+    //显示该用户的所有银行卡&&显示该卡余额
+    @Select("select cardnum,balance from cardnumber where userid=#{userid}")
+    List<BankCard> selectAll(@Param("userid") Integer userid);
+
+
 }

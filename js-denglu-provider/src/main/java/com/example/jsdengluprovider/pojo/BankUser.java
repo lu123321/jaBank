@@ -26,7 +26,6 @@ public class BankUser {
     private Integer people;//供养人口
     private String work;//工作单位
     private String worktime;//开始工作时间
-    private Integer webstate;//网上银行开通状态（0未开通，1已开通）
     private String reservedms;//网银预留信息
     private Integer faststate;//是否快捷支付（0否，1是）
     private String idcarddate;//身份证到期日期
@@ -107,8 +106,8 @@ public class BankUser {
         this.sex = sex;
     }
 
-    public Date getBirthday() {
-        return DateUtil.SchangeD(birthday);
+    public String getBirthday() {
+        return birthday;
     }
 
     public void setBirthday(String birthday) {
@@ -185,14 +184,6 @@ public class BankUser {
 
     public void setWorktime(String worktime) {
         this.worktime = worktime;
-    }
-
-    public Integer getWebstate() {
-        return webstate;
-    }
-
-    public void setWebstate(Integer webstate) {
-        this.webstate = webstate;
     }
 
     public String getReservedms() {

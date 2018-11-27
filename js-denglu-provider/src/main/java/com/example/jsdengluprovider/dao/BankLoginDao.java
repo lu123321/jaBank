@@ -1,13 +1,9 @@
 package com.example.jsdengluprovider.dao;
 
 import com.example.jsdengluprovider.pojo.BankCard;
-import com.example.jsdengluprovider.pojo.BankUser;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
-
-import javax.annotation.security.PermitAll;
 
 //登录
 @Component
@@ -30,5 +26,16 @@ public interface BankLoginDao {
     //查询网银状态
     @Select("select webcardstate from cardnumber where username=#{username}")
     Integer stateSelect2(@Param("username")String username);
+
+    //银行卡登录获取此卡状态
+    @Select("select state from cardnumber where cardnum=#{cardnum}")
+    String selectState(@Param("cardnum")String cardnum);
+    //手机号登录获取此卡状态
+    @Select("select state from cardnumber where phone=#{phone}")
+    String selectState1(@Param("phone")String phone);
+    //用户名登录获取此卡状态
+    @Select("select state from cardnumber where username=#{username}")
+    String selectState2(@Param("username")String username);
+
 
 }

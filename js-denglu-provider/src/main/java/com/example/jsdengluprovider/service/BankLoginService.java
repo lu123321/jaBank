@@ -15,4 +15,10 @@ public interface BankLoginService {
     Integer stateSelect1(String phone);
 
     Integer stateSelect2(String username);
+
+    String selectState(String cardnum);
+
+    String selectState1(String phone);
+
+    String selectState2(String username);
 }

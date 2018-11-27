@@ -61,4 +61,10 @@ public class BankMassageServiceImpl implements BankMassgeService {
         return rmd.selectPhone(userid);
     }
 
+    @Override
+    public String selectAll(Integer userid) {
+        List<BankCard> bankCards = bankMessageDao.selectAll(userid);
+        return JSON.toJSONString(bankCards);
+    }
+
 }
