@@ -5,9 +5,12 @@ import com.cloud.jsproduceraccount.entity.Branch;
 import com.cloud.jsproduceraccount.dao.BranchDao;
 import com.cloud.jsproduceraccount.service.BranchService;
 import com.cloud.jsproduceraccount.service.pojo.BranchServicepojo;
+import com.cloud.jsproduceraccount.uitl.RedisUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -22,7 +25,8 @@ import java.util.*;
 public class BranchServiceImpl implements BranchService {
     @Resource
     private BranchDao branchDao;
-
+    @Resource
+    private RedisUtil redisUtil;
     /**
      * 通过ID查询单条数据
      *
@@ -33,9 +37,7 @@ public class BranchServiceImpl implements BranchService {
     @Override
     public String queryById(Integer branchId) {
         Branch branch = this.branchDao.queryById(branchId);
-        BranchServicepojo branchServicepojo= new BranchServicepojo();
-        branchServicepojo.setBranchSite(branch.getBranchSite());
-        return JSON.toJSONString(branchServicepojo);
+        return branch.getBranchSite();
     }
 
     /**
@@ -55,16 +57,24 @@ public class BranchServiceImpl implements BranchService {
      * @param //branchBusinesstwo 外币现金取款
      */
     @Override
-    public String query(Integer branchBusinessone,Integer branchBusinesstwo) {
-        List<Branch> query = branchDao.query(branchBusinessone, branchBusinesstwo);
-        List<BranchServicepojo> querytwo = new ArrayList<BranchServicepojo>();
-        for (Branch q:query) {
-            BranchServicepojo branchService = new BranchServicepojo();
-            branchService.setBranchId(q.getBranchId());
-            branchService.setBranchName(q.getBranchName());
-            querytwo.add(branchService);
+    public String query(Integer branchBusinessone) {
+        String branchname = (String) redisUtil.get("branchname" + branchBusinessone);
+        if (branchname == null){
+            List<Branch> query = branchDao.query(branchBusinessone);
+            List<BranchServicepojo> querytwo = new ArrayList<BranchServicepojo>();
+            for (Branch q:query) {
+                BranchServicepojo branchService = new BranchServicepojo();
+                branchService.setBranchId(q.getBranchId());
+                branchService.setBranchName(q.getBranchName());
+                branchService.setBranchSite(q.getBranchSite());
+                querytwo.add(branchService);
+            }
+            String string = JSON.toJSONString(querytwo);
+            redisUtil.set("branchname" + branchBusinessone,string,60*60*24*3);//三天过期
+            return string;
+        }else {
+            return branchname;
         }
-        return JSON.toJSONString(querytwo);
     }
 
     /**

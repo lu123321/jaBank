@@ -105,8 +105,8 @@
     </insert>
 
     <!--通过主键修改数据-->
-    <update id="update" parameterType="int">
-        update appointment set appointment_result = 2 where appointment_id = #{appointmentId}
+    <update id="update">
+        update appointment set appointment_result = 2 where appointment_id = #{appointmentId} and appointment_userid = #{appointmentUserid}
     </update>
 
     <!--通过主键删除-->

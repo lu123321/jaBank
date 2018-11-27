@@ -54,7 +54,7 @@ public class Validate {
 
     //后台只生成随机数
     @RequestMapping(value="random.action")
-    public void findRandom (HttpServletResponse response) throws IOException {
+    public void findRandom (HttpServletResponse response) throws IOException{
         // 验证码字符个数
         int codeCount = 4;
         char[] codeSequence = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
@@ -72,7 +72,6 @@ public class Validate {
             randomCode.append(strRand);
         }
         PrintWriter out = response.getWriter();
-        System.out.println(1);
         System.out.println(randomCode);
         out.print(randomCode);
     }

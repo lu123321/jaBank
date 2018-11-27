@@ -26,7 +26,7 @@ public class SecondaccountController {
      * @param accountUserid 主键
      * @return 单条数据
      */
-    @RequestMapping(value = "selectOneId",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    @RequestMapping(value = "/selectOneId",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String selectOne(Integer accountUserid) {
         return this.secondaccountService.queryById(accountUserid);
     }
@@ -37,7 +37,7 @@ public class SecondaccountController {
      * @param pwdtwo
      * @return
      */
-    @RequestMapping(value = "determinepwd",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    @RequestMapping(value = "/determinepwd",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String Comparepwd(String pwdone,String pwdtwo){
         return this.secondaccountService.Compare(pwdone,pwdtwo);
     }
@@ -46,7 +46,7 @@ public class SecondaccountController {
      * 发送验证码
      * @return
      */
-    @RequestMapping(value = "sendSMS",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    @RequestMapping(value = "/sendSMS",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String sendSMS(String phone){
     return this.secondaccountService.sendSMS(phone);
     }
@@ -60,7 +60,7 @@ public class SecondaccountController {
      * @param phone
      * @return
      */
-    @RequestMapping(value = "applyfortwo",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    @RequestMapping(value = "/applyfortwo",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String applyfor(Secondaccount secondaccount,String pwdone,String pwdtwo,String auth,String phone){
 
         return this.secondaccountService.insert(secondaccount,pwdone,pwdtwo,auth,phone);

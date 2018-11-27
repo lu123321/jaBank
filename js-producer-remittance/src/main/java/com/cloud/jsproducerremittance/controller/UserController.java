@@ -60,9 +60,11 @@ public class UserController {
         return redisUtil.get("remitt" + number).toString();
     }
 
-    String a;
+    String a; //初始值是null
     @RequestMapping("/asd")
     public void a(){
-        System.out.println(a);
+        System.out.println(a);//初始值是null
+        String asd = (String) redisUtil.get("asd");
+        System.out.println(asd);//初始值是null
     }
 }

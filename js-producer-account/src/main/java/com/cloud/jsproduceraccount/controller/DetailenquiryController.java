@@ -37,7 +37,7 @@ public class DetailenquiryController {
      * @param detailenquiry
      * @return
      */
-    @RequestMapping(value = "insertdetai",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    @RequestMapping(value = "/insertdetai",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String insert(@RequestBody Detailenquiry detailenquiry){
        return detailenquiryService.insert(detailenquiry);
     }

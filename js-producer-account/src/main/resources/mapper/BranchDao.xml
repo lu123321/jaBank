@@ -22,19 +22,19 @@
     <select id="queryById" resultMap="BranchMap">
         select branch_site from branch where branch_id = #{id}
     </select>
-    <!--根据网址ID查询网点名称-->
+    <!--根据网址ID查询网点名称  暂定-->
     <select id="querybyid" resultMap="BranchMap">
         select branch_name from branch where branch_id = #{id}
     </select>
     <!--根据业务类型查询可以办理业务的网点-->
     <select id="query" resultMap="BranchMap">
-        select branch_id,branch_site from branch
+        select branch_id,branch_name from branch
         where
         <if test="one == 1">
             branch_businessone = #{one}
         </if>
-        <if test="two == 1">
-            branch_businesstwo = #{two}
+        <if test="one == 2">
+            branch_businesstwo = #{one}
         </if>
     </select>
     <!--根据星期几和网点ID查询网点受理业务时间段-->

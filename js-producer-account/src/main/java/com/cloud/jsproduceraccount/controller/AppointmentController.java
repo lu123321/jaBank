@@ -3,7 +3,6 @@ package com.cloud.jsproduceraccount.controller;
 import com.cloud.jsproduceraccount.Voice.VoiceCode;
 import com.cloud.jsproduceraccount.entity.Appointment;
 import com.cloud.jsproduceraccount.service.AppointmentService;
-import com.cloud.jsproduceraccount.service.pojovalue.Selectdetails;
 import com.cloud.jsproduceraccount.service.pojovalue.Selectone;
 import com.cloud.jsproduceraccount.uitl.RedisUtil;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +33,7 @@ public class AppointmentController {
      * @param
      * @return
      */
-    @RequestMapping(value = "selectOne",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    @RequestMapping(value = "/selectOneApp",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String selectOne(@RequestBody Selectone selectone) {
         System.out.println("getUserId"+selectone.getUserId());
         return this.appointmentService.queryById(selectone.getUserId(),selectone.getTimeone(),selectone.getTimetwo(),selectone.getIndex(),selectone.getPageSize());
@@ -47,9 +46,10 @@ public class AppointmentController {
      * @param
      * @return
      */
-    @RequestMapping(value = "selectdetails",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
-    public String selectdetails(@RequestBody Selectdetails selectdetails){
-        return this.appointmentService.sellAll(selectdetails.getAppId(),selectdetails.getUserid());
+    @RequestMapping(value = "/selectdetails",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String selectdetails(@RequestParam("sel") String sel){
+        String[] split = sel.split(",");
+        return this.appointmentService.sellAll(Integer.parseInt(split[0]),Integer.parseInt(split[1]));
     }
     /**
      * 添加预约信息       消费者从网关redis那里得到电话传进来
@@ -65,21 +65,22 @@ public class AppointmentController {
         return mav;
     }*/
 
-    @RequestMapping(value = "insertOne",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    @RequestMapping(value = "/insertOne",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String insertOne(@RequestBody Appointment appointment){
         System.out.println("controller");
         return appointmentService.insert(appointment);
     }
 
     /**
-     * 修改预约信息状态   撤销
-     * @param appId
+     * 修改预约信息状态   撤销  截取字符串 数组  预约信息ID 和userID
+     * @param appIduserid
      * @return
      */
-    @RequestMapping(value = "updatastate",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
-    public int updata(@RequestParam("appId") Integer appId){
-        System.out.println("appid +++ " + appId);
-        return appointmentService.update(appId);
+    @RequestMapping(value = "/updatastate",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public int updata(@RequestParam("appIduserid") String appIduserid){
+        String[] split = appIduserid.split(",");
+        System.out.println("appIduserid +++ " + appIduserid);
+        return appointmentService.update(Integer.parseInt(split[0]),Integer.parseInt(split[1]));
     }
 
 

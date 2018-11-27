@@ -1287,7 +1287,7 @@
     <column id="285" parent="215" name="makeremittance_serialnumber">
       <Position>2</Position>
       <Comment>预约编号</Comment>
-      <DataType>int(50)|0s</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1349,6 +1349,7 @@
     </column>
     <column id="294" parent="215" name="makeremittance_type">
       <Position>11</Position>
+      <Comment>预约信息状态1 待审核 2通过 3取消</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>

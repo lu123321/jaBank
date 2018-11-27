@@ -41,7 +41,7 @@ public interface AppointmentDao {
      * @param appointmentId 实例对象
      * @return
      */
-    int update(Integer appointmentId);
+    int update(@Param("appointmentId") Integer appointmentId,@Param("appointmentUserid") Integer appointmentUserid);
 
 
 

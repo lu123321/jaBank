@@ -27,39 +27,38 @@ public class BranchController {
      * @param id 主键
      * @return 单条数据
      */
-    @RequestMapping(value = "selectOnesite",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
-    public String selectOne(Integer id) {
+    @RequestMapping(value = "/selectOnesite",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String selectOne(@RequestParam("id") Integer id) {
         return this.branchService.queryById(id);
     }
 
     /**
      *根据业务类型查询可以办理业务的网点
      * @param branchBusinessone
-     * @param branchBusinesstwo
      * @return
      */
-    @RequestMapping(value = "allbranch",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
-    public String query(@RequestParam(value = "branchBusinessone",required = false) Integer branchBusinessone,@RequestParam(value = "branchBusinesstwo",required = false) Integer branchBusinesstwo){
-        return branchService.query(branchBusinessone,branchBusinesstwo);
+    @RequestMapping(value = "/allbranch",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String query(@RequestParam(value = "branchBusinessone") Integer branchBusinessone){
+        return branchService.query(branchBusinessone);
     }
 
     /**
-     * 根据星期几和网点ID查询网点受理业务时间段
-     * @param branchId
-     * @param time
+     * 根据网点ID和星期几（给年月日）查询网点受理业务时间段
+     * @param branchIdTime
      * @return
      */
-    @RequestMapping(value = "querytime",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
-    public String queryTime(@RequestParam("branchId") Integer branchId,@RequestParam("time") String time) throws ParseException {
-        return branchService.queryIdAndTime(branchId,time);
+    @RequestMapping(value = "/querytime",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    public String queryTime(@RequestParam("branchIdTime")String branchIdTime) throws ParseException {
+        String[] split = branchIdTime.split(",");
+        return branchService.queryIdAndTime(Integer.parseInt(split[0]),split[1]);
     }
 
     /**
-     * 根据ID查询网点信息
+     * 根据ID查询网点信息  暂定
      * @param branchId
      * @return
      */
-    @RequestMapping(value = "querybranch",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    @RequestMapping(value = "/querybranch",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String queryaddid(@RequestParam("branchId") Integer branchId){
         return branchService.queryByallid(branchId);
     }

@@ -37,13 +37,15 @@ spring:
         max-idle: 10 # 连接池中的最大空闲连接
         max-wait: 1000 # 连接池最大阻塞等待时间（使用负值表示没有限制）
         min-idle: 5
+  thymeleaf:
+    cache: false
+    suffix: .html
+#  zipkin: #追踪
+#    base-url: http://localhost:7700
+#  sleuth: #追踪
+#    sampler:
+#      percentage: 1.0
+logging:
+  level: info
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  #profiles:
-  #  active: dev
-  #zipkin: #追踪
-  #  base-url: http://localhost:7700
-  #sleuth:
-  #  sampler:
-   #   percentage: 1.0
-

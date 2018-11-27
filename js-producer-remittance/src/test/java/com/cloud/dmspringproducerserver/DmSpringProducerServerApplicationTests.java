@@ -1,7 +1,10 @@
 package com.cloud.dmspringproducerserver;
 
+import com.alibaba.fastjson.JSON;
 import com.cloud.jsproducerremittance.entity.Batch;
 import com.cloud.jsproducerremittance.rabbitmqUitl.RabbitConfig;
+import com.cloud.jsproducerremittance.service.impl.BatchServiceImpl;
+import com.cloud.jsproducerremittance.service.impl.BranchServiceImpl;
 import com.cloud.jsproducerremittance.uitl.ExcelUtil;
 import org.apache.commons.lang.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -105,7 +108,7 @@ public class DmSpringProducerServerApplicationTests {
         String yyyyMMdd = new SimpleDateFormat("yyyyMMdd").format(new Date());
         System.out.println(yyyyMMdd);*/
 
-        int a = 6;
+      /*  int a = 6;
        // 彩票
         Integer[] b = new Integer[6];
         int c = 0;
@@ -130,7 +133,7 @@ public class DmSpringProducerServerApplicationTests {
                 System.out.println("蓝号"+i);
                 break;
             }
-        }
+        }*/
 
                 /* Date d = new Date();
                  SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -156,7 +159,14 @@ public class DmSpringProducerServerApplicationTests {
         }catch (IllegalAccessException e){
             System.out.println("异常");
         }*/
-
+        /*InputStream in = BranchServiceImpl.class.getClassLoader().getResourceAsStream("branch.properties");
+        Properties pro = new Properties();
+        pro.load(in);
+        String property = pro.getProperty(1 + "");
+        String currency = new String(property.getBytes("iso8859-1"), "GBK");
+        System.out.println(currency);
+        String[] split = currency.split(",");
+        System.out.println(split[0]);*/
 
     }
 

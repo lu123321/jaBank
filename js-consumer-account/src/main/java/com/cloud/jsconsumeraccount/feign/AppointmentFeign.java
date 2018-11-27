@@ -4,6 +4,8 @@ import com.cloud.jsconsumeraccount.entity.Appointment;
 import com.cloud.jsconsumeraccount.feign.feiginImpl.AppointmentFeignImplHy;
 import com.cloud.jsconsumeraccount.pojovalue.Selectdetails;
 import com.cloud.jsconsumeraccount.pojovalue.Selectone;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.ribbon.proxy.annotation.Hystrix;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,8 +30,9 @@ public interface AppointmentFeign {
      * @param
      * @return
      */
-    @RequestMapping(value = "selectOne",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    @RequestMapping(value = "/selectOne",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String selectOne(@RequestBody Selectone selectone);
+
 
     /**
      * 根据预约信息ID和用户ID查询详细信息
@@ -37,15 +40,15 @@ public interface AppointmentFeign {
      * @param
      * @return*/
 
-    @RequestMapping(value = "selectdetails",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    @RequestMapping(value = "/selectdetails",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String selectdetails(@RequestBody Selectdetails selectdetails);
 
-   /* *
+   /**
      * 添加预约信息       消费者从网关redis那里得到电话传进来            需要返回ModelAndView
      * @param appointment
      * @return*/
 
-    @RequestMapping(value = "insertOne",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    @RequestMapping(value = "/insertOne",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public String insertOne(@RequestBody Appointment appointment);
 
     /**
@@ -53,6 +56,6 @@ public interface AppointmentFeign {
      * @param appId
      * @return*/
 
-    @RequestMapping(value = "updatastate",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
+    @RequestMapping(value = "/updatastate",method = RequestMethod.POST,produces = "text/json;charset=utf-8")
     public int updata(@RequestParam("appId") Integer appId);
 }

@@ -21,13 +21,13 @@ public interface BranchDao {
      * @return 实例对象
      */
     Branch queryById(@Param("id") Integer branchId);
-
     /**
      * 根据ID查询网点信息
      * @param branchId
      * @return
      */
     Branch queryByallid(@Param("id") Integer branchId);
+
 
 
 
@@ -64,7 +64,7 @@ public interface BranchDao {
      * @param //branchBusinessone 预约人民币大额提现
      * @param //branchBusinesstwo 外币现金取款
      */
-    List<Branch> query(@Param("one") Integer branchBusinessone,@Param("two") Integer branchBusinesstwo);
+    List<Branch> query(@Param("one") Integer branchBusinessone);
     /**
      * 根据业务类型查询可办理银行名称
      *

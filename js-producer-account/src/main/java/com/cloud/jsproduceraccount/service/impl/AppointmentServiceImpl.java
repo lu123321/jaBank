@@ -95,7 +95,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     /**
-     *根据预约信息ID和用户ID查询详细信息
+     * 根据预约信息ID和用户ID查询详细信息
      * @param appId
      * @param Userid
      * @return
@@ -143,14 +143,14 @@ public class AppointmentServiceImpl implements AppointmentService {
      * @return
      */
     @Override
-    public int update(Integer appointmentId) {
-        return appointmentDao.update(appointmentId);
+    public int update(Integer appointmentId,Integer appointmentUserid) {
+        return appointmentDao.update(appointmentId,appointmentUserid);
     }
 
 
     /**
      * 新增数据
-     *  添加预约信息
+     * 添加预约信息
      * @param appointment 实例对象
      * @return 实例对象
      */

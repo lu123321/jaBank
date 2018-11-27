@@ -41,7 +41,7 @@ public interface AppointmentService {
      * @param appointmentId 实例对象ID
      * @return int
      */
-    int update(Integer appointmentId);
+    int update(Integer appointmentId,Integer appointmentUserid);
 
     /**
      * 通过主键删除数据

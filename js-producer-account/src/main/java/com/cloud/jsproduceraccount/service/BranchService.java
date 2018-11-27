@@ -32,7 +32,7 @@ public interface BranchService {
      * @param //branchBusinessone 预约人民币大额提现
      * @param //branchBusinesstwo 外币现金取款
      */
-    String query(Integer branchBusinessone,Integer branchBusinesstwo);
+    String query(Integer branchBusinessone);
     /**
      *
      * 根据星期几和网点ID查询网点受理业务时间段
