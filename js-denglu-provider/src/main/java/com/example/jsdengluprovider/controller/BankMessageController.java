@@ -6,11 +6,15 @@ import com.example.jsdengluprovider.pojo.BankCard;
 import com.example.jsdengluprovider.service.BankMassgeService;
 import com.example.jsdengluprovider.util.duanxin.IndustrySMS;
 import com.example.jsdengluprovider.util.redis.RedisUtil;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
-@RestController
+@Controller
 public class BankMessageController {
     @Resource
     private BankMassgeService bankMassgeService;
@@ -50,10 +54,7 @@ public class BankMessageController {
         }else {
             return "修改失败";
         }
-
     }
-
-
 
     @RequestMapping(value = "selectPhone",method = RequestMethod.POST)
     public String selectPhone(@RequestParam("userid") Integer userid){
@@ -72,5 +73,26 @@ public class BankMessageController {
         return bankMassgeService.selectAll(userid);
     }
 
+    /**
+     * 通过传入的用户id查看用户的储蓄卡信息
+     * @param userid
+     * @return
+     */
+    @RequestMapping(value = "getAllCard",method = RequestMethod.POST,produces = "text/html;charset=utf-8")
+    @ResponseBody
+    public String getAllCard(@RequestParam("userid") String userid){
+       return bankMassgeService.getAllCard(userid);
+    }
+
+    /**
+     *
+     * 根据卡id查看卡中余额
+     * @param cardid
+     * @return
+     */
+    @RequestMapping(value = "getbalance",method = RequestMethod.POST,produces = "text/html;charset=utf-8")
+    public String getbalance(String cardid){
+        return bankMassgeService.getbalance(cardid);
+    }
 
 }

@@ -14,7 +14,7 @@ public interface RegisterService {
 
     List<BankCard> selectOne(String phone);
 
-    boolean selectState(String idcard);
+//    boolean selectState(String idcard);
 
     boolean a(BankUser bankuser);
 

@@ -5,6 +5,7 @@ import com.example.jsdengluprovider.pojo.Record;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -32,5 +33,20 @@ public interface RecordMessageDao {
     //显示一个用户所有的登录信息
     @Select("select indate,IPconfig from recoed where userid=#{userid}")
     List<Record> selectAll(@Param("userid")Integer userid);
+
+    /**
+     * 忘记密码
+     */
+    //用户输入银行卡号和密码判断是否有次用户，获得该用户id
+    @Select("select userid from cardnumber where cardnum=#{cardnum} and userpwd=#{userpwd}")
+    String selectCardnum(@Param("cardnum")String cardnum,@Param("userpwd")String userpwd);
+    //用户输入姓名和身份证判断是否有次用户，获得该用户id
+    @Select("select userid from bankuser where name=#{name} and idcard=#{idcard}")
+    String getIdcard(@Param("name")String name,@Param("idcard") String idcard);
+    //用户输入新密码，进行修改网银密码
+    @Update("update cardnumber set webpwd=#{webpwd} where userid=#{userid}")
+    int UpdateWebpwd(@Param("webpwd")String webpwd,@Param("userid")Integer userid);
+
+
 
 }

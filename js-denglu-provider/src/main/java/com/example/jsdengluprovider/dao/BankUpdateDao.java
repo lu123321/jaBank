@@ -9,4 +9,6 @@ public interface BankUpdateDao {
     //修改网银预留信息
     @Update("update bankuser set reservedms=#{reservedms} where userid=#{userid}")
     int bankUpdate(BankUser bankUser);
+
+
 }

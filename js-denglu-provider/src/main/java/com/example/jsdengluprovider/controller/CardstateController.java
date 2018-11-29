@@ -14,7 +14,14 @@ public class CardstateController {
     private CardstateService cs;
 
     @RequestMapping(value = "updateState",method = RequestMethod.POST)
-    public String updateState(@RequestParam("userid") Integer userid,@RequestParam("cardnum") String cardnum){
-        return cs.updateState(userid,cardnum);
+    public String updateState(@RequestParam("cardnum") String cardnum,@RequestParam("state") Integer state){
+        return cs.updateState(cardnum,state);
     }
+
+    @RequestMapping(value = "updateYuliu",method = RequestMethod.POST)
+    public String updateYuliu(@RequestParam("reservedms")String reservedms,@RequestParam("userid")Integer userid){
+        return cs.updateYuliu(reservedms,userid);
+    }
+
+
 }

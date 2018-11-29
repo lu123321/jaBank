@@ -11,4 +11,8 @@ public interface BankMassgeService {
     int updatePhone(String phone);
     String selectPhone(Integer userid);
     String selectAll(Integer userid);
+    //根据用户id查询用户的所有储蓄卡信息
+    String getAllCard(String userid);
+    //根据卡id查询用户的卡余额
+    String getbalance(String cardid);
 }

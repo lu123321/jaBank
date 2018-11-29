@@ -17,8 +17,8 @@ public interface BankRegisterDao {
     int addBankcard(BankCard bankcard);
 
     @Insert("insert into bankuser(userid,name,idcard,province,city,imgurl,credit,jingpwd,sex,birthday," +
-            "people,work,reservedms) values(0,#{name},#{idcard},#{province},#{city}," +
-            "#{imgurl},#{credit},#{jingpwd},#{sex},#{birthday},#{people},#{work},#{reservedms})")
+            "people,work,reservedms,userphone) values(0,#{name},#{idcard},#{province},#{city}," +
+            "#{imgurl},#{credit},#{jingpwd},#{sex},#{birthday},#{people},#{work},#{reservedms},#{userphone})")
     int addBankuser(BankUser bankuser);
     //通过手机号码找到银行卡
     @Select("select cardnum from cardnumber where phone=#{phone}")
@@ -45,10 +45,17 @@ public interface BankRegisterDao {
     int updateState(@Param("cardnum")String cardnum);
 
 
-    @Select("select webstate from bankuser where idcard=#{idcard}")
-    String selectState(String idcard);
+//    @Select("select webstate from bankuser where idcard=#{idcard}")
+//    String selectState(String idcard);
 
+    //通过输入的银行卡查找数据库是否有此信息
     @Select("select count(1) from cardnumber where cardnum=#{cardnum}")
     String selectCardnum(@Param("cardnum") String cardnum);
+
+    //通过输入的身份证号查找数据库是否有该条信息
+    @Select("select count(1) from bankuser where idcard=#{idcard}")
+    String getIdcard(@Param("idcard")String idcard);
+
+
 
 }

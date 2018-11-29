@@ -40,6 +40,12 @@ public interface BankMessageDao {
     //显示该用户的所有银行卡&&显示该卡余额
     @Select("select cardnum,balance from cardnumber where userid=#{userid}")
     List<BankCard> selectAll(@Param("userid") Integer userid);
+    //根据用户id查看所有的储蓄卡信息
+    @Select("select cardid,cardnum,balance from cardnumber where  userid=#{userid} and cardtype=1")
+    List<BankCard> getAllCard(@Param("userid") Integer userid);
 
+    //通过卡id查询余额
+    @Select("select balance from cardnumber where cardid=#{cardid}")
+    Double getbalance(@Param("cardid") int cardid);
 
 }

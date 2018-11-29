@@ -29,7 +29,8 @@ public class RegisterServiceImpl implements RegisterService {
     public String addBankCard(BankUser bankuser, BankCard bankcard) {
         //用户输入卡号，判断数据库是否有此卡信息
         String cardnum = br.selectCardnum(bankcard.getCardnum());
-        if(cardnum == null){
+        String idcard = brd.getIdcard(bankuser.getIdcard());
+        if(cardnum == null && idcard != null){
             if(b(bankcard)){
                 bankcard.setCardid(0);
                 bankcard.setState(0);
@@ -69,12 +70,12 @@ public class RegisterServiceImpl implements RegisterService {
         }
     }
 
-    /**
+/*    *//**
      *根据身份证查询是否开通网银信息
      * 根据表中是否身份证返回false不能再开通网银
-     * @param idcard
+     * @param
      * @return
-     */
+     *//*
     @Override
     public boolean selectState(String idcard) {
         String s = brd.selectState(idcard);
@@ -83,7 +84,7 @@ public class RegisterServiceImpl implements RegisterService {
         }else {
             return true;
         }
-    }
+    }*/
 
     @Override
     public boolean a(BankUser bankuser) {

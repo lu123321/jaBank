@@ -15,4 +15,9 @@ public class BankUserServiceImpl implements BankUserService {
     public String userSelect(Integer userid) {
         return JSON.toJSONString(userMassageDao.userSelect(userid));
     }
+    //通过用户id查看用户预留号码
+    @Override
+    public  String getphone(String userid){
+        return userMassageDao.getphone(Integer.parseInt(userid));
+    }
 }

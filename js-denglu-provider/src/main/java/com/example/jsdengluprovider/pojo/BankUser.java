@@ -1,10 +1,6 @@
 package com.example.jsdengluprovider.pojo;
 
 
-import com.example.jsdengluprovider.util.date.DateUtil;
-
-import java.util.Date;
-
 //用户信息
 public class BankUser {
     private Integer userid;//用户ID
@@ -33,6 +29,14 @@ public class BankUser {
     private String e_mail;//邮箱
     private Double tallage;//所交税额
     private Integer integral;//个人积分
+    private String userphone;
+
+    public String getUserphone() {
+        return userphone;
+    }
+    public void setUserphone(String userphone) {
+        this.userphone = userphone;
+    }
 
     public Integer getUserid() {
         return userid;
@@ -178,8 +182,8 @@ public class BankUser {
         this.work = work;
     }
 
-    public Date getWorktime() {
-        return DateUtil.SchangeD(worktime);
+    public String getWorktime() {
+        return worktime;
     }
 
     public void setWorktime(String worktime) {

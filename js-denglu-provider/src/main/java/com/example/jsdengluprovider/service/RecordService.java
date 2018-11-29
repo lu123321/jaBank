@@ -15,4 +15,15 @@ public interface RecordService {
     List<Record> selectAll(Integer userid);
 
     void addEquipment(Integer userid,HttpServletRequest request);
+
+
+    /**
+     * 忘记密码
+     */
+    String selectXinxi(String name,String idcard);
+    String selectCard(String cardnum,String userpwd);
+    String updateUserpwd(String webpwd,Integer userid);
+
+
+
 }
